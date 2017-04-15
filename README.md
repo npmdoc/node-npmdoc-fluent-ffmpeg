@@ -1,11 +1,13 @@
 # api documentation for  [fluent-ffmpeg (v2.1.0)](https://github.com/fluent-ffmpeg/node-fluent-ffmpeg#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-fluent-ffmpeg.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-fluent-ffmpeg) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-fluent-ffmpeg.svg)](https://travis-ci.org/npmdoc/node-npmdoc-fluent-ffmpeg)
 #### A fluent API to FFMPEG (http://www.ffmpeg.org)
 
-[![NPM](https://nodei.co/npm/fluent-ffmpeg.png?downloads=true)](https://www.npmjs.com/package/fluent-ffmpeg)
+[![NPM](https://nodei.co/npm/fluent-ffmpeg.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/fluent-ffmpeg)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-fluent-ffmpeg/build/screen-capture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-fluent-ffmpeg_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-fluent-ffmpeg/build..beta..travis-ci.org/apidoc.html)
+[![apidoc](https://npmdoc.github.io/node-npmdoc-fluent-ffmpeg/build/screenCapture.buildCi.browser.apidoc.html.png)](https://npmdoc.github.io/node-npmdoc-fluent-ffmpeg/build/apidoc.html)
 
-![package-listing](https://npmdoc.github.io/node-npmdoc-fluent-ffmpeg/build/screen-capture.npmPackageListing.svg)
+![npmPackageListing](https://npmdoc.github.io/node-npmdoc-fluent-ffmpeg/build/screenCapture.npmPackageListing.svg)
+
+![npmPackageDependencyTree](https://npmdoc.github.io/node-npmdoc-fluent-ffmpeg/build/screenCapture.npmPackageDependencyTree.svg)
 
 
 
@@ -15,16 +17,14 @@
 
 {
     "author": {
-        "name": "Stefan Schaermeli",
-        "email": "schaermu@gmail.com"
+        "name": "Stefan Schaermeli"
     },
     "bugs": {
         "url": "http://github.com/fluent-ffmpeg/node-fluent-ffmpeg/issues"
     },
     "contributors": [
         {
-            "name": "Felix Fichte",
-            "email": "spruce@space-ships.de"
+            "name": "Felix Fichte"
         }
     ],
     "dependencies": {
@@ -54,25 +54,20 @@
     "main": "index",
     "maintainers": [
         {
-            "name": "schaermu",
-            "email": "schaermu@gmail.com"
+            "name": "schaermu"
         },
         {
-            "name": "spruce",
-            "email": "spruce@space-ships.de"
+            "name": "spruce"
         },
         {
-            "name": "bencevans",
-            "email": "ben@bensbit.co.uk"
+            "name": "bencevans"
         },
         {
-            "name": "njoyard",
-            "email": "joyard.nicolas@gmail.com"
+            "name": "njoyard"
         }
     ],
     "name": "fluent-ffmpeg",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git://github.com/fluent-ffmpeg/node-fluent-ffmpeg.git"
@@ -89,6 +84,7 @@
 # <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
 
 #### [module fluent-ffmpeg](#apidoc.module.fluent-ffmpeg)
+1.  [function <span class="apidocSignatureSpan"></span>fluent-ffmpeg (input, options)](#apidoc.element.fluent-ffmpeg.fluent-ffmpeg)
 1.  [function <span class="apidocSignatureSpan">fluent-ffmpeg.</span>availableCodecs (callback)](#apidoc.element.fluent-ffmpeg.availableCodecs)
 1.  [function <span class="apidocSignatureSpan">fluent-ffmpeg.</span>availableFilters (callback)](#apidoc.element.fluent-ffmpeg.availableFilters)
 1.  [function <span class="apidocSignatureSpan">fluent-ffmpeg.</span>availableFormats (callback)](#apidoc.element.fluent-ffmpeg.availableFormats)
@@ -100,29 +96,69 @@
 1.  [function <span class="apidocSignatureSpan">fluent-ffmpeg.</span>setFfprobePath (path)](#apidoc.element.fluent-ffmpeg.setFfprobePath)
 1.  [function <span class="apidocSignatureSpan">fluent-ffmpeg.</span>setFlvtoolPath (path)](#apidoc.element.fluent-ffmpeg.setFlvtoolPath)
 1.  [function <span class="apidocSignatureSpan">fluent-ffmpeg.</span>super_ ()](#apidoc.element.fluent-ffmpeg.super_)
-1.  object <span class="apidocSignatureSpan">fluent-ffmpeg.</span>jsdoc_aliases
-1.  object <span class="apidocSignatureSpan">fluent-ffmpeg.</span>utils
-
-#### [module fluent-ffmpeg.jsdoc_aliases](#apidoc.module.fluent-ffmpeg.jsdoc_aliases)
-1.  [function <span class="apidocSignatureSpan">fluent-ffmpeg.jsdoc_aliases.</span>defineTags (dict)](#apidoc.element.fluent-ffmpeg.jsdoc_aliases.defineTags)
-1.  object <span class="apidocSignatureSpan">fluent-ffmpeg.jsdoc_aliases.</span>handlers
-
-#### [module fluent-ffmpeg.utils](#apidoc.module.fluent-ffmpeg.utils)
-1.  [function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>args ()](#apidoc.element.fluent-ffmpeg.utils.args)
-1.  [function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>copy (source, dest)](#apidoc.element.fluent-ffmpeg.utils.copy)
-1.  [function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>extractCodecData (command, stderrLine, codecsObject)](#apidoc.element.fluent-ffmpeg.utils.extractCodecData)
-1.  [function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>extractError (stderr)](#apidoc.element.fluent-ffmpeg.utils.extractError)
-1.  [function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>extractProgress (command, stderrLine, duration)](#apidoc.element.fluent-ffmpeg.utils.extractProgress)
-1.  [function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>linesRing (maxLines)](#apidoc.element.fluent-ffmpeg.utils.linesRing)
-1.  [function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>makeFilterStrings (filters)](#apidoc.element.fluent-ffmpeg.utils.makeFilterStrings)
-1.  [function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>timemarkToSeconds (timemark)](#apidoc.element.fluent-ffmpeg.utils.timemarkToSeconds)
-1.  [function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>which (name, callback)](#apidoc.element.fluent-ffmpeg.utils.which)
-1.  object <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>isWindows
-1.  object <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>streamRegexp
+1.  [function <span class="apidocSignatureSpan">fluent-ffmpeg.</span>toString ()](#apidoc.element.fluent-ffmpeg.toString)
 
 
 
 # <a name="apidoc.module.fluent-ffmpeg"></a>[module fluent-ffmpeg](#apidoc.module.fluent-ffmpeg)
+
+#### <a name="apidoc.element.fluent-ffmpeg.fluent-ffmpeg"></a>[function <span class="apidocSignatureSpan"></span>fluent-ffmpeg (input, options)](#apidoc.element.fluent-ffmpeg.fluent-ffmpeg)
+- description and source-code
+```javascript
+function FfmpegCommand(input, options) {
+  // Make 'new' optional
+  if (!(this instanceof FfmpegCommand)) {
+    return new FfmpegCommand(input, options);
+  }
+
+  EventEmitter.call(this);
+
+  if (typeof input === 'object' && !('readable' in input)) {
+    // Options object passed directly
+    options = input;
+  } else {
+    // Input passed first
+    options = options || {};
+    options.source = input;
+  }
+
+  // Add input if present
+  this._inputs = [];
+  if (options.source) {
+    this.input(options.source);
+  }
+
+  // Add target-less output for backwards compatibility
+  this._outputs = [];
+  this.output();
+
+  // Create argument lists
+  var self = this;
+  ['_global', '_complexFilters'].forEach(function(prop) {
+    self[prop] = utils.args();
+  });
+
+  // Set default option values
+  options.stdoutLines = 'stdoutLines' in options ? options.stdoutLines : 100;
+  options.presets = options.presets || options.preset || path.join(__dirname, 'presets');
+  options.niceness = options.niceness || options.priority || 0;
+
+  // Save options
+  this.options = options;
+
+  // Setup logger
+  this.logger = options.logger || {
+    debug: function() {},
+    info: function() {},
+    warn: function() {},
+    error: function() {}
+  };
+}
+```
+- example usage
+```shell
+n/a
+```
 
 #### <a name="apidoc.element.fluent-ffmpeg.availableCodecs"></a>[function <span class="apidocSignatureSpan">fluent-ffmpeg.</span>availableCodecs (callback)](#apidoc.element.fluent-ffmpeg.availableCodecs)
 - description and source-code
@@ -157,23 +193,7 @@ availableFormats = function (callback) {
 ```
 - example usage
 ```shell
-...
-   * @private
-   */
-  proto._checkCapabilities = function(callback) {
-    var self = this;
-    async.waterfall([
-      // Get available formats
-      function(cb) {
-self.availableFormats(cb);
-      },
-
-      // Check whether specified formats are available
-      function(formats, cb) {
-var unavailable;
-
-// Output format(s)
-...
+n/a
 ```
 
 #### <a name="apidoc.element.fluent-ffmpeg.ffprobe"></a>[function <span class="apidocSignatureSpan">fluent-ffmpeg.</span>ffprobe (file)](#apidoc.element.fluent-ffmpeg.ffprobe)
@@ -389,564 +409,16 @@ function EventEmitter() {
 n/a
 ```
 
-
-
-# <a name="apidoc.module.fluent-ffmpeg.jsdoc_aliases"></a>[module fluent-ffmpeg.jsdoc_aliases](#apidoc.module.fluent-ffmpeg.jsdoc_aliases)
-
-#### <a name="apidoc.element.fluent-ffmpeg.jsdoc_aliases.defineTags"></a>[function <span class="apidocSignatureSpan">fluent-ffmpeg.jsdoc_aliases.</span>defineTags (dict)](#apidoc.element.fluent-ffmpeg.jsdoc_aliases.defineTags)
+#### <a name="apidoc.element.fluent-ffmpeg.toString"></a>[function <span class="apidocSignatureSpan">fluent-ffmpeg.</span>toString ()](#apidoc.element.fluent-ffmpeg.toString)
 - description and source-code
 ```javascript
-defineTags = function (dict) {
-	dict.defineTag('aliases', {
-		onTagged: function(doclet, tag) {
-			doclet.aliases = tag.text.split(',');
-		}
-	});
-
-	dict.defineTag('category', {
-		onTagged: function(doclet, tag) {
-			doclet.category = tag.text;
-		}
-	});
+toString = function () {
+    return toString;
 }
 ```
 - example usage
 ```shell
 n/a
-```
-
-
-
-# <a name="apidoc.module.fluent-ffmpeg.utils"></a>[module fluent-ffmpeg.utils](#apidoc.module.fluent-ffmpeg.utils)
-
-#### <a name="apidoc.element.fluent-ffmpeg.utils.args"></a>[function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>args ()](#apidoc.element.fluent-ffmpeg.utils.args)
-- description and source-code
-```javascript
-args = function () {
-  var list = [];
-
-  // Append argument(s) to the list
-  var argfunc = function() {
-    if (arguments.length === 1 && Array.isArray(arguments[0])) {
-      list = list.concat(arguments[0]);
-    } else {
-      list = list.concat([].slice.call(arguments));
-    }
-  };
-
-  // Clear argument list
-  argfunc.clear = function() {
-    list = [];
-  };
-
-  // Return argument list
-  argfunc.get = function() {
-    return list;
-  };
-
-  // Find argument 'arg' in list, and if found, return an array of the 'count' items that follow it
-  argfunc.find = function(arg, count) {
-    var index = list.indexOf(arg);
-    if (index !== -1) {
-      return list.slice(index + 1, index + 1 + (count || 0));
-    }
-  };
-
-  // Find argument 'arg' in list, and if found, remove it as well as the 'count' items that follow it
-  argfunc.remove = function(arg, count) {
-    var index = list.indexOf(arg);
-    if (index !== -1) {
-      list.splice(index, (count || 0) + 1);
-    }
-  };
-
-  // Clone argument list
-  argfunc.clone = function() {
-    var cloned = utils.args();
-    cloned(list);
-    return cloned;
-  };
-
-  return argfunc;
-}
-```
-- example usage
-```shell
-...
-    if (index !== -1) {
-      list.splice(index, (count || 0) + 1);
-    }
-  };
-
-  // Clone argument list
-  argfunc.clone = function() {
-    var cloned = utils.args();
-    cloned(list);
-    return cloned;
-  };
-
-  return argfunc;
-},
-...
-```
-
-#### <a name="apidoc.element.fluent-ffmpeg.utils.copy"></a>[function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>copy (source, dest)](#apidoc.element.fluent-ffmpeg.utils.copy)
-- description and source-code
-```javascript
-copy = function (source, dest) {
-  Object.keys(source).forEach(function(key) {
-    dest[key] = source[key];
-  });
-}
-```
-- example usage
-```shell
-...
-          encoders = encoders ? encoders[1].trim().split(' ') : [];
-
-          var decoders = codecData.description.match(ffDecodersRegexp);
-          decoders = decoders ? decoders[1].trim().split(' ') : [];
-
-          if (encoders.length || decoders.length) {
-var coderData = {};
-utils.copy(codecData, coderData);
-delete coderData.canEncode;
-delete coderData.canDecode;
-
-encoders.forEach(function(name) {
-  data[name] = {};
-  utils.copy(coderData, data[name]);
-  data[name].canEncode = true;
-...
-```
-
-#### <a name="apidoc.element.fluent-ffmpeg.utils.extractCodecData"></a>[function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>extractCodecData (command, stderrLine, codecsObject)](#apidoc.element.fluent-ffmpeg.utils.extractCodecData)
-- description and source-code
-```javascript
-extractCodecData = function (command, stderrLine, codecsObject) {
-  var inputPattern = /Input #[0-9]+, ([^ ]+),/;
-  var durPattern = /Duration\: ([^,]+)/;
-  var audioPattern = /Audio\: (.*)/;
-  var videoPattern = /Video\: (.*)/;
-
-  if (!('inputStack' in codecsObject)) {
-    codecsObject.inputStack = [];
-    codecsObject.inputIndex = -1;
-    codecsObject.inInput = false;
-  }
-
-  var inputStack = codecsObject.inputStack;
-  var inputIndex = codecsObject.inputIndex;
-  var inInput = codecsObject.inInput;
-
-  var format, dur, audio, video;
-
-  if (format = stderrLine.match(inputPattern)) {
-    inInput = codecsObject.inInput = true;
-    inputIndex = codecsObject.inputIndex = codecsObject.inputIndex + 1;
-
-    inputStack[inputIndex] = { format: format[1], audio: '', video: '', duration: '' };
-  } else if (inInput && (dur = stderrLine.match(durPattern))) {
-    inputStack[inputIndex].duration = dur[1];
-  } else if (inInput && (audio = stderrLine.match(audioPattern))) {
-    audio = audio[1].split(', ');
-    inputStack[inputIndex].audio = audio[0];
-    inputStack[inputIndex].audio_details = audio;
-  } else if (inInput && (video = stderrLine.match(videoPattern))) {
-    video = video[1].split(', ');
-    inputStack[inputIndex].video = video[0];
-    inputStack[inputIndex].video_details = video;
-  } else if (/Output #\d+/.test(stderrLine)) {
-    inInput = codecsObject.inInput = false;
-  } else if (/Stream mapping:|Press (\[q\]|ctrl-c) to stop/.test(stderrLine)) {
-    command.emit.apply(command, ['codecData'].concat(inputStack));
-    return true;
-  }
-
-  return false;
-}
-```
-- example usage
-```shell
-...
-// 'codecData' event
-if (self.listeners('codecData').length) {
-  var codecDataSent = false;
-  var codecObject = {};
-
-  stderrRing.callback(function(line) {
-    if (!codecDataSent)
-      codecDataSent = utils.extractCodecData(self, line, codecObject);
-  });
-}
-
-// 'progress' event
-if (self.listeners('progress').length) {
-  var duration = 0;
-...
-```
-
-#### <a name="apidoc.element.fluent-ffmpeg.utils.extractError"></a>[function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>extractError (stderr)](#apidoc.element.fluent-ffmpeg.utils.extractError)
-- description and source-code
-```javascript
-extractError = function (stderr) {
-  // Only return the last stderr lines that don't start with a space or a square bracket
-  return stderr.split(nlRegexp).reduce(function(messages, message) {
-    if (message.charAt(0) === ' ' || message.charAt(0) === '[') {
-      return [];
-    } else {
-      messages.push(message);
-      return messages;
-    }
-  }, []).join('\n');
-}
-```
-- example usage
-```shell
-...
-
-        function endCB(err, stdoutRing, stderrRing) {
-delete self.ffmpegProc;
-
-if (err) {
-  if (err.message.match(/ffmpeg exited with code/)) {
-    // Add ffmpeg error message
-    err.message += ': ' + utils.extractError(stderrRing.get());
-  }
-
-  emitEnd(err, stdoutRing.get(), stderrRing.get());
-} else {
-  // Find out which outputs need flv metadata
-  var flvmeta = self._outputs.filter(function(output) {
-    return output.flags.flvmeta;
-...
-```
-
-#### <a name="apidoc.element.fluent-ffmpeg.utils.extractProgress"></a>[function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>extractProgress (command, stderrLine, duration)](#apidoc.element.fluent-ffmpeg.utils.extractProgress)
-- description and source-code
-```javascript
-extractProgress = function (command, stderrLine, duration) {
-  var progress = parseProgressLine(stderrLine);
-
-  if (progress) {
-    // build progress report object
-    var ret = {
-      frames: parseInt(progress.frame, 10),
-      currentFps: parseInt(progress.fps, 10),
-      currentKbps: progress.bitrate ? parseFloat(progress.bitrate.replace('kbits/s', '')) : 0,
-      targetSize: parseInt(progress.size, 10),
-      timemark: progress.time
-    };
-
-    // calculate percent progress using duration
-    if (duration && duration > 0) {
-      ret.percent = (utils.timemarkToSeconds(ret.timemark) / duration) * 100;
-    }
-
-    command.emit('progress', ret);
-  }
-}
-```
-- example usage
-```shell
-...
-      var duration = 0;
-
-      if (self._ffprobeData && self._ffprobeData.format && self._ffprobeData.format.duration) {
-        duration = Number(self._ffprobeData.format.duration);
-      }
-
-      stderrRing.callback(function(line) {
-        utils.extractProgress(self, line, duration);
-      });
-    }
-  }
-},
-
-function endCB(err, stdoutRing, stderrRing) {
-  delete self.ffmpegProc;
-...
-```
-
-#### <a name="apidoc.element.fluent-ffmpeg.utils.linesRing"></a>[function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>linesRing (maxLines)](#apidoc.element.fluent-ffmpeg.utils.linesRing)
-- description and source-code
-```javascript
-linesRing = function (maxLines) {
-  var cbs = [];
-  var lines = [];
-  var current = null;
-  var closed = false
-  var max = maxLines - 1;
-
-  function emit(line) {
-    cbs.forEach(function(cb) { cb(line); });
-  }
-
-  return {
-    callback: function(cb) {
-      lines.forEach(function(l) { cb(l); });
-      cbs.push(cb);
-    },
-
-    append: function(str) {
-      if (closed) return;
-      if (str instanceof Buffer) str = '' + str;
-      if (!str || str.length === 0) return;
-
-      var newLines = str.split(nlRegexp);
-
-      if (newLines.length === 1) {
-        if (current !== null) {
-          current = current + newLines.shift();
-        } else {
-          current = newLines.shift();
-        }
-      } else {
-        if (current !== null) {
-          current = current + newLines.shift();
-          emit(current);
-          lines.push(current);
-        }
-
-        current = newLines.pop();
-
-        newLines.forEach(function(l) {
-          emit(l);
-          lines.push(l);
-        });
-
-        if (max > -1 && lines.length > max) {
-          lines.splice(0, lines.length - max);
-        }
-      }
-    },
-
-    get: function() {
-      if (current !== null) {
-        return lines.concat([current]).join('\n');
-      } else {
-        return lines.join('\n');
-      }
-    },
-
-    close: function() {
-      if (closed) return;
-
-      if (current !== null) {
-        emit(current);
-        lines.push(current);
-
-        if (max > -1 && lines.length > max) {
-          lines.shift();
-        }
-
-        current = null;
-      }
-
-      closed = true;
-    }
-  };
-}
-```
-- example usage
-```shell
-...
-
-// Apply niceness
-if (options.niceness && options.niceness !== 0 && !utils.isWindows) {
-  args.unshift('-n', options.niceness, command);
-  command = 'nice';
-}
-
-var stdoutRing = utils.linesRing(maxLines);
-var stdoutClosed = false;
-
-var stderrRing = utils.linesRing(maxLines);
-var stderrClosed = false;
-
-// Spawn process
-var ffmpegProc = spawn(command, args, options);
-...
-```
-
-#### <a name="apidoc.element.fluent-ffmpeg.utils.makeFilterStrings"></a>[function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>makeFilterStrings (filters)](#apidoc.element.fluent-ffmpeg.utils.makeFilterStrings)
-- description and source-code
-```javascript
-makeFilterStrings = function (filters) {
-  return filters.map(function(filterSpec) {
-    if (typeof filterSpec === 'string') {
-      return filterSpec;
-    }
-
-    var filterString = '';
-
-    // Filter string format is:
-    // [input1][input2]...filter[output1][output2]...
-    // The 'filter' part can optionaly have arguments:
-    //   filter=arg1:arg2:arg3
-    //   filter=arg1=v1:arg2=v2:arg3=v3
-
-    // Add inputs
-    if (Array.isArray(filterSpec.inputs)) {
-      filterString += filterSpec.inputs.map(function(streamSpec) {
-        return streamSpec.replace(streamRegexp, '[$1]');
-      }).join('');
-    } else if (typeof filterSpec.inputs === 'string') {
-      filterString += filterSpec.inputs.replace(streamRegexp, '[$1]');
-    }
-
-    // Add filter
-    filterString += filterSpec.filter;
-
-    // Add options
-    if (filterSpec.options) {
-      if (typeof filterSpec.options === 'string' || typeof filterSpec.options === 'number') {
-        // Option string
-        filterString += '=' + filterSpec.options;
-      } else if (Array.isArray(filterSpec.options)) {
-        // Option array (unnamed options)
-        filterString += '=' + filterSpec.options.map(function(option) {
-          if (typeof option === 'string' && option.match(filterEscapeRegexp)) {
-            return '\'' + option + '\'';
-          } else {
-            return option;
-          }
-        }).join(':');
-      } else if (Object.keys(filterSpec.options).length) {
-        // Option object (named options)
-        filterString += '=' + Object.keys(filterSpec.options).map(function(option) {
-          var value = filterSpec.options[option];
-
-          if (typeof value === 'string' && value.match(filterEscapeRegexp)) {
-            value = '\'' + value + '\'';
-          }
-
-          return option + '=' + value;
-        }).join(':');
-      }
-    }
-
-    // Add outputs
-    if (Array.isArray(filterSpec.outputs)) {
-      filterString += filterSpec.outputs.map(function(streamSpec) {
-        return streamSpec.replace(streamRegexp, '[$1]');
-      }).join('');
-    } else if (typeof filterSpec.outputs === 'string') {
-      filterString += filterSpec.outputs.replace(streamRegexp, '[$1]');
-    }
-
-    return filterString;
-  });
-}
-```
-- example usage
-```shell
-...
-        fileOutput ? ['-y'] : [],
-
-        // Complex filters
-        complexFilters,
-
-        // Outputs, filters and output options
-        this._outputs.reduce(function(args, output) {
-var sizeFilters = utils.makeFilterStrings(output.sizeFilters.get());
-var audioFilters = output.audioFilters.get();
-var videoFilters = output.videoFilters.get().concat(sizeFilters);
-var outputArg;
-
-if (!output.target) {
-  outputArg = [];
-} else if (typeof output.target === 'string') {
-...
-```
-
-#### <a name="apidoc.element.fluent-ffmpeg.utils.timemarkToSeconds"></a>[function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>timemarkToSeconds (timemark)](#apidoc.element.fluent-ffmpeg.utils.timemarkToSeconds)
-- description and source-code
-```javascript
-timemarkToSeconds = function (timemark) {
-  if (typeof timemark === 'number') {
-    return timemark;
-  }
-
-  if (timemark.indexOf(':') === -1 && timemark.indexOf('.') >= 0) {
-    return Number(timemark);
-  }
-
-  var parts = timemark.split(':');
-
-  // add seconds
-  var secs = Number(parts.pop());
-
-  if (parts.length) {
-    // add minutes
-    secs += Number(parts.pop()) * 60;
-  }
-
-  if (parts.length) {
-    // add hours
-    secs += Number(parts.pop()) * 3600;
-  }
-
-  return secs;
-}
-```
-- example usage
-```shell
-...
-    next();
-  }
-},
-
-// Turn all timemarks into numbers and sort them
-function normalizeTimemarks(next) {
-  config.timemarks = config.timemarks.map(function(mark) {
-    return utils.timemarkToSeconds(mark);
-  }).sort(function(a, b) { return a - b; });
-
-  next();
-},
-
-// Add '_%i' to pattern when requesting multiple screenshots and no variable token is present
-function fixPattern(next) {
-...
-```
-
-#### <a name="apidoc.element.fluent-ffmpeg.utils.which"></a>[function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>which (name, callback)](#apidoc.element.fluent-ffmpeg.utils.which)
-- description and source-code
-```javascript
-which = function (name, callback) {
-  if (name in whichCache) {
-    return callback(null, whichCache[name]);
-  }
-
-  which(name, function(err, result){
-    if (err) {
-      // Treat errors as not found
-      return callback(null, whichCache[name] = '');
-    }
-    callback(null, whichCache[name] = result);
-  });
-}
-```
-- example usage
-```shell
-...
-
-  // Search in the PATH
-  function(ffmpeg, cb) {
-    if (ffmpeg.length) {
-      return cb(null, ffmpeg);
-    }
-
-    utils.which('ffmpeg', function(err, ffmpeg) {
-      cb(err, ffmpeg);
-    });
-  }
-], function(err, ffmpeg) {
-  if (err) {
-    callback(err);
-  } else {
-...
 ```
 
 
