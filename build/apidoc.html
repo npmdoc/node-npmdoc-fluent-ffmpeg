@@ -63,6 +63,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.fluent-ffmpeg.fluent-ffmpeg">
+            function <span class="apidocSignatureSpan"></span>fluent-ffmpeg
+            <span class="apidocSignatureSpan">(input, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.fluent-ffmpeg.availableCodecs">
             function <span class="apidocSignatureSpan">fluent-ffmpeg.</span>availableCodecs
             <span class="apidocSignatureSpan">(callback)</span>
@@ -162,129 +171,10 @@
 
         <li>
 
-            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">fluent-ffmpeg.</span>jsdoc_aliases</span>
-
-        </li>
-
-        <li>
-
-            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">fluent-ffmpeg.</span>utils</span>
-
-        </li>
-
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.fluent-ffmpeg.jsdoc_aliases">module fluent-ffmpeg.jsdoc_aliases</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.fluent-ffmpeg.jsdoc_aliases.defineTags">
-            function <span class="apidocSignatureSpan">fluent-ffmpeg.jsdoc_aliases.</span>defineTags
-            <span class="apidocSignatureSpan">(dict)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">fluent-ffmpeg.jsdoc_aliases.</span>handlers</span>
-
-        </li>
-
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.fluent-ffmpeg.utils">module fluent-ffmpeg.utils</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.fluent-ffmpeg.utils.args">
-            function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>args
+            <a class="apidocElementLiA" href="#apidoc.element.fluent-ffmpeg.toString">
+            function <span class="apidocSignatureSpan">fluent-ffmpeg.</span>toString
             <span class="apidocSignatureSpan">()</span>
             </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.fluent-ffmpeg.utils.copy">
-            function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>copy
-            <span class="apidocSignatureSpan">(source, dest)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.fluent-ffmpeg.utils.extractCodecData">
-            function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>extractCodecData
-            <span class="apidocSignatureSpan">(command, stderrLine, codecsObject)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.fluent-ffmpeg.utils.extractError">
-            function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>extractError
-            <span class="apidocSignatureSpan">(stderr)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.fluent-ffmpeg.utils.extractProgress">
-            function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>extractProgress
-            <span class="apidocSignatureSpan">(command, stderrLine, duration)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.fluent-ffmpeg.utils.linesRing">
-            function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>linesRing
-            <span class="apidocSignatureSpan">(maxLines)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.fluent-ffmpeg.utils.makeFilterStrings">
-            function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>makeFilterStrings
-            <span class="apidocSignatureSpan">(filters)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.fluent-ffmpeg.utils.timemarkToSeconds">
-            function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>timemarkToSeconds
-            <span class="apidocSignatureSpan">(timemark)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.fluent-ffmpeg.utils.which">
-            function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>which
-            <span class="apidocSignatureSpan">(name, callback)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>isWindows</span>
-
-        </li>
-
-        <li>
-
-            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>streamRegexp</span>
 
         </li>
 
@@ -294,6 +184,67 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.fluent-ffmpeg" id="apidoc.module.fluent-ffmpeg">module fluent-ffmpeg</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.fluent-ffmpeg.fluent-ffmpeg" id="apidoc.element.fluent-ffmpeg.fluent-ffmpeg">
+        function <span class="apidocSignatureSpan"></span>fluent-ffmpeg
+        <span class="apidocSignatureSpan">(input, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FfmpegCommand(input, options) {
+  // Make &#x27;new&#x27; optional
+  if (!(this instanceof FfmpegCommand)) {
+    return new FfmpegCommand(input, options);
+  }
+
+  EventEmitter.call(this);
+
+  if (typeof input === &#x27;object&#x27; &#x26;&#x26; !(&#x27;readable&#x27; in input)) {
+    // Options object passed directly
+    options = input;
+  } else {
+    // Input passed first
+    options = options || {};
+    options.source = input;
+  }
+
+  // Add input if present
+  this._inputs = [];
+  if (options.source) {
+    this.input(options.source);
+  }
+
+  // Add target-less output for backwards compatibility
+  this._outputs = [];
+  this.output();
+
+  // Create argument lists
+  var self = this;
+  [&#x27;_global&#x27;, &#x27;_complexFilters&#x27;].forEach(function(prop) {
+    self[prop] = utils.args();
+  });
+
+  // Set default option values
+  options.stdoutLines = &#x27;stdoutLines&#x27; in options ? options.stdoutLines : 100;
+  options.presets = options.presets || options.preset || path.join(__dirname, &#x27;presets&#x27;);
+  options.niceness = options.niceness || options.priority || 0;
+
+  // Save options
+  this.options = options;
+
+  // Setup logger
+  this.logger = options.logger || {
+    debug: function() {},
+    info: function() {},
+    warn: function() {},
+    error: function() {}
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
     <h2>
@@ -336,23 +287,7 @@
     <li>description and source-code<pre class="apidocCodePre">availableFormats = function (callback) {
   (new FfmpegCommand()).availableFormats(callback);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-   * @private
-   */
-  proto._checkCapabilities = function(callback) {
-    var self = this;
-    async.waterfall([
-      // Get available formats
-      function(cb) {
-self.<span class="apidocCodeKeywordSpan">availableFormats</span>(cb);
-      },
-
-      // Check whether specified formats are available
-      function(formats, cb) {
-var unavailable;
-
-// Output format(s)
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -597,605 +532,18 @@ The fluent-ffmpeg module returns a constructor that you can use to instanciate F
 
 
 
-
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.fluent-ffmpeg.jsdoc_aliases" id="apidoc.module.fluent-ffmpeg.jsdoc_aliases">module fluent-ffmpeg.jsdoc_aliases</a></h1>
-
-
     <h2>
-        <a href="#apidoc.element.fluent-ffmpeg.jsdoc_aliases.defineTags" id="apidoc.element.fluent-ffmpeg.jsdoc_aliases.defineTags">
-        function <span class="apidocSignatureSpan">fluent-ffmpeg.jsdoc_aliases.</span>defineTags
-        <span class="apidocSignatureSpan">(dict)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">defineTags = function (dict) {
-	dict.defineTag(&#x27;aliases&#x27;, {
-		onTagged: function(doclet, tag) {
-			doclet.aliases = tag.text.split(&#x27;,&#x27;);
-		}
-	});
-
-	dict.defineTag(&#x27;category&#x27;, {
-		onTagged: function(doclet, tag) {
-			doclet.category = tag.text;
-		}
-	});
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.fluent-ffmpeg.utils" id="apidoc.module.fluent-ffmpeg.utils">module fluent-ffmpeg.utils</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.fluent-ffmpeg.utils.args" id="apidoc.element.fluent-ffmpeg.utils.args">
-        function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>args
+        <a href="#apidoc.element.fluent-ffmpeg.toString" id="apidoc.element.fluent-ffmpeg.toString">
+        function <span class="apidocSignatureSpan">fluent-ffmpeg.</span>toString
         <span class="apidocSignatureSpan">()</span>
         </a>
     </h2>
     <ul>
-    <li>description and source-code<pre class="apidocCodePre">args = function () {
-  var list = [];
-
-  // Append argument(s) to the list
-  var argfunc = function() {
-    if (arguments.length === 1 &#x26;&#x26; Array.isArray(arguments[0])) {
-      list = list.concat(arguments[0]);
-    } else {
-      list = list.concat([].slice.call(arguments));
-    }
-  };
-
-  // Clear argument list
-  argfunc.clear = function() {
-    list = [];
-  };
-
-  // Return argument list
-  argfunc.get = function() {
-    return list;
-  };
-
-  // Find argument &#x27;arg&#x27; in list, and if found, return an array of the &#x27;count&#x27; items that follow it
-  argfunc.find = function(arg, count) {
-    var index = list.indexOf(arg);
-    if (index !== -1) {
-      return list.slice(index + 1, index + 1 + (count || 0));
-    }
-  };
-
-  // Find argument &#x27;arg&#x27; in list, and if found, remove it as well as the &#x27;count&#x27; items that follow it
-  argfunc.remove = function(arg, count) {
-    var index = list.indexOf(arg);
-    if (index !== -1) {
-      list.splice(index, (count || 0) + 1);
-    }
-  };
-
-  // Clone argument list
-  argfunc.clone = function() {
-    var cloned = utils.args();
-    cloned(list);
-    return cloned;
-  };
-
-  return argfunc;
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return toString;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-    if (index !== -1) {
-      list.splice(index, (count || 0) + 1);
-    }
-  };
-
-  // Clone argument list
-  argfunc.clone = function() {
-    var cloned = utils.<span class="apidocCodeKeywordSpan">args</span>();
-    cloned(list);
-    return cloned;
-  };
-
-  return argfunc;
-},
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.fluent-ffmpeg.utils.copy" id="apidoc.element.fluent-ffmpeg.utils.copy">
-        function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>copy
-        <span class="apidocSignatureSpan">(source, dest)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">copy = function (source, dest) {
-  Object.keys(source).forEach(function(key) {
-    dest[key] = source[key];
-  });
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-          encoders = encoders ? encoders[1].trim().split(&#x27; &#x27;) : [];
-
-          var decoders = codecData.description.match(ffDecodersRegexp);
-          decoders = decoders ? decoders[1].trim().split(&#x27; &#x27;) : [];
-
-          if (encoders.length || decoders.length) {
-var coderData = {};
-utils.<span class="apidocCodeKeywordSpan">copy</span>(codecData, coderData);
-delete coderData.canEncode;
-delete coderData.canDecode;
-
-encoders.forEach(function(name) {
-  data[name] = {};
-  utils.copy(coderData, data[name]);
-  data[name].canEncode = true;
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.fluent-ffmpeg.utils.extractCodecData" id="apidoc.element.fluent-ffmpeg.utils.extractCodecData">
-        function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>extractCodecData
-        <span class="apidocSignatureSpan">(command, stderrLine, codecsObject)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">extractCodecData = function (command, stderrLine, codecsObject) {
-  var inputPattern = /Input #[0-9]+, ([^ ]+),/;
-  var durPattern = /Duration\: ([^,]+)/;
-  var audioPattern = /Audio\: (.*)/;
-  var videoPattern = /Video\: (.*)/;
-
-  if (!(&#x27;inputStack&#x27; in codecsObject)) {
-    codecsObject.inputStack = [];
-    codecsObject.inputIndex = -1;
-    codecsObject.inInput = false;
-  }
-
-  var inputStack = codecsObject.inputStack;
-  var inputIndex = codecsObject.inputIndex;
-  var inInput = codecsObject.inInput;
-
-  var format, dur, audio, video;
-
-  if (format = stderrLine.match(inputPattern)) {
-    inInput = codecsObject.inInput = true;
-    inputIndex = codecsObject.inputIndex = codecsObject.inputIndex + 1;
-
-    inputStack[inputIndex] = { format: format[1], audio: &#x27;&#x27;, video: &#x27;&#x27;, duration: &#x27;&#x27; };
-  } else if (inInput &#x26;&#x26; (dur = stderrLine.match(durPattern))) {
-    inputStack[inputIndex].duration = dur[1];
-  } else if (inInput &#x26;&#x26; (audio = stderrLine.match(audioPattern))) {
-    audio = audio[1].split(&#x27;, &#x27;);
-    inputStack[inputIndex].audio = audio[0];
-    inputStack[inputIndex].audio_details = audio;
-  } else if (inInput &#x26;&#x26; (video = stderrLine.match(videoPattern))) {
-    video = video[1].split(&#x27;, &#x27;);
-    inputStack[inputIndex].video = video[0];
-    inputStack[inputIndex].video_details = video;
-  } else if (/Output #\d+/.test(stderrLine)) {
-    inInput = codecsObject.inInput = false;
-  } else if (/Stream mapping:|Press (\[q\]|ctrl-c) to stop/.test(stderrLine)) {
-    command.emit.apply(command, [&#x27;codecData&#x27;].concat(inputStack));
-    return true;
-  }
-
-  return false;
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-// &#x27;codecData&#x27; event
-if (self.listeners(&#x27;codecData&#x27;).length) {
-  var codecDataSent = false;
-  var codecObject = {};
-
-  stderrRing.callback(function(line) {
-    if (!codecDataSent)
-      codecDataSent = utils.<span class="apidocCodeKeywordSpan">extractCodecData</span>(self, line, codecObject);
-  });
-}
-
-// &#x27;progress&#x27; event
-if (self.listeners(&#x27;progress&#x27;).length) {
-  var duration = 0;
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.fluent-ffmpeg.utils.extractError" id="apidoc.element.fluent-ffmpeg.utils.extractError">
-        function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>extractError
-        <span class="apidocSignatureSpan">(stderr)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">extractError = function (stderr) {
-  // Only return the last stderr lines that don&#x27;t start with a space or a square bracket
-  return stderr.split(nlRegexp).reduce(function(messages, message) {
-    if (message.charAt(0) === &#x27; &#x27; || message.charAt(0) === &#x27;[&#x27;) {
-      return [];
-    } else {
-      messages.push(message);
-      return messages;
-    }
-  }, []).join(&#x27;\n&#x27;);
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-
-        function endCB(err, stdoutRing, stderrRing) {
-delete self.ffmpegProc;
-
-if (err) {
-  if (err.message.match(/ffmpeg exited with code/)) {
-    // Add ffmpeg error message
-    err.message += &#x27;: &#x27; + utils.<span class="apidocCodeKeywordSpan">extractError</span>(stderrRing.get());
-  }
-
-  emitEnd(err, stdoutRing.get(), stderrRing.get());
-} else {
-  // Find out which outputs need flv metadata
-  var flvmeta = self._outputs.filter(function(output) {
-    return output.flags.flvmeta;
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.fluent-ffmpeg.utils.extractProgress" id="apidoc.element.fluent-ffmpeg.utils.extractProgress">
-        function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>extractProgress
-        <span class="apidocSignatureSpan">(command, stderrLine, duration)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">extractProgress = function (command, stderrLine, duration) {
-  var progress = parseProgressLine(stderrLine);
-
-  if (progress) {
-    // build progress report object
-    var ret = {
-      frames: parseInt(progress.frame, 10),
-      currentFps: parseInt(progress.fps, 10),
-      currentKbps: progress.bitrate ? parseFloat(progress.bitrate.replace(&#x27;kbits/s&#x27;, &#x27;&#x27;)) : 0,
-      targetSize: parseInt(progress.size, 10),
-      timemark: progress.time
-    };
-
-    // calculate percent progress using duration
-    if (duration &#x26;&#x26; duration &#x3e; 0) {
-      ret.percent = (utils.timemarkToSeconds(ret.timemark) / duration) * 100;
-    }
-
-    command.emit(&#x27;progress&#x27;, ret);
-  }
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-      var duration = 0;
-
-      if (self._ffprobeData &#x26;&#x26; self._ffprobeData.format &#x26;&#x26; self._ffprobeData.format.duration) {
-        duration = Number(self._ffprobeData.format.duration);
-      }
-
-      stderrRing.callback(function(line) {
-        utils.<span class="apidocCodeKeywordSpan">extractProgress</span>(self, line, duration);
-      });
-    }
-  }
-},
-
-function endCB(err, stdoutRing, stderrRing) {
-  delete self.ffmpegProc;
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.fluent-ffmpeg.utils.linesRing" id="apidoc.element.fluent-ffmpeg.utils.linesRing">
-        function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>linesRing
-        <span class="apidocSignatureSpan">(maxLines)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">linesRing = function (maxLines) {
-  var cbs = [];
-  var lines = [];
-  var current = null;
-  var closed = false
-  var max = maxLines - 1;
-
-  function emit(line) {
-    cbs.forEach(function(cb) { cb(line); });
-  }
-
-  return {
-    callback: function(cb) {
-      lines.forEach(function(l) { cb(l); });
-      cbs.push(cb);
-    },
-
-    append: function(str) {
-      if (closed) return;
-      if (str instanceof Buffer) str = &#x27;&#x27; + str;
-      if (!str || str.length === 0) return;
-
-      var newLines = str.split(nlRegexp);
-
-      if (newLines.length === 1) {
-        if (current !== null) {
-          current = current + newLines.shift();
-        } else {
-          current = newLines.shift();
-        }
-      } else {
-        if (current !== null) {
-          current = current + newLines.shift();
-          emit(current);
-          lines.push(current);
-        }
-
-        current = newLines.pop();
-
-        newLines.forEach(function(l) {
-          emit(l);
-          lines.push(l);
-        });
-
-        if (max &#x3e; -1 &#x26;&#x26; lines.length &#x3e; max) {
-          lines.splice(0, lines.length - max);
-        }
-      }
-    },
-
-    get: function() {
-      if (current !== null) {
-        return lines.concat([current]).join(&#x27;\n&#x27;);
-      } else {
-        return lines.join(&#x27;\n&#x27;);
-      }
-    },
-
-    close: function() {
-      if (closed) return;
-
-      if (current !== null) {
-        emit(current);
-        lines.push(current);
-
-        if (max &#x3e; -1 &#x26;&#x26; lines.length &#x3e; max) {
-          lines.shift();
-        }
-
-        current = null;
-      }
-
-      closed = true;
-    }
-  };
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-
-// Apply niceness
-if (options.niceness &#x26;&#x26; options.niceness !== 0 &#x26;&#x26; !utils.isWindows) {
-  args.unshift(&#x27;-n&#x27;, options.niceness, command);
-  command = &#x27;nice&#x27;;
-}
-
-var stdoutRing = utils.<span class="apidocCodeKeywordSpan">linesRing</span>(maxLines);
-var stdoutClosed = false;
-
-var stderrRing = utils.linesRing(maxLines);
-var stderrClosed = false;
-
-// Spawn process
-var ffmpegProc = spawn(command, args, options);
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.fluent-ffmpeg.utils.makeFilterStrings" id="apidoc.element.fluent-ffmpeg.utils.makeFilterStrings">
-        function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>makeFilterStrings
-        <span class="apidocSignatureSpan">(filters)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">makeFilterStrings = function (filters) {
-  return filters.map(function(filterSpec) {
-    if (typeof filterSpec === &#x27;string&#x27;) {
-      return filterSpec;
-    }
-
-    var filterString = &#x27;&#x27;;
-
-    // Filter string format is:
-    // [input1][input2]...filter[output1][output2]...
-    // The &#x27;filter&#x27; part can optionaly have arguments:
-    //   filter=arg1:arg2:arg3
-    //   filter=arg1=v1:arg2=v2:arg3=v3
-
-    // Add inputs
-    if (Array.isArray(filterSpec.inputs)) {
-      filterString += filterSpec.inputs.map(function(streamSpec) {
-        return streamSpec.replace(streamRegexp, &#x27;[$1]&#x27;);
-      }).join(&#x27;&#x27;);
-    } else if (typeof filterSpec.inputs === &#x27;string&#x27;) {
-      filterString += filterSpec.inputs.replace(streamRegexp, &#x27;[$1]&#x27;);
-    }
-
-    // Add filter
-    filterString += filterSpec.filter;
-
-    // Add options
-    if (filterSpec.options) {
-      if (typeof filterSpec.options === &#x27;string&#x27; || typeof filterSpec.options === &#x27;number&#x27;) {
-        // Option string
-        filterString += &#x27;=&#x27; + filterSpec.options;
-      } else if (Array.isArray(filterSpec.options)) {
-        // Option array (unnamed options)
-        filterString += &#x27;=&#x27; + filterSpec.options.map(function(option) {
-          if (typeof option === &#x27;string&#x27; &#x26;&#x26; option.match(filterEscapeRegexp)) {
-            return &#x27;\&#x27;&#x27; + option + &#x27;\&#x27;&#x27;;
-          } else {
-            return option;
-          }
-        }).join(&#x27;:&#x27;);
-      } else if (Object.keys(filterSpec.options).length) {
-        // Option object (named options)
-        filterString += &#x27;=&#x27; + Object.keys(filterSpec.options).map(function(option) {
-          var value = filterSpec.options[option];
-
-          if (typeof value === &#x27;string&#x27; &#x26;&#x26; value.match(filterEscapeRegexp)) {
-            value = &#x27;\&#x27;&#x27; + value + &#x27;\&#x27;&#x27;;
-          }
-
-          return option + &#x27;=&#x27; + value;
-        }).join(&#x27;:&#x27;);
-      }
-    }
-
-    // Add outputs
-    if (Array.isArray(filterSpec.outputs)) {
-      filterString += filterSpec.outputs.map(function(streamSpec) {
-        return streamSpec.replace(streamRegexp, &#x27;[$1]&#x27;);
-      }).join(&#x27;&#x27;);
-    } else if (typeof filterSpec.outputs === &#x27;string&#x27;) {
-      filterString += filterSpec.outputs.replace(streamRegexp, &#x27;[$1]&#x27;);
-    }
-
-    return filterString;
-  });
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-        fileOutput ? [&#x27;-y&#x27;] : [],
-
-        // Complex filters
-        complexFilters,
-
-        // Outputs, filters and output options
-        this._outputs.reduce(function(args, output) {
-var sizeFilters = utils.<span class="apidocCodeKeywordSpan">makeFilterStrings</span>(output.sizeFilters.get());
-var audioFilters = output.audioFilters.get();
-var videoFilters = output.videoFilters.get().concat(sizeFilters);
-var outputArg;
-
-if (!output.target) {
-  outputArg = [];
-} else if (typeof output.target === &#x27;string&#x27;) {
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.fluent-ffmpeg.utils.timemarkToSeconds" id="apidoc.element.fluent-ffmpeg.utils.timemarkToSeconds">
-        function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>timemarkToSeconds
-        <span class="apidocSignatureSpan">(timemark)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">timemarkToSeconds = function (timemark) {
-  if (typeof timemark === &#x27;number&#x27;) {
-    return timemark;
-  }
-
-  if (timemark.indexOf(&#x27;:&#x27;) === -1 &#x26;&#x26; timemark.indexOf(&#x27;.&#x27;) &#x3e;= 0) {
-    return Number(timemark);
-  }
-
-  var parts = timemark.split(&#x27;:&#x27;);
-
-  // add seconds
-  var secs = Number(parts.pop());
-
-  if (parts.length) {
-    // add minutes
-    secs += Number(parts.pop()) * 60;
-  }
-
-  if (parts.length) {
-    // add hours
-    secs += Number(parts.pop()) * 3600;
-  }
-
-  return secs;
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-    next();
-  }
-},
-
-// Turn all timemarks into numbers and sort them
-function normalizeTimemarks(next) {
-  config.timemarks = config.timemarks.map(function(mark) {
-    return utils.<span class="apidocCodeKeywordSpan">timemarkToSeconds</span>(mark);
-  }).sort(function(a, b) { return a - b; });
-
-  next();
-},
-
-// Add &#x27;_%i&#x27; to pattern when requesting multiple screenshots and no variable token is present
-function fixPattern(next) {
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.fluent-ffmpeg.utils.which" id="apidoc.element.fluent-ffmpeg.utils.which">
-        function <span class="apidocSignatureSpan">fluent-ffmpeg.utils.</span>which
-        <span class="apidocSignatureSpan">(name, callback)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">which = function (name, callback) {
-  if (name in whichCache) {
-    return callback(null, whichCache[name]);
-  }
-
-  which(name, function(err, result){
-    if (err) {
-      // Treat errors as not found
-      return callback(null, whichCache[name] = &#x27;&#x27;);
-    }
-    callback(null, whichCache[name] = result);
-  });
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-
-  // Search in the PATH
-  function(ffmpeg, cb) {
-    if (ffmpeg.length) {
-      return cb(null, ffmpeg);
-    }
-
-    utils.<span class="apidocCodeKeywordSpan">which</span>(&#x27;ffmpeg&#x27;, function(err, ffmpeg) {
-      cb(err, ffmpeg);
-    });
-  }
-], function(err, ffmpeg) {
-  if (err) {
-    callback(err);
-  } else {
-...</pre></li>
-    </ul>
-
-
-
-
 
 
 </div>
