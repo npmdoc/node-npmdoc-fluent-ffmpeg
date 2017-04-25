@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/fluent-ffmpeg/node-fluent-ffmpeg#readme"
-
-    >fluent-ffmpeg (v2.1.2)</a>
+    <a href="https://github.com/fluent-ffmpeg/node-fluent-ffmpeg#readme">fluent-ffmpeg (v2.1.2)</a>
 </h1>
 <h4>A fluent API to FFMPEG (http://www.ffmpeg.org)</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.fluent-ffmpeg">module fluent-ffmpeg</a><ol>
 
@@ -1950,14 +1943,14 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function FfmpegCommand(input, options) {
-  // Make &#x27;new&#x27; optional
+  // Make 'new' optional
   if (!(this instanceof FfmpegCommand)) {
     return new FfmpegCommand(input, options);
   }
 
   EventEmitter.call(this);
 
-  if (typeof input === &#x27;object&#x27; &#x26;&#x26; !(&#x27;readable&#x27; in input)) {
+  if (typeof input === 'object' &amp;&amp; !('readable' in input)) {
     // Options object passed directly
     options = input;
   } else {
@@ -1978,13 +1971,13 @@
 
   // Create argument lists
   var self = this;
-  [&#x27;_global&#x27;, &#x27;_complexFilters&#x27;].forEach(function(prop) {
+  ['_global', '_complexFilters'].forEach(function(prop) {
     self[prop] = utils.args();
   });
 
   // Set default option values
-  options.stdoutLines = &#x27;stdoutLines&#x27; in options ? options.stdoutLines : 100;
-  options.presets = options.presets || options.preset || path.join(__dirname, &#x27;presets&#x27;);
+  options.stdoutLines = 'stdoutLines' in options ? options.stdoutLines : 100;
+  options.presets = options.presets || options.preset || path.join(__dirname, 'presets');
   options.niceness = options.niceness || options.priority || 0;
 
   // Save options
@@ -2111,7 +2104,7 @@ var unavailable;
 function runFfprobe(command) {
 const inputProbeIndex = 0;
 if (command._inputs[inputProbeIndex].isStream) {
-  // Don&#x27;t probe input streams as this will consume them
+  // Don't probe input streams as this will consume them
   return;
 }
 command.<span class="apidocCodeKeywordSpan">ffprobe</span>(inputProbeIndex, function(err, data) {
@@ -2135,14 +2128,14 @@ module.exports = function(proto) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function FfmpegCommand(input, options) {
-  // Make &#x27;new&#x27; optional
+  // Make 'new' optional
   if (!(this instanceof FfmpegCommand)) {
     return new FfmpegCommand(input, options);
   }
 
   EventEmitter.call(this);
 
-  if (typeof input === &#x27;object&#x27; &#x26;&#x26; !(&#x27;readable&#x27; in input)) {
+  if (typeof input === 'object' &amp;&amp; !('readable' in input)) {
     // Options object passed directly
     options = input;
   } else {
@@ -2163,13 +2156,13 @@ module.exports = function(proto) {
 
   // Create argument lists
   var self = this;
-  [&#x27;_global&#x27;, &#x27;_complexFilters&#x27;].forEach(function(prop) {
+  ['_global', '_complexFilters'].forEach(function(prop) {
     self[prop] = utils.args();
   });
 
   // Set default option values
-  options.stdoutLines = &#x27;stdoutLines&#x27; in options ? options.stdoutLines : 100;
-  options.presets = options.presets || options.preset || path.join(__dirname, &#x27;presets&#x27;);
+  options.stdoutLines = 'stdoutLines' in options ? options.stdoutLines : 100;
+  options.presets = options.presets || options.preset || path.join(__dirname, 'presets');
   options.niceness = options.niceness || options.priority || 0;
 
   // Save options
@@ -2334,14 +2327,14 @@ module.exports = function(proto) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">load = function (ffmpeg) {
   ffmpeg
-    .format(&#x27;avi&#x27;)
-    .videoBitrate(&#x27;1024k&#x27;)
-    .videoCodec(&#x27;mpeg4&#x27;)
-    .size(&#x27;720x?&#x27;)
-    .audioBitrate(&#x27;128k&#x27;)
+    .format('avi')
+    .videoBitrate('1024k')
+    .videoCodec('mpeg4')
+    .size('720x?')
+    .audioBitrate('128k')
     .audioChannels(2)
-    .audioCodec(&#x27;libmp3lame&#x27;)
-    .outputOptions([&#x27;-vtag DIVX&#x27;]);
+    .audioCodec('libmp3lame')
+    .outputOptions(['-vtag DIVX']);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   preset(this);
@@ -2350,13 +2343,13 @@ module.exports = function(proto) {
     var modulePath = path.join(this.options.presets, preset);
     var module = require(modulePath);
 
-    if (typeof module.load === &#x27;function&#x27;) {
+    if (typeof module.load === 'function') {
       module.<span class="apidocCodeKeywordSpan">load</span>(this);
     } else {
-      throw new Error(&#x27;preset &#x27; + modulePath + &#x27; has no load() function&#x27;);
+      throw new Error('preset ' + modulePath + ' has no load() function');
     }
   } catch (err) {
-    throw new Error(&#x27;preset &#x27; + modulePath + &#x27; could not be loaded: &#x27; + err.message);
+    throw new Error('preset ' + modulePath + ' could not be loaded: ' + err.message);
   }
 }
 ...</pre></li>
@@ -2378,14 +2371,14 @@ module.exports = function(proto) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">load = function (ffmpeg) {
   ffmpeg
-    .format(&#x27;flv&#x27;)
+    .format('flv')
     .flvmeta()
-    .size(&#x27;320x?&#x27;)
-    .videoBitrate(&#x27;512k&#x27;)
-    .videoCodec(&#x27;libx264&#x27;)
+    .size('320x?')
+    .videoBitrate('512k')
+    .videoCodec('libx264')
     .fps(24)
-    .audioBitrate(&#x27;96k&#x27;)
-    .audioCodec(&#x27;aac&#x27;)
+    .audioBitrate('96k')
+    .audioCodec('aac')
     .audioFrequency(22050)
     .audioChannels(2);
 }</pre></li>
@@ -2396,13 +2389,13 @@ module.exports = function(proto) {
     var modulePath = path.join(this.options.presets, preset);
     var module = require(modulePath);
 
-    if (typeof module.load === &#x27;function&#x27;) {
+    if (typeof module.load === 'function') {
       module.<span class="apidocCodeKeywordSpan">load</span>(this);
     } else {
-      throw new Error(&#x27;preset &#x27; + modulePath + &#x27; has no load() function&#x27;);
+      throw new Error('preset ' + modulePath + ' has no load() function');
     }
   } catch (err) {
-    throw new Error(&#x27;preset &#x27; + modulePath + &#x27; could not be loaded: &#x27; + err.message);
+    throw new Error('preset ' + modulePath + ' could not be loaded: ' + err.message);
   }
 }
 ...</pre></li>
@@ -2423,14 +2416,14 @@ module.exports = function(proto) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function FfmpegCommand(input, options) {
-  // Make &#x27;new&#x27; optional
+  // Make 'new' optional
   if (!(this instanceof FfmpegCommand)) {
     return new FfmpegCommand(input, options);
   }
 
   EventEmitter.call(this);
 
-  if (typeof input === &#x27;object&#x27; &#x26;&#x26; !(&#x27;readable&#x27; in input)) {
+  if (typeof input === 'object' &amp;&amp; !('readable' in input)) {
     // Options object passed directly
     options = input;
   } else {
@@ -2451,13 +2444,13 @@ module.exports = function(proto) {
 
   // Create argument lists
   var self = this;
-  [&#x27;_global&#x27;, &#x27;_complexFilters&#x27;].forEach(function(prop) {
+  ['_global', '_complexFilters'].forEach(function(prop) {
     self[prop] = utils.args();
   });
 
   // Set default option values
-  options.stdoutLines = &#x27;stdoutLines&#x27; in options ? options.stdoutLines : 100;
-  options.presets = options.presets || options.preset || path.join(__dirname, &#x27;presets&#x27;);
+  options.stdoutLines = 'stdoutLines' in options ? options.stdoutLines : 100;
+  options.presets = options.presets || options.preset || path.join(__dirname, 'presets');
   options.niceness = options.niceness || options.priority || 0;
 
   // Save options
@@ -2584,7 +2577,7 @@ var unavailable;
 function runFfprobe(command) {
 const inputProbeIndex = 0;
 if (command._inputs[inputProbeIndex].isStream) {
-  // Don&#x27;t probe input streams as this will consume them
+  // Don't probe input streams as this will consume them
   return;
 }
 command.<span class="apidocCodeKeywordSpan">ffprobe</span>(inputProbeIndex, function(err, data) {
@@ -2733,7 +2726,7 @@ module.exports = function(proto) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">FPS = function (fps) {
-  this._currentOutput.video(&#x27;-r&#x27;, fps);
+  this._currentOutput.video('-r', fps);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -2750,10 +2743,10 @@ module.exports = function(proto) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">FPSInput = function (fps) {
   if (!this._currentInput) {
-    throw new Error(&#x27;No input specified&#x27;);
+    throw new Error('No input specified');
   }
 
-  this._currentInput.options(&#x27;-r&#x27;, fps);
+  this._currentInput.options('-r', fps);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -2769,7 +2762,7 @@ module.exports = function(proto) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">FPSOutput = function (fps) {
-  this._currentOutput.video(&#x27;-r&#x27;, fps);
+  this._currentOutput.video('-r', fps);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -2799,7 +2792,7 @@ module.exports = function(proto) {
       // Output format(s)
       unavailable = self._outputs
         .reduce(function(fmts, output) {
-          var format = output.options.find(&#x27;-f&#x27;, 1);
+          var format = output.options.find('-f', 1);
           if (format) {
             if (!(format[0] in formats) || !(formats[format[0]].canMux)) {
               fmts.push(format);
@@ -2810,15 +2803,15 @@ module.exports = function(proto) {
         }, []);
 
       if (unavailable.length === 1) {
-        return cb(new Error(&#x27;Output format &#x27; + unavailable[0] + &#x27; is not available&#x27;));
-      } else if (unavailable.length &#x3e; 1) {
-        return cb(new Error(&#x27;Output formats &#x27; + unavailable.join(&#x27;, &#x27;) + &#x27; are not available&#x27;));
+        return cb(new Error('Output format ' + unavailable[0] + ' is not available'));
+      } else if (unavailable.length &gt; 1) {
+        return cb(new Error('Output formats ' + unavailable.join(', ') + ' are not available'));
       }
 
       // Input format(s)
       unavailable = self._inputs
         .reduce(function(fmts, input) {
-          var format = input.options.find(&#x27;-f&#x27;, 1);
+          var format = input.options.find('-f', 1);
           if (format) {
             if (!(format[0] in formats) || !(formats[format[0]].canDemux)) {
               fmts.push(format[0]);
@@ -2829,9 +2822,9 @@ module.exports = function(proto) {
         }, []);
 
       if (unavailable.length === 1) {
-        return cb(new Error(&#x27;Input format &#x27; + unavailable[0] + &#x27; is not available&#x27;));
-      } else if (unavailable.length &#x3e; 1) {
-        return cb(new Error(&#x27;Input formats &#x27; + unavailable.join(&#x27;, &#x27;) + &#x27; are not available&#x27;));
+        return cb(new Error('Input format ' + unavailable[0] + ' is not available'));
+      } else if (unavailable.length &gt; 1) {
+        return cb(new Error('Input formats ' + unavailable.join(', ') + ' are not available'));
       }
 
       cb();
@@ -2848,9 +2841,9 @@ module.exports = function(proto) {
 
       // Audio codec(s)
       unavailable = self._outputs.reduce(function(cdcs, output) {
-        var acodec = output.audio.find(&#x27;-acodec&#x27;, 1);
-        if (acodec &#x26;&#x26; acodec[0] !== &#x27;copy&#x27;) {
-          if (!(acodec[0] in encoders) || encoders[acodec[0]].type !== &#x27;audio&#x27;) {
+        var acodec = output.audio.find('-acodec', 1);
+        if (acodec &amp;&amp; acodec[0] !== 'copy') {
+          if (!(acodec[0] in encoders) || encoders[acodec[0]].type !== 'audio') {
             cdcs.push(acodec[0]);
           }
         }
@@ -2859,16 +2852,16 @@ module.exports = function(proto) {
       }, []);
 
       if (unavailable.length === 1) {
-        return cb(new Error(&#x27;Audio codec &#x27; + unavailable[0] + &#x27; is not available&#x27;));
-      } else if (unavailable.length &#x3e; 1) {
-        return cb(new Error(&#x27;Audio codecs &#x27; + unavailable.join(&#x27;, &#x27;) + &#x27; are not available&#x27;));
+        return cb(new Error('Audio codec ' + unavailable[0] + ' is not available'));
+      } else if (unavailable.length &gt; 1) {
+        return cb(new Error('Audio codecs ' + unavailable.join(', ') + ' are not available'));
       }
 
       // Video codec(s)
       unavailable = self._outputs.reduce(function(cdcs, output) {
-        var vcodec = output.video.find(&#x27;-vcodec&#x27;, 1);
-        if (vcodec &#x26;&#x26; vcodec[0] !== &#x27;copy&#x27;) {
-          if (!(vcodec[0] in encoders) || encoders[vcodec[0]].type !== &#x27;video&#x27;) {
+        var vcodec = output.video.find('-vcodec', 1);
+        if (vcodec &amp;&amp; vcodec[0] !== 'copy') {
+          if (!(vcodec[0] in encoders) || encoders[vcodec[0]].type !== 'video') {
             cdcs.push(vcodec[0]);
           }
         }
@@ -2877,9 +2870,9 @@ module.exports = function(proto) {
       }, []);
 
       if (unavailable.length === 1) {
-        return cb(new Error(&#x27;Video codec &#x27; + unavailable[0] + &#x27; is not available&#x27;));
-      } else if (unavailable.length &#x3e; 1) {
-        return cb(new Error(&#x27;Video codecs &#x27; + unavailable.join(&#x27;, &#x27;) + &#x27; are not available&#x27;));
+        return cb(new Error('Video codec ' + unavailable[0] + ' is not available'));
+      } else if (unavailable.length &gt; 1) {
+        return cb(new Error('Video codecs ' + unavailable.join(', ') + ' are not available'));
       }
 
       cb();
@@ -2941,12 +2934,12 @@ function(cb) {
   return [].concat(
       // Inputs and input options
       this._inputs.reduce(function(args, input) {
-        var source = (typeof input.source === &#x27;string&#x27;) ? input.source : &#x27;pipe:0&#x27;;
+        var source = (typeof input.source === 'string') ? input.source : 'pipe:0';
 
-        // For each input, add input options, then &#x27;-i &#x3c;source&#x3e;&#x27;
+        // For each input, add input options, then '-i &lt;source&gt;'
         return args.concat(
           input.options.get(),
-          [&#x27;-i&#x27;, source]
+          ['-i', source]
         );
       }, []),
 
@@ -2954,7 +2947,7 @@ function(cb) {
       this._global.get(),
 
       // Overwrite if we have file outputs
-      fileOutput ? [&#x27;-y&#x27;] : [],
+      fileOutput ? ['-y'] : [],
 
       // Complex filters
       complexFilters,
@@ -2968,17 +2961,17 @@ function(cb) {
 
         if (!output.target) {
           outputArg = [];
-        } else if (typeof output.target === &#x27;string&#x27;) {
+        } else if (typeof output.target === 'string') {
           outputArg = [output.target];
         } else {
-          outputArg = [&#x27;pipe:1&#x27;];
+          outputArg = ['pipe:1'];
         }
 
         return args.concat(
           output.audio.get(),
-          audioFilters.length ? [&#x27;-filter:a&#x27;, audioFilters.join(&#x27;,&#x27;)] : [],
+          audioFilters.length ? ['-filter:a', audioFilters.join(',')] : [],
           output.video.get(),
-          videoFilters.length ? [&#x27;-filter:v&#x27;, videoFilters.join(&#x27;,&#x27;)] : [],
+          videoFilters.length ? ['-filter:v', videoFilters.join(',')] : [],
           output.options.get(),
           outputArg
         );
@@ -3013,7 +3006,7 @@ function(cb) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">_getFfmpegPath = function (callback) {
-  if (&#x27;ffmpegPath&#x27; in cache) {
+  if ('ffmpegPath' in cache) {
     return callback(null, cache.ffmpegPath);
   }
 
@@ -3025,11 +3018,11 @@ function(cb) {
           if (exists) {
             cb(null, process.env.FFMPEG_PATH);
           } else {
-            cb(null, &#x27;&#x27;);
+            cb(null, '');
           }
         });
       } else {
-        cb(null, &#x27;&#x27;);
+        cb(null, '');
       }
     },
 
@@ -3039,7 +3032,7 @@ function(cb) {
         return cb(null, ffmpeg);
       }
 
-      utils.which(&#x27;ffmpeg&#x27;, function(err, ffmpeg) {
+      utils.which('ffmpeg', function(err, ffmpeg) {
         cb(err, ffmpeg);
       });
     }
@@ -3047,7 +3040,7 @@ function(cb) {
     if (err) {
       callback(err);
     } else {
-      callback(null, cache.ffmpegPath = (ffmpeg || &#x27;&#x27;));
+      callback(null, cache.ffmpegPath = (ffmpeg || ''));
     }
   });
 }</pre></li>
@@ -3063,10 +3056,10 @@ self.<span class="apidocCodeKeywordSpan">_getFfmpegPath</span>(function(err, ffm
   if (err) {
     cb(err);
   } else if (ffmpeg.length) {
-    var name = utils.isWindows ? &#x27;ffprobe.exe&#x27; : &#x27;ffprobe&#x27;;
+    var name = utils.isWindows ? 'ffprobe.exe' : 'ffprobe';
     var ffprobe = path.join(path.dirname(ffmpeg), name);
     fs.exists(ffprobe, function(exists) {
-      cb(null, exists ? ffprobe : &#x27;&#x27;);
+      cb(null, exists ? ffprobe : '');
 ...</pre></li>
     </ul>
 
@@ -3082,7 +3075,7 @@ self.<span class="apidocCodeKeywordSpan">_getFfmpegPath</span>(function(err, ffm
     <li>description and source-code<pre class="apidocCodePre">_getFfprobePath = function (callback) {
   var self = this;
 
-  if (&#x27;ffprobePath&#x27; in cache) {
+  if ('ffprobePath' in cache) {
     return callback(null, cache.ffprobePath);
   }
 
@@ -3091,10 +3084,10 @@ self.<span class="apidocCodeKeywordSpan">_getFfmpegPath</span>(function(err, ffm
     function(cb) {
       if (process.env.FFPROBE_PATH) {
         fs.exists(process.env.FFPROBE_PATH, function(exists) {
-          cb(null, exists ? process.env.FFPROBE_PATH : &#x27;&#x27;);
+          cb(null, exists ? process.env.FFPROBE_PATH : '');
         });
       } else {
-        cb(null, &#x27;&#x27;);
+        cb(null, '');
       }
     },
 
@@ -3104,7 +3097,7 @@ self.<span class="apidocCodeKeywordSpan">_getFfmpegPath</span>(function(err, ffm
         return cb(null, ffprobe);
       }
 
-      utils.which(&#x27;ffprobe&#x27;, function(err, ffprobe) {
+      utils.which('ffprobe', function(err, ffprobe) {
         cb(err, ffprobe);
       });
     },
@@ -3119,13 +3112,13 @@ self.<span class="apidocCodeKeywordSpan">_getFfmpegPath</span>(function(err, ffm
         if (err) {
           cb(err);
         } else if (ffmpeg.length) {
-          var name = utils.isWindows ? &#x27;ffprobe.exe&#x27; : &#x27;ffprobe&#x27;;
+          var name = utils.isWindows ? 'ffprobe.exe' : 'ffprobe';
           var ffprobe = path.join(path.dirname(ffmpeg), name);
           fs.exists(ffprobe, function(exists) {
-            cb(null, exists ? ffprobe : &#x27;&#x27;);
+            cb(null, exists ? ffprobe : '');
           });
         } else {
-          cb(null, &#x27;&#x27;);
+          cb(null, '');
         }
       });
     }
@@ -3133,14 +3126,14 @@ self.<span class="apidocCodeKeywordSpan">_getFfmpegPath</span>(function(err, ffm
     if (err) {
       callback(err);
     } else {
-      callback(null, cache.ffprobePath = (ffprobe || &#x27;&#x27;));
+      callback(null, cache.ffprobePath = (ffprobe || ''));
     }
   });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
 if (!input) {
-  return handleCallback(new Error(&#x27;Invalid input index&#x27;));
+  return handleCallback(new Error('Invalid input index'));
 }
     }
 
@@ -3149,10 +3142,10 @@ if (!input) {
 if (err) {
   return handleCallback(err);
 } else if (!path) {
-  return handleCallback(new Error(&#x27;Cannot find ffprobe&#x27;));
+  return handleCallback(new Error('Cannot find ffprobe'));
 }
 
-var stdout = &#x27;&#x27;;
+var stdout = '';
 ...</pre></li>
     </ul>
 
@@ -3166,7 +3159,7 @@ var stdout = &#x27;&#x27;;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">_getFlvtoolPath = function (callback) {
-  if (&#x27;flvtoolPath&#x27; in cache) {
+  if ('flvtoolPath' in cache) {
     return callback(null, cache.flvtoolPath);
   }
 
@@ -3175,10 +3168,10 @@ var stdout = &#x27;&#x27;;
     function(cb) {
       if (process.env.FLVMETA_PATH) {
         fs.exists(process.env.FLVMETA_PATH, function(exists) {
-          cb(null, exists ? process.env.FLVMETA_PATH : &#x27;&#x27;);
+          cb(null, exists ? process.env.FLVMETA_PATH : '');
         });
       } else {
-        cb(null, &#x27;&#x27;);
+        cb(null, '');
       }
     },
 
@@ -3190,10 +3183,10 @@ var stdout = &#x27;&#x27;;
 
       if (process.env.FLVTOOL2_PATH) {
         fs.exists(process.env.FLVTOOL2_PATH, function(exists) {
-          cb(null, exists ? process.env.FLVTOOL2_PATH : &#x27;&#x27;);
+          cb(null, exists ? process.env.FLVTOOL2_PATH : '');
         });
       } else {
-        cb(null, &#x27;&#x27;);
+        cb(null, '');
       }
     },
 
@@ -3203,7 +3196,7 @@ var stdout = &#x27;&#x27;;
         return cb(null, flvtool);
       }
 
-      utils.which(&#x27;flvmeta&#x27;, function(err, flvmeta) {
+      utils.which('flvmeta', function(err, flvmeta) {
         cb(err, flvmeta);
       });
     },
@@ -3214,7 +3207,7 @@ var stdout = &#x27;&#x27;;
         return cb(null, flvtool);
       }
 
-      utils.which(&#x27;flvtool2&#x27;, function(err, flvtool2) {
+      utils.which('flvtool2', function(err, flvtool2) {
         cb(err, flvtool2);
       });
     },
@@ -3222,7 +3215,7 @@ var stdout = &#x27;&#x27;;
     if (err) {
       callback(err);
     } else {
-      callback(null, cache.flvtoolPath = (flvtool || &#x27;&#x27;));
+      callback(null, cache.flvtoolPath = (flvtool || ''));
     }
   });
 }</pre></li>
@@ -3281,8 +3274,8 @@ var stdout = &#x27;&#x27;;
     function(cb) {
       var flvmeta = self._outputs.some(function(output) {
         // Remove flvmeta flag on non-file output
-        if (output.flags.flvmeta &#x26;&#x26; !output.isFile) {
-          self.logger.warn(&#x27;Updating flv metadata is only supported for files&#x27;);
+        if (output.flags.flvmeta &amp;&amp; !output.isFile) {
+          self.logger.warn('Updating flv metadata is only supported for files');
           output.flags.flvmeta = false;
         }
 
@@ -3310,15 +3303,15 @@ var stdout = &#x27;&#x27;;
       cb(null, args);
     },
 
-    // Add &#x22;-strict experimental&#x22; option where needed
+    // Add "-strict experimental" option where needed
     function(args, cb) {
       self.availableEncoders(function(err, encoders) {
-        for (var i = 0; i &#x3c; args.length; i++) {
-          if (args[i] === &#x27;-acodec&#x27; || args[i] === &#x27;-vcodec&#x27;) {
+        for (var i = 0; i &lt; args.length; i++) {
+          if (args[i] === '-acodec' || args[i] === '-vcodec') {
             i++;
 
-            if ((args[i] in encoders) &#x26;&#x26; encoders[args[i]].experimental) {
-              args.splice(i + 1, 0, &#x27;-strict&#x27;, &#x27;experimental&#x27;);
+            if ((args[i] in encoders) &amp;&amp; encoders[args[i]].experimental) {
+              args.splice(i + 1, 0, '-strict', 'experimental');
               i += 2;
             }
           }
@@ -3330,15 +3323,15 @@ var stdout = &#x27;&#x27;;
   ], callback);
 
   if (!readMetadata) {
-    // Read metadata as soon as &#x27;progress&#x27; listeners are added
+    // Read metadata as soon as 'progress' listeners are added
 
-    if (this.listeners(&#x27;progress&#x27;).length &#x3e; 0) {
+    if (this.listeners('progress').length &gt; 0) {
       // Read metadata in parallel
       runFfprobe(this);
     } else {
-      // Read metadata as soon as the first &#x27;progress&#x27; listener is added
-      this.once(&#x27;newListener&#x27;, function(event) {
-        if (event === &#x27;progress&#x27;) {
+      // Read metadata as soon as the first 'progress' listener is added
+      this.once('newListener', function(event) {
+        if (event === 'progress') {
           runFfprobe(this);
         }
       });
@@ -3346,9 +3339,9 @@ var stdout = &#x27;&#x27;;
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    self.emit(&#x27;error&#x27;, err, stdout, stderr);
+    self.emit('error', err, stdout, stderr);
   } else {
-    self.emit(&#x27;end&#x27;, stdout, stderr);
+    self.emit('end', stdout, stderr);
   }
 }
     }
@@ -3375,32 +3368,32 @@ self._spawnFfmpeg(
     <ul>
     <li>description and source-code<pre class="apidocCodePre">_spawnFfmpeg = function (args, options, processCB, endCB) {
   // Enable omitting options
-  if (typeof options === &#x27;function&#x27;) {
+  if (typeof options === 'function') {
     endCB = processCB;
     processCB = options;
     options = {};
   }
 
   // Enable omitting processCB
-  if (typeof endCB === &#x27;undefined&#x27;) {
+  if (typeof endCB === 'undefined') {
     endCB = processCB;
     processCB = function() {};
   }
 
-  var maxLines = &#x27;stdoutLines&#x27; in options ? options.stdoutLines : this.options.stdoutLines;
+  var maxLines = 'stdoutLines' in options ? options.stdoutLines : this.options.stdoutLines;
 
   // Find ffmpeg
   this._getFfmpegPath(function(err, command) {
     if (err) {
       return endCB(err);
     } else if (!command || command.length === 0) {
-      return endCB(new Error(&#x27;Cannot find ffmpeg&#x27;));
+      return endCB(new Error('Cannot find ffmpeg'));
     }
 
     // Apply niceness
-    if (options.niceness &#x26;&#x26; options.niceness !== 0 &#x26;&#x26; !utils.isWindows) {
-      args.unshift(&#x27;-n&#x27;, options.niceness, command);
-      command = &#x27;nice&#x27;;
+    if (options.niceness &amp;&amp; options.niceness !== 0 &amp;&amp; !utils.isWindows) {
+      args.unshift('-n', options.niceness, command);
+      command = 'nice';
     }
 
     var stdoutRing = utils.linesRing(maxLines);
@@ -3413,10 +3406,10 @@ self._spawnFfmpeg(
     var ffmpegProc = spawn(command, args, options);
 
     if (ffmpegProc.stderr) {
-      ffmpegProc.stderr.setEncoding(&#x27;utf8&#x27;);
+      ffmpegProc.stderr.setEncoding('utf8');
     }
 
-    ffmpegProc.on(&#x27;error&#x27;, function(err) {
+    ffmpegProc.on('error', function(err) {
       endCB(err);
     });
 
@@ -3427,20 +3420,20 @@ self._spawnFfmpeg(
         exitError = err;
       }
 
-      if (processExited &#x26;&#x26; (stdoutClosed || !options.captureStdout) &#x26;&#x26; stderrClosed) {
+      if (processExited &amp;&amp; (stdoutClosed || !options.captureStdout) &amp;&amp; stderrClosed) {
         endCB(exitError, stdoutRing, stderrRing);
       }
     }
 
     // Handle process exit
     var processExited = false;
-    ffmpegProc.on(&#x27;exit&#x27;, function(code, signal) {
+    ffmpegProc.on('exit', function(code, signal) {
       processExited = true;
 
       if (signal) {
-        handleExit(new Error(&#x27;ffmpeg was killed with signal &#x27; + signal));
+        handleExit(new Error('ffmpeg was killed with signal ' + signal));
       } else if (code) {
-        handleExit(new Error(&#x27;ffmpeg exited with code &#x27; + code));
+        handleExit(new Error('ffmpeg exited with code ' + code));
       } else {
         handleExit();
       }
@@ -3448,11 +3441,11 @@ self._spawnFfmpeg(
 
     // Capture stdout if specified
     if (options.captureStdout) {
-      ffmpegProc.stdout.on(&#x27;data&#x27;, function(data) {
+      ffmpegProc.stdout.on('data', function(data) {
         stdoutRing.append(data);
       });
 
-      ffmpegProc.stdout.on(&#x27;close&#x27;, function() {
+      ffmpegProc.stdout.on('close', function() {
         stdoutRing.close();
         stdoutClosed = true;
         handleExit();
@@ -3460,11 +3453,11 @@ self._spawnFfmpeg(
     }
 
     // Capture stderr if specified
-    ffmpegProc.stderr.on(&#x27;data&#x27;, function(data) {
+    ffmpegProc.stderr.on('data', function(data) {
       stderrRing.append(data);
     });
 
-    ffmpegProc.stderr.on(&#x27;close&#x27;, function() {
+    ffmpegProc.stderr.on('close', function() {
       stderrRing.close();
       stderrClosed = true;
       handleExit();
@@ -3478,18 +3471,18 @@ self._spawnFfmpeg(
    */
   proto.availableFilters =
   proto.getAvailableFilters = function(callback) {
-    if (&#x27;filters&#x27; in cache) {
+    if ('filters' in cache) {
 return callback(null, cache.filters);
     }
 
-    this.<span class="apidocCodeKeywordSpan">_spawnFfmpeg</span>([&#x27;-filters&#x27;], { captureStdout: true, stdoutLines: 0 },
+    this.<span class="apidocCodeKeywordSpan">_spawnFfmpeg</span>(['-filters'], { captureStdout: true, stdoutLines: 0 },
 function (err, stdoutRing) {
 if (err) {
   return callback(err);
 }
 
 var stdout = stdoutRing.get();
-var lines = stdout.split(&#x27;\n&#x27;);
+var lines = stdout.split('\n');
 var data = {};
 ...</pre></li>
     </ul>
@@ -3507,9 +3500,9 @@ var data = {};
   var isFile = false;
   var isStream = false;
 
-  if (typeof source !== &#x27;string&#x27;) {
-    if (!(&#x27;readable&#x27; in source) || !(source.readable)) {
-      throw new Error(&#x27;Invalid input&#x27;);
+  if (typeof source !== 'string') {
+    if (!('readable' in source) || !(source.readable)) {
+      throw new Error('Invalid input');
     }
 
     var hasInputStream = this._inputs.some(function(input) {
@@ -3517,14 +3510,14 @@ var data = {};
     });
 
     if (hasInputStream) {
-      throw new Error(&#x27;Only one input stream is supported&#x27;);
+      throw new Error('Only one input stream is supported');
     }
 
     isStream = true;
     source.pause();
   } else {
     var protocol = source.match(/^([a-z]{2,}):/i);
-    isFile = !protocol || protocol[0] === &#x27;file&#x27;;
+    isFile = !protocol || protocol[0] === 'file';
   }
 
   this._inputs.push(this._currentInput = {
@@ -3550,12 +3543,12 @@ var data = {};
     <ul>
     <li>description and source-code<pre class="apidocCodePre">addInputOption = function (options) {
   if (!this._currentInput) {
-    throw new Error(&#x27;No input specified&#x27;);
+    throw new Error('No input specified');
   }
 
   var doSplit = true;
 
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     options = [].slice.call(arguments);
     doSplit = false;
   }
@@ -3565,9 +3558,9 @@ var data = {};
   }
 
   this._currentInput.options(options.reduce(function(options, option) {
-    var split = String(option).split(&#x27; &#x27;);
+    var split = String(option).split(' ');
 
-    if (doSplit &#x26;&#x26; split.length === 2) {
+    if (doSplit &amp;&amp; split.length === 2) {
       options.push(split[0], split[1]);
     } else {
       options.push(option);
@@ -3591,12 +3584,12 @@ var data = {};
     <ul>
     <li>description and source-code<pre class="apidocCodePre">addInputOptions = function (options) {
   if (!this._currentInput) {
-    throw new Error(&#x27;No input specified&#x27;);
+    throw new Error('No input specified');
   }
 
   var doSplit = true;
 
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     options = [].slice.call(arguments);
     doSplit = false;
   }
@@ -3606,9 +3599,9 @@ var data = {};
   }
 
   this._currentInput.options(options.reduce(function(options, option) {
-    var split = String(option).split(&#x27; &#x27;);
+    var split = String(option).split(' ');
 
-    if (doSplit &#x26;&#x26; split.length === 2) {
+    if (doSplit &amp;&amp; split.length === 2) {
       options.push(split[0], split[1]);
     } else {
       options.push(option);
@@ -3633,7 +3626,7 @@ var data = {};
     <li>description and source-code<pre class="apidocCodePre">addOption = function (options) {
   var doSplit = true;
 
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     options = [].slice.call(arguments);
     doSplit = false;
   }
@@ -3643,9 +3636,9 @@ var data = {};
   }
 
   this._currentOutput.options(options.reduce(function(options, option) {
-    var split = String(option).split(&#x27; &#x27;);
+    var split = String(option).split(' ');
 
-    if (doSplit &#x26;&#x26; split.length === 2) {
+    if (doSplit &amp;&amp; split.length === 2) {
       options.push(split[0], split[1]);
     } else {
       options.push(option);
@@ -3670,7 +3663,7 @@ var data = {};
     <li>description and source-code<pre class="apidocCodePre">addOptions = function (options) {
   var doSplit = true;
 
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     options = [].slice.call(arguments);
     doSplit = false;
   }
@@ -3680,9 +3673,9 @@ var data = {};
   }
 
   this._currentOutput.options(options.reduce(function(options, option) {
-    var split = String(option).split(&#x27; &#x27;);
+    var split = String(option).split(' ');
 
-    if (doSplit &#x26;&#x26; split.length === 2) {
+    if (doSplit &amp;&amp; split.length === 2) {
       options.push(split[0], split[1]);
     } else {
       options.push(option);
@@ -3707,33 +3700,33 @@ var data = {};
     <li>description and source-code<pre class="apidocCodePre">addOutput = function (target, pipeopts) {
   var isFile = false;
 
-  if (!target &#x26;&#x26; this._currentOutput) {
+  if (!target &amp;&amp; this._currentOutput) {
     // No target is only allowed when called from constructor
-    throw new Error(&#x27;Invalid output&#x27;);
+    throw new Error('Invalid output');
   }
 
-  if (target &#x26;&#x26; typeof target !== &#x27;string&#x27;) {
-    if (!(&#x27;writable&#x27; in target) || !(target.writable)) {
-      throw new Error(&#x27;Invalid output&#x27;);
+  if (target &amp;&amp; typeof target !== 'string') {
+    if (!('writable' in target) || !(target.writable)) {
+      throw new Error('Invalid output');
     }
-  } else if (typeof target === &#x27;string&#x27;) {
+  } else if (typeof target === 'string') {
     var protocol = target.match(/^([a-z]{2,}):/i);
-    isFile = !protocol || protocol[0] === &#x27;file&#x27;;
+    isFile = !protocol || protocol[0] === 'file';
   }
 
-  if (target &#x26;&#x26; !(&#x27;target&#x27; in this._currentOutput)) {
+  if (target &amp;&amp; !('target' in this._currentOutput)) {
     // For backwards compatibility, set target for first output
     this._currentOutput.target = target;
     this._currentOutput.isFile = isFile;
     this._currentOutput.pipeopts = pipeopts || {};
   } else {
-    if (target &#x26;&#x26; typeof target !== &#x27;string&#x27;) {
+    if (target &amp;&amp; typeof target !== 'string') {
       var hasOutputStream = this._outputs.some(function(output) {
-        return typeof output.target !== &#x27;string&#x27;;
+        return typeof output.target !== 'string';
       });
 
       if (hasOutputStream) {
-        throw new Error(&#x27;Only one output stream is supported&#x27;);
+        throw new Error('Only one output stream is supported');
       }
     }
 
@@ -3745,7 +3738,7 @@ var data = {};
     });
 
     var self = this;
-    [&#x27;audio&#x27;, &#x27;audioFilters&#x27;, &#x27;video&#x27;, &#x27;videoFilters&#x27;, &#x27;sizeFilters&#x27;, &#x27;options&#x27;].forEach(function(key) {
+    ['audio', 'audioFilters', 'video', 'videoFilters', 'sizeFilters', 'options'].forEach(function(key) {
       self._currentOutput[key] = utils.args();
     });
 
@@ -3772,7 +3765,7 @@ var data = {};
     <li>description and source-code<pre class="apidocCodePre">addOutputOption = function (options) {
   var doSplit = true;
 
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     options = [].slice.call(arguments);
     doSplit = false;
   }
@@ -3782,9 +3775,9 @@ var data = {};
   }
 
   this._currentOutput.options(options.reduce(function(options, option) {
-    var split = String(option).split(&#x27; &#x27;);
+    var split = String(option).split(' ');
 
-    if (doSplit &#x26;&#x26; split.length === 2) {
+    if (doSplit &amp;&amp; split.length === 2) {
       options.push(split[0], split[1]);
     } else {
       options.push(option);
@@ -3809,7 +3802,7 @@ var data = {};
     <li>description and source-code<pre class="apidocCodePre">addOutputOptions = function (options) {
   var doSplit = true;
 
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     options = [].slice.call(arguments);
     doSplit = false;
   }
@@ -3819,9 +3812,9 @@ var data = {};
   }
 
   this._currentOutput.options(options.reduce(function(options, option) {
-    var split = String(option).split(&#x27; &#x27;);
+    var split = String(option).split(' ');
 
-    if (doSplit &#x26;&#x26; split.length === 2) {
+    if (doSplit &amp;&amp; split.length === 2) {
       options.push(split[0], split[1]);
     } else {
       options.push(option);
@@ -3845,17 +3838,17 @@ var data = {};
     <ul>
     <li>description and source-code<pre class="apidocCodePre">applyAutoPad = function (pad, color) {
   // Allow autopad(color)
-  if (typeof pad === &#x27;string&#x27;) {
+  if (typeof pad === 'string') {
     color = pad;
     pad = true;
   }
 
   // Allow autopad() and autopad(undefined, color)
-  if (typeof pad === &#x27;undefined&#x27;) {
+  if (typeof pad === 'undefined') {
     pad = true;
   }
 
-  var filters = createSizeFilters(this._currentOutput, &#x27;pad&#x27;, pad ? color || &#x27;black&#x27; : false);
+  var filters = createSizeFilters(this._currentOutput, 'pad', pad ? color || 'black' : false);
 
   this._currentOutput.sizeFilters.clear();
   this._currentOutput.sizeFilters(filters);
@@ -3876,17 +3869,17 @@ var data = {};
     <ul>
     <li>description and source-code<pre class="apidocCodePre">applyAutoPadding = function (pad, color) {
   // Allow autopad(color)
-  if (typeof pad === &#x27;string&#x27;) {
+  if (typeof pad === 'string') {
     color = pad;
     pad = true;
   }
 
   // Allow autopad() and autopad(undefined, color)
-  if (typeof pad === &#x27;undefined&#x27;) {
+  if (typeof pad === 'undefined') {
     pad = true;
   }
 
-  var filters = createSizeFilters(this._currentOutput, &#x27;pad&#x27;, pad ? color || &#x27;black&#x27; : false);
+  var filters = createSizeFilters(this._currentOutput, 'pad', pad ? color || 'black' : false);
 
   this._currentOutput.sizeFilters.clear();
   this._currentOutput.sizeFilters(filters);
@@ -3907,17 +3900,17 @@ var data = {};
     <ul>
     <li>description and source-code<pre class="apidocCodePre">applyAutopad = function (pad, color) {
   // Allow autopad(color)
-  if (typeof pad === &#x27;string&#x27;) {
+  if (typeof pad === 'string') {
     color = pad;
     pad = true;
   }
 
   // Allow autopad() and autopad(undefined, color)
-  if (typeof pad === &#x27;undefined&#x27;) {
+  if (typeof pad === 'undefined') {
     pad = true;
   }
 
-  var filters = createSizeFilters(this._currentOutput, &#x27;pad&#x27;, pad ? color || &#x27;black&#x27; : false);
+  var filters = createSizeFilters(this._currentOutput, 'pad', pad ? color || 'black' : false);
 
   this._currentOutput.sizeFilters.clear();
   this._currentOutput.sizeFilters(filters);
@@ -3938,17 +3931,17 @@ var data = {};
     <ul>
     <li>description and source-code<pre class="apidocCodePre">applyAutopadding = function (pad, color) {
   // Allow autopad(color)
-  if (typeof pad === &#x27;string&#x27;) {
+  if (typeof pad === 'string') {
     color = pad;
     pad = true;
   }
 
   // Allow autopad() and autopad(undefined, color)
-  if (typeof pad === &#x27;undefined&#x27;) {
+  if (typeof pad === 'undefined') {
     pad = true;
   }
 
-  var filters = createSizeFilters(this._currentOutput, &#x27;pad&#x27;, pad ? color || &#x27;black&#x27; : false);
+  var filters = createSizeFilters(this._currentOutput, 'pad', pad ? color || 'black' : false);
 
   this._currentOutput.sizeFilters.clear();
   this._currentOutput.sizeFilters(filters);
@@ -3974,11 +3967,11 @@ var data = {};
     if (match) {
       a = Number(match[1]) / Number(match[2]);
     } else {
-      throw new Error(&#x27;Invalid aspect ratio: &#x27; + aspect);
+      throw new Error('Invalid aspect ratio: ' + aspect);
     }
   }
 
-  var filters = createSizeFilters(this._currentOutput, &#x27;aspect&#x27;, a);
+  var filters = createSizeFilters(this._currentOutput, 'aspect', a);
 
   this._currentOutput.sizeFilters.clear();
   this._currentOutput.sizeFilters(filters);
@@ -4004,11 +3997,11 @@ var data = {};
     if (match) {
       a = Number(match[1]) / Number(match[2]);
     } else {
-      throw new Error(&#x27;Invalid aspect ratio: &#x27; + aspect);
+      throw new Error('Invalid aspect ratio: ' + aspect);
     }
   }
 
-  var filters = createSizeFilters(this._currentOutput, &#x27;aspect&#x27;, a);
+  var filters = createSizeFilters(this._currentOutput, 'aspect', a);
 
   this._currentOutput.sizeFilters.clear();
   this._currentOutput.sizeFilters(filters);
@@ -4028,21 +4021,21 @@ var data = {};
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">audioBitrate = function (bitrate) {
-  this._currentOutput.audio(&#x27;-b:a&#x27;, (&#x27;&#x27; + bitrate).replace(/k?$/, &#x27;k&#x27;));
+  this._currentOutput.audio('-b:a', ('' + bitrate).replace(/k?$/, 'k'));
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
 exports.load = function(ffmpeg) {
   ffmpeg
-    .format(&#x27;avi&#x27;)
-    .videoBitrate(&#x27;1024k&#x27;)
-    .videoCodec(&#x27;mpeg4&#x27;)
-    .size(&#x27;720x?&#x27;)
-    .<span class="apidocCodeKeywordSpan">audioBitrate</span>(&#x27;128k&#x27;)
+    .format('avi')
+    .videoBitrate('1024k')
+    .videoCodec('mpeg4')
+    .size('720x?')
+    .<span class="apidocCodeKeywordSpan">audioBitrate</span>('128k')
     .audioChannels(2)
-    .audioCodec(&#x27;libmp3lame&#x27;)
-    .outputOptions([&#x27;-vtag DIVX&#x27;]);
+    .audioCodec('libmp3lame')
+    .outputOptions(['-vtag DIVX']);
 };
 ...</pre></li>
     </ul>
@@ -4057,20 +4050,20 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">audioChannels = function (channels) {
-  this._currentOutput.audio(&#x27;-ac&#x27;, channels);
+  this._currentOutput.audio('-ac', channels);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 exports.load = function(ffmpeg) {
   ffmpeg
-    .format(&#x27;avi&#x27;)
-    .videoBitrate(&#x27;1024k&#x27;)
-    .videoCodec(&#x27;mpeg4&#x27;)
-    .size(&#x27;720x?&#x27;)
-    .audioBitrate(&#x27;128k&#x27;)
+    .format('avi')
+    .videoBitrate('1024k')
+    .videoCodec('mpeg4')
+    .size('720x?')
+    .audioBitrate('128k')
     .<span class="apidocCodeKeywordSpan">audioChannels</span>(2)
-    .audioCodec(&#x27;libmp3lame&#x27;)
-    .outputOptions([&#x27;-vtag DIVX&#x27;]);
+    .audioCodec('libmp3lame')
+    .outputOptions(['-vtag DIVX']);
 };
 ...</pre></li>
     </ul>
@@ -4085,20 +4078,20 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">audioCodec = function (codec) {
-  this._currentOutput.audio(&#x27;-acodec&#x27;, codec);
+  this._currentOutput.audio('-acodec', codec);
 
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   ffmpeg
-    .format(&#x27;avi&#x27;)
-    .videoBitrate(&#x27;1024k&#x27;)
-    .videoCodec(&#x27;mpeg4&#x27;)
-    .size(&#x27;720x?&#x27;)
-    .audioBitrate(&#x27;128k&#x27;)
+    .format('avi')
+    .videoBitrate('1024k')
+    .videoCodec('mpeg4')
+    .size('720x?')
+    .audioBitrate('128k')
     .audioChannels(2)
-    .<span class="apidocCodeKeywordSpan">audioCodec</span>(&#x27;libmp3lame&#x27;)
-    .outputOptions([&#x27;-vtag DIVX&#x27;]);
+    .<span class="apidocCodeKeywordSpan">audioCodec</span>('libmp3lame')
+    .outputOptions(['-vtag DIVX']);
 };
 ...</pre></li>
     </ul>
@@ -4113,7 +4106,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">audioFilter = function (filters) {
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     filters = [].slice.call(arguments);
   }
 
@@ -4137,7 +4130,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">audioFilters = function (filters) {
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     filters = [].slice.call(arguments);
   }
 
@@ -4156,13 +4149,13 @@ exports.load = function(ffmpeg) {
 * Can be called both with one or many filters, or a filter array.
 *
 * @example
-* command.<span class="apidocCodeKeywordSpan">audioFilters</span>(&#x27;filter1&#x27;);
+* command.<span class="apidocCodeKeywordSpan">audioFilters</span>('filter1');
 *
 * @example
-* command.audioFilters(&#x27;filter1&#x27;, &#x27;filter2=param1=value1:param2=value2&#x27;);
+* command.audioFilters('filter1', 'filter2=param1=value1:param2=value2');
 *
 * @example
-* command.audioFilters([&#x27;filter1&#x27;, &#x27;filter2&#x27;]);
+* command.audioFilters(['filter1', 'filter2']);
 *
 ...</pre></li>
     </ul>
@@ -4177,7 +4170,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">audioFrequency = function (freq) {
-  this._currentOutput.audio(&#x27;-ar&#x27;, freq);
+  this._currentOutput.audio('-ar', freq);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -4193,7 +4186,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">audioQuality = function (quality) {
-  this._currentOutput.audio(&#x27;-aq&#x27;, quality);
+  this._currentOutput.audio('-aq', quality);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -4210,17 +4203,17 @@ exports.load = function(ffmpeg) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">autoPad = function (pad, color) {
   // Allow autopad(color)
-  if (typeof pad === &#x27;string&#x27;) {
+  if (typeof pad === 'string') {
     color = pad;
     pad = true;
   }
 
   // Allow autopad() and autopad(undefined, color)
-  if (typeof pad === &#x27;undefined&#x27;) {
+  if (typeof pad === 'undefined') {
     pad = true;
   }
 
-  var filters = createSizeFilters(this._currentOutput, &#x27;pad&#x27;, pad ? color || &#x27;black&#x27; : false);
+  var filters = createSizeFilters(this._currentOutput, 'pad', pad ? color || 'black' : false);
 
   this._currentOutput.sizeFilters.clear();
   this._currentOutput.sizeFilters(filters);
@@ -4241,17 +4234,17 @@ exports.load = function(ffmpeg) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">autopad = function (pad, color) {
   // Allow autopad(color)
-  if (typeof pad === &#x27;string&#x27;) {
+  if (typeof pad === 'string') {
     color = pad;
     pad = true;
   }
 
   // Allow autopad() and autopad(undefined, color)
-  if (typeof pad === &#x27;undefined&#x27;) {
+  if (typeof pad === 'undefined') {
     pad = true;
   }
 
-  var filters = createSizeFilters(this._currentOutput, &#x27;pad&#x27;, pad ? color || &#x27;black&#x27; : false);
+  var filters = createSizeFilters(this._currentOutput, 'pad', pad ? color || 'black' : false);
 
   this._currentOutput.sizeFilters.clear();
   this._currentOutput.sizeFilters(filters);
@@ -4271,11 +4264,11 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">availableCodecs = function (callback) {
-  if (&#x27;codecs&#x27; in cache) {
+  if ('codecs' in cache) {
     return callback(null, cache.codecs);
   }
 
-  this._spawnFfmpeg([&#x27;-codecs&#x27;], { captureStdout: true, stdoutLines: 0 }, function(err, stdoutRing) {
+  this._spawnFfmpeg(['-codecs'], { captureStdout: true, stdoutLines: 0 }, function(err, stdoutRing) {
     if (err) {
       return callback(err);
     }
@@ -4286,35 +4279,35 @@ exports.load = function(ffmpeg) {
 
     lines.forEach(function(line) {
       var match = line.match(avCodecRegexp);
-      if (match &#x26;&#x26; match[7] !== &#x27;=&#x27;) {
+      if (match &amp;&amp; match[7] !== '=') {
         data[match[7]] = {
-          type: { &#x27;V&#x27;: &#x27;video&#x27;, &#x27;A&#x27;: &#x27;audio&#x27;, &#x27;S&#x27;: &#x27;subtitle&#x27; }[match[3]],
+          type: { 'V': 'video', 'A': 'audio', 'S': 'subtitle' }[match[3]],
           description: match[8],
-          canDecode: match[1] === &#x27;D&#x27;,
-          canEncode: match[2] === &#x27;E&#x27;,
-          drawHorizBand: match[4] === &#x27;S&#x27;,
-          directRendering: match[5] === &#x27;D&#x27;,
-          weirdFrameTruncation: match[6] === &#x27;T&#x27;
+          canDecode: match[1] === 'D',
+          canEncode: match[2] === 'E',
+          drawHorizBand: match[4] === 'S',
+          directRendering: match[5] === 'D',
+          weirdFrameTruncation: match[6] === 'T'
         };
       }
 
       match = line.match(ffCodecRegexp);
-      if (match &#x26;&#x26; match[7] !== &#x27;=&#x27;) {
+      if (match &amp;&amp; match[7] !== '=') {
         var codecData = data[match[7]] = {
-          type: { &#x27;V&#x27;: &#x27;video&#x27;, &#x27;A&#x27;: &#x27;audio&#x27;, &#x27;S&#x27;: &#x27;subtitle&#x27; }[match[3]],
+          type: { 'V': 'video', 'A': 'audio', 'S': 'subtitle' }[match[3]],
           description: match[8],
-          canDecode: match[1] === &#x27;D&#x27;,
-          canEncode: match[2] === &#x27;E&#x27;,
-          intraFrameOnly: match[4] === &#x27;I&#x27;,
-          isLossy: match[5] === &#x27;L&#x27;,
-          isLossless: match[6] === &#x27;S&#x27;
+          canDecode: match[1] === 'D',
+          canEncode: match[2] === 'E',
+          intraFrameOnly: match[4] === 'I',
+          isLossy: match[5] === 'L',
+          isLossless: match[6] === 'S'
         };
 
         var encoders = codecData.description.match(ffEncodersRegexp);
-        encoders = encoders ? encoders[1].trim().split(&#x27; &#x27;) : [];
+        encoders = encoders ? encoders[1].trim().split(' ') : [];
 
         var decoders = codecData.description.match(ffDecodersRegexp);
-        decoders = decoders ? decoders[1].trim().split(&#x27; &#x27;) : [];
+        decoders = decoders ? decoders[1].trim().split(' ') : [];
 
         if (encoders.length || decoders.length) {
           var coderData = {};
@@ -4357,11 +4350,11 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">availableEncoders = function (callback) {
-  if (&#x27;encoders&#x27; in cache) {
+  if ('encoders' in cache) {
     return callback(null, cache.encoders);
   }
 
-  this._spawnFfmpeg([&#x27;-encoders&#x27;], { captureStdout: true, stdoutLines: 0 }, function(err, stdoutRing) {
+  this._spawnFfmpeg(['-encoders'], { captureStdout: true, stdoutLines: 0 }, function(err, stdoutRing) {
     if (err) {
       return callback(err);
     }
@@ -4372,15 +4365,15 @@ exports.load = function(ffmpeg) {
 
     lines.forEach(function(line) {
       var match = line.match(encodersRegexp);
-      if (match &#x26;&#x26; match[7] !== &#x27;=&#x27;) {
+      if (match &amp;&amp; match[7] !== '=') {
         data[match[7]] = {
-          type: { &#x27;V&#x27;: &#x27;video&#x27;, &#x27;A&#x27;: &#x27;audio&#x27;, &#x27;S&#x27;: &#x27;subtitle&#x27; }[match[1]],
+          type: { 'V': 'video', 'A': 'audio', 'S': 'subtitle' }[match[1]],
           description: match[8],
-          frameMT: match[2] === &#x27;F&#x27;,
-          sliceMT: match[3] === &#x27;S&#x27;,
-          experimental: match[4] === &#x27;X&#x27;,
-          drawHorizBand: match[5] === &#x27;B&#x27;,
-          directRendering: match[6] === &#x27;D&#x27;
+          frameMT: match[2] === 'F',
+          sliceMT: match[3] === 'S',
+          experimental: match[4] === 'X',
+          drawHorizBand: match[5] === 'B',
+          directRendering: match[6] === 'D'
         };
       }
     });
@@ -4417,19 +4410,19 @@ var unavailable;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">availableFilters = function (callback) {
-  if (&#x27;filters&#x27; in cache) {
+  if ('filters' in cache) {
     return callback(null, cache.filters);
   }
 
-  this._spawnFfmpeg([&#x27;-filters&#x27;], { captureStdout: true, stdoutLines: 0 }, function (err, stdoutRing) {
+  this._spawnFfmpeg(['-filters'], { captureStdout: true, stdoutLines: 0 }, function (err, stdoutRing) {
     if (err) {
       return callback(err);
     }
 
     var stdout = stdoutRing.get();
-    var lines = stdout.split(&#x27;\n&#x27;);
+    var lines = stdout.split('\n');
     var data = {};
-    var types = { A: &#x27;audio&#x27;, V: &#x27;video&#x27;, &#x27;|&#x27;: &#x27;none&#x27; };
+    var types = { A: 'audio', V: 'video', '|': 'none' };
 
     lines.forEach(function(line) {
       var match = line.match(filterRegexp);
@@ -4437,9 +4430,9 @@ var unavailable;
         data[match[1]] = {
           description: match[4],
           input: types[match[2].charAt(0)],
-          multipleInputs: match[2].length &#x3e; 1,
+          multipleInputs: match[2].length &gt; 1,
           output: types[match[3].charAt(0)],
-          multipleOutputs: match[3].length &#x3e; 1
+          multipleOutputs: match[3].length &gt; 1
         };
       }
     });
@@ -4460,12 +4453,12 @@ var unavailable;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">availableFormats = function (callback) {
-  if (&#x27;formats&#x27; in cache) {
+  if ('formats' in cache) {
     return callback(null, cache.formats);
   }
 
   // Run ffmpeg -formats
-  this._spawnFfmpeg([&#x27;-formats&#x27;], { captureStdout: true, stdoutLines: 0 }, function (err, stdoutRing) {
+  this._spawnFfmpeg(['-formats'], { captureStdout: true, stdoutLines: 0 }, function (err, stdoutRing) {
     if (err) {
       return callback(err);
     }
@@ -4478,7 +4471,7 @@ var unavailable;
     lines.forEach(function(line) {
       var match = line.match(formatRegexp);
       if (match) {
-        match[3].split(&#x27;,&#x27;).forEach(function(format) {
+        match[3].split(',').forEach(function(format) {
           if (!(format in data)) {
             data[format] = {
               description: match[4],
@@ -4487,10 +4480,10 @@ var unavailable;
             };
           }
 
-          if (match[1] === &#x27;D&#x27;) {
+          if (match[1] === 'D') {
             data[format].canDemux = true;
           }
-          if (match[2] === &#x27;E&#x27;) {
+          if (match[2] === 'E') {
             data[format].canMux = true;
           }
         });
@@ -4545,8 +4538,8 @@ var unavailable;
   });
 
   // Create first output
-  if (&#x27;target&#x27; in this._outputs[0]) {
-    // We have outputs set, don&#x27;t clone them and create first output
+  if ('target' in this._outputs[0]) {
+    // We have outputs set, don't clone them and create first output
     clone._outputs = [];
     clone.output();
   } else {
@@ -4557,7 +4550,7 @@ var unavailable;
       }
     ];
 
-    [&#x27;audio&#x27;, &#x27;audioFilters&#x27;, &#x27;video&#x27;, &#x27;videoFilters&#x27;, &#x27;sizeFilters&#x27;, &#x27;options&#x27;].forEach(function(key) {
+    ['audio', 'audioFilters', 'video', 'videoFilters', 'sizeFilters', 'options'].forEach(function(key) {
       clone._currentOutput[key] = self._currentOutput[key].clone();
     });
 
@@ -4570,7 +4563,7 @@ var unavailable;
   }
 
   // Clone argument lists
-  [&#x27;_global&#x27;, &#x27;_complexFilters&#x27;].forEach(function(prop) {
+  ['_global', '_complexFilters'].forEach(function(prop) {
     clone[prop] = self[prop].clone();
   });
 
@@ -4595,15 +4588,15 @@ var unavailable;
     spec = [spec];
   }
 
-  this._complexFilters(&#x27;-filter_complex&#x27;, utils.makeFilterStrings(spec).join(&#x27;;&#x27;));
+  this._complexFilters('-filter_complex', utils.makeFilterStrings(spec).join(';'));
 
   if (Array.isArray(map)) {
     var self = this;
     map.forEach(function(streamSpec) {
-      self._complexFilters(&#x27;-map&#x27;, streamSpec.replace(utils.streamRegexp, &#x27;[$1]&#x27;));
+      self._complexFilters('-map', streamSpec.replace(utils.streamRegexp, '[$1]'));
     });
-  } else if (typeof map === &#x27;string&#x27;) {
-    this._complexFilters(&#x27;-map&#x27;, map.replace(utils.streamRegexp, &#x27;[$1]&#x27;));
+  } else if (typeof map === 'string') {
+    this._complexFilters('-map', map.replace(utils.streamRegexp, '[$1]'));
   }
 
   return this;
@@ -4611,7 +4604,7 @@ var unavailable;
     <li>example usage<pre class="apidocCodePre">...
         .map(stream);
 
-      if (i &#x3e; 0) {
+      if (i &gt; 0) {
         self.seek(config.timemarks[i] - first);
       }
     }
@@ -4643,21 +4636,21 @@ var unavailable;
   var self = this;
   this.ffprobe(this._inputs.indexOf(fileInput), function(err, data) {
     if (err) {
-      return self.emit(&#x27;error&#x27;, err);
+      return self.emit('error', err);
     }
 
     var hasAudioStreams = data.streams.some(function(stream) {
-      return stream.codec_type === &#x27;audio&#x27;;
+      return stream.codec_type === 'audio';
     });
 
     var hasVideoStreams = data.streams.some(function(stream) {
-      return stream.codec_type === &#x27;video&#x27;;
+      return stream.codec_type === 'video';
     });
 
     // Setup concat filter and start processing
     self.output(target, options)
       .complexFilter({
-        filter: &#x27;concat&#x27;,
+        filter: 'concat',
         options: {
           n: self._inputs.length,
           v: hasVideoStreams ? 1 : 0,
@@ -4670,21 +4663,20 @@ var unavailable;
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var stdout = &#x27;&#x27;;
+var stdout = '';
 var stdoutClosed = false;
-var stderr = &#x27;&#x27;;
+var stderr = '';
 var stderrClosed = false;
 
 // Spawn ffprobe
-var src = input.isStream ? &#x27;pipe:0&#x27; : input.source;
-var ffprobe = spawn(path, [&#x27;-show_streams&#x27;, &#x27;-show_format&#x27;].<span class="apidocCodeKeywordSpan">concat</span
->(options, src));
+var src = input.isStream ? 'pipe:0' : input.source;
+var ffprobe = spawn(path, ['-show_streams', '-show_format'].<span class="apidocCodeKeywordSpan">concat</span>(options, src));
 
 if (input.isStream) {
   // Skip errors on stdin. These get thrown when ffprobe is complete and
   // there seems to be no way hook in and close stdin before it throws.
-  ffprobe.stdin.on(&#x27;error&#x27;, function(err) {
-    if ([&#x27;ECONNRESET&#x27;, &#x27;EPIPE&#x27;].indexOf(err.code) &#x3e;= 0) { return; }
+  ffprobe.stdin.on('error', function(err) {
+    if (['ECONNRESET', 'EPIPE'].indexOf(err.code) &gt;= 0) { return; }
     handleCallback(err);
 ...</pre></li>
     </ul>
@@ -4707,21 +4699,21 @@ if (input.isStream) {
   var self = this;
   this.ffprobe(this._inputs.indexOf(fileInput), function(err, data) {
     if (err) {
-      return self.emit(&#x27;error&#x27;, err);
+      return self.emit('error', err);
     }
 
     var hasAudioStreams = data.streams.some(function(stream) {
-      return stream.codec_type === &#x27;audio&#x27;;
+      return stream.codec_type === 'audio';
     });
 
     var hasVideoStreams = data.streams.some(function(stream) {
-      return stream.codec_type === &#x27;video&#x27;;
+      return stream.codec_type === 'video';
     });
 
     // Setup concat filter and start processing
     self.output(target, options)
       .complexFilter({
-        filter: &#x27;concat&#x27;,
+        filter: 'concat',
         options: {
           n: self._inputs.length,
           v: hasVideoStreams ? 1 : 0,
@@ -4746,17 +4738,17 @@ if (input.isStream) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">duration = function (duration) {
-  this._currentOutput.options(&#x27;-t&#x27;, duration);
+  this._currentOutput.options('-t', duration);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
     if (!this._currentInput) {
-      throw new Error(&#x27;No input specified&#x27;);
+      throw new Error('No input specified');
     }
 
-    this._currentInput.options(&#x27;-loop&#x27;, &#x27;1&#x27;);
+    this._currentInput.options('-loop', '1');
 
-    if (typeof duration !== &#x27;undefined&#x27;) {
+    if (typeof duration !== 'undefined') {
       this.<span class="apidocCodeKeywordSpan">duration</span>(duration);
     }
 
@@ -4780,33 +4772,33 @@ if (input.isStream) {
 
   // Check if at least one output is present
   var outputPresent = this._outputs.some(function(output) {
-    return &#x27;target&#x27; in output;
+    return 'target' in output;
   });
 
   if (!outputPresent) {
-    throw new Error(&#x27;No output specified&#x27;);
+    throw new Error('No output specified');
   }
 
   // Get output stream if any
   var outputStream = this._outputs.filter(function(output) {
-    return typeof output.target !== &#x27;string&#x27;;
+    return typeof output.target !== 'string';
   })[0];
 
   // Get input stream if any
   var inputStream = this._inputs.filter(function(input) {
-    return typeof input.source !== &#x27;string&#x27;;
+    return typeof input.source !== 'string';
   })[0];
 
-  // Ensure we send &#x27;end&#x27; or &#x27;error&#x27; only once
+  // Ensure we send 'end' or 'error' only once
   var ended = false;
   function emitEnd(err, stdout, stderr) {
     if (!ended) {
       ended = true;
 
       if (err) {
-        self.emit(&#x27;error&#x27;, err, stdout, stderr);
+        self.emit('error', err, stdout, stderr);
       } else {
-        self.emit(&#x27;end&#x27;, stdout, stderr);
+        self.emit('end', stdout, stderr);
       }
     }
   }
@@ -4827,12 +4819,12 @@ if (input.isStream) {
 
       function processCB(ffmpegProc, stdoutRing, stderrRing) {
         self.ffmpegProc = ffmpegProc;
-        self.emit(&#x27;start&#x27;, &#x27;ffmpeg &#x27; + args.join(&#x27; &#x27;));
+        self.emit('start', 'ffmpeg ' + args.join(' '));
 
         // Pipe input stream if any
         if (inputStream) {
-          inputStream.source.on(&#x27;error&#x27;, function(err) {
-            var reportingErr = new Error(&#x27;Input stream error: &#x27; + err.message);
+          inputStream.source.on('error', function(err) {
+            var reportingErr = new Error('Input stream error: ' + err.message);
             reportingErr.inputStreamError = err;
             emitEnd(reportingErr);
             ffmpegProc.kill();
@@ -4843,14 +4835,14 @@ if (input.isStream) {
 
           // Set stdin error handler on ffmpeg (prevents nodejs catching the error, but
           // ffmpeg will fail anyway, so no need to actually handle anything)
-          ffmpegProc.stdin.on(&#x27;error&#x27;, function() {});
+          ffmpegProc.stdin.on('error', function() {});
         }
 
         // Setup timeout if requested
         var processTimer;
         if (self.options.timeout) {
           processTimer = setTimeout(function() {
-            var msg = &#x27;process ran into a timeout (&#x27; + self.options.timeout + &#x27;s)&#x27;;
+            var msg = 'process ran into a timeout (' + self.options.timeout + 's)';
 
             emitEnd(new Error(msg), stdoutRing.get(), stderrRing.get());
             ffmpegProc.kill();
@@ -4863,40 +4855,40 @@ if (input.isStream) {
           ffmpegProc.stdout.pipe(outputStream.target, outputStream.pipeopts);
 
           // Handle output stream events
-          outputStream.target.on(&#x27;close&#x27;, function() {
-            self.logger.debug(&#x27;Output stream closed, scheduling kill for ffmpeg process&#x27;);
+          outputStream.target.on('close', function() {
+            self.logger.debug('Output stream closed, scheduling kill for ffmpeg process');
 
-            // Don&#x27;t kill process yet, to give a chance to ffmpeg to
+            // Don't kill process yet, to give a chance to ffmpeg to
             // terminate successfully first  This is necessary because
-            // under load, the process &#x27;exit&#x27; event sometimes happens
-            // after the output stream &#x27;close&#x27; event.
+            // under load, the process 'exit' event sometimes happens
+            // after the output stream 'close' event.
             setTimeout(function() {
-              emitEnd(new Error(&#x27;Output stream closed&#x27;));
+              emitEnd(new Error('Output stream closed'));
               ffmpegProc.kill();
             }, 20);
           });
 
-          outputStream.target.on(&#x27;error&#x27;, function(err) {
-            self.logger.debug(&#x27;Output stream error, killing ffmpeg process&#x27;);
-            var reportingErr = new Error(&#x27;Output stream error: &#x27; + err.message);
+          outputStream.target.on('error', function(err) {
+            self.logger.debug('Output stream error, killing ffmpeg process');
+            var reportingErr = new Error('Output stream error: ' + err.message);
             reportingErr.outputStreamError = err;
             emitEnd(reportingErr, stdoutRing.get(), stderrRing.get());
-            ffmpegProc.kill(&#x27;SIGKILL&#x27;);
+            ffmpegProc.kill('SIGKILL');
           });
         }
 
         // Setup stderr handling
         if (stderrRing) {
 
-          // &#x27;stderr&#x27; event
-          if (self.listeners(&#x27;stderr&#x27;).length) {
+          // 'stderr' event
+          if (self.listeners('stderr').length) {
             stderrRing.callback(function(line) {
-              self.emit(&#x27;stderr&#x27;, line);
+              self.emit('stderr', line);
             });
           }
 
-          // &#x27;codecData&#x27; event
-          if (self.listeners(&#x27;codecData&#x27;).length) {
+          // 'codecData' event
+          if (self.listeners('codecData').length) {
             var codecDataSent = false;
             var codecObject = {};
 
@@ -4906,7 +4898,7 @@ if (input.isStream) {
             });
           }
 
-          // &#x27; ...</pre></li>
+          // ' ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
@@ -4924,33 +4916,33 @@ if (input.isStream) {
 
   // Check if at least one output is present
   var outputPresent = this._outputs.some(function(output) {
-    return &#x27;target&#x27; in output;
+    return 'target' in output;
   });
 
   if (!outputPresent) {
-    throw new Error(&#x27;No output specified&#x27;);
+    throw new Error('No output specified');
   }
 
   // Get output stream if any
   var outputStream = this._outputs.filter(function(output) {
-    return typeof output.target !== &#x27;string&#x27;;
+    return typeof output.target !== 'string';
   })[0];
 
   // Get input stream if any
   var inputStream = this._inputs.filter(function(input) {
-    return typeof input.source !== &#x27;string&#x27;;
+    return typeof input.source !== 'string';
   })[0];
 
-  // Ensure we send &#x27;end&#x27; or &#x27;error&#x27; only once
+  // Ensure we send 'end' or 'error' only once
   var ended = false;
   function emitEnd(err, stdout, stderr) {
     if (!ended) {
       ended = true;
 
       if (err) {
-        self.emit(&#x27;error&#x27;, err, stdout, stderr);
+        self.emit('error', err, stdout, stderr);
       } else {
-        self.emit(&#x27;end&#x27;, stdout, stderr);
+        self.emit('end', stdout, stderr);
       }
     }
   }
@@ -4971,12 +4963,12 @@ if (input.isStream) {
 
       function processCB(ffmpegProc, stdoutRing, stderrRing) {
         self.ffmpegProc = ffmpegProc;
-        self.emit(&#x27;start&#x27;, &#x27;ffmpeg &#x27; + args.join(&#x27; &#x27;));
+        self.emit('start', 'ffmpeg ' + args.join(' '));
 
         // Pipe input stream if any
         if (inputStream) {
-          inputStream.source.on(&#x27;error&#x27;, function(err) {
-            var reportingErr = new Error(&#x27;Input stream error: &#x27; + err.message);
+          inputStream.source.on('error', function(err) {
+            var reportingErr = new Error('Input stream error: ' + err.message);
             reportingErr.inputStreamError = err;
             emitEnd(reportingErr);
             ffmpegProc.kill();
@@ -4987,14 +4979,14 @@ if (input.isStream) {
 
           // Set stdin error handler on ffmpeg (prevents nodejs catching the error, but
           // ffmpeg will fail anyway, so no need to actually handle anything)
-          ffmpegProc.stdin.on(&#x27;error&#x27;, function() {});
+          ffmpegProc.stdin.on('error', function() {});
         }
 
         // Setup timeout if requested
         var processTimer;
         if (self.options.timeout) {
           processTimer = setTimeout(function() {
-            var msg = &#x27;process ran into a timeout (&#x27; + self.options.timeout + &#x27;s)&#x27;;
+            var msg = 'process ran into a timeout (' + self.options.timeout + 's)';
 
             emitEnd(new Error(msg), stdoutRing.get(), stderrRing.get());
             ffmpegProc.kill();
@@ -5007,40 +4999,40 @@ if (input.isStream) {
           ffmpegProc.stdout.pipe(outputStream.target, outputStream.pipeopts);
 
           // Handle output stream events
-          outputStream.target.on(&#x27;close&#x27;, function() {
-            self.logger.debug(&#x27;Output stream closed, scheduling kill for ffmpeg process&#x27;);
+          outputStream.target.on('close', function() {
+            self.logger.debug('Output stream closed, scheduling kill for ffmpeg process');
 
-            // Don&#x27;t kill process yet, to give a chance to ffmpeg to
+            // Don't kill process yet, to give a chance to ffmpeg to
             // terminate successfully first  This is necessary because
-            // under load, the process &#x27;exit&#x27; event sometimes happens
-            // after the output stream &#x27;close&#x27; event.
+            // under load, the process 'exit' event sometimes happens
+            // after the output stream 'close' event.
             setTimeout(function() {
-              emitEnd(new Error(&#x27;Output stream closed&#x27;));
+              emitEnd(new Error('Output stream closed'));
               ffmpegProc.kill();
             }, 20);
           });
 
-          outputStream.target.on(&#x27;error&#x27;, function(err) {
-            self.logger.debug(&#x27;Output stream error, killing ffmpeg process&#x27;);
-            var reportingErr = new Error(&#x27;Output stream error: &#x27; + err.message);
+          outputStream.target.on('error', function(err) {
+            self.logger.debug('Output stream error, killing ffmpeg process');
+            var reportingErr = new Error('Output stream error: ' + err.message);
             reportingErr.outputStreamError = err;
             emitEnd(reportingErr, stdoutRing.get(), stderrRing.get());
-            ffmpegProc.kill(&#x27;SIGKILL&#x27;);
+            ffmpegProc.kill('SIGKILL');
           });
         }
 
         // Setup stderr handling
         if (stderrRing) {
 
-          // &#x27;stderr&#x27; event
-          if (self.listeners(&#x27;stderr&#x27;).length) {
+          // 'stderr' event
+          if (self.listeners('stderr').length) {
             stderrRing.callback(function(line) {
-              self.emit(&#x27;stderr&#x27;, line);
+              self.emit('stderr', line);
             });
           }
 
-          // &#x27;codecData&#x27; event
-          if (self.listeners(&#x27;codecData&#x27;).length) {
+          // 'codecData' event
+          if (self.listeners('codecData').length) {
             var codecDataSent = false;
             var codecObject = {};
 
@@ -5050,7 +5042,7 @@ if (input.isStream) {
             });
           }
 
-          // &#x27; ...</pre></li>
+          // ' ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
@@ -5084,7 +5076,7 @@ if (input.isStream) {
       options = arguments[1];
       break;
     case 2:
-      if (typeof arguments[0] === &#x27;number&#x27;) {
+      if (typeof arguments[0] === 'number') {
         index = arguments[0];
       } else if (Array.isArray(arguments[0])) {
         options = arguments[0];
@@ -5095,7 +5087,7 @@ if (input.isStream) {
 
   if (index === null) {
     if (!this._currentInput) {
-      return handleCallback(new Error(&#x27;No input specified&#x27;));
+      return handleCallback(new Error('No input specified'));
     }
 
     input = this._currentInput;
@@ -5103,7 +5095,7 @@ if (input.isStream) {
     input = this._inputs[index];
 
     if (!input) {
-      return handleCallback(new Error(&#x27;Invalid input index&#x27;));
+      return handleCallback(new Error('Invalid input index'));
     }
   }
 
@@ -5112,29 +5104,29 @@ if (input.isStream) {
     if (err) {
       return handleCallback(err);
     } else if (!path) {
-      return handleCallback(new Error(&#x27;Cannot find ffprobe&#x27;));
+      return handleCallback(new Error('Cannot find ffprobe'));
     }
 
-    var stdout = &#x27;&#x27;;
+    var stdout = '';
     var stdoutClosed = false;
-    var stderr = &#x27;&#x27;;
+    var stderr = '';
     var stderrClosed = false;
 
     // Spawn ffprobe
-    var src = input.isStream ? &#x27;pipe:0&#x27; : input.source;
-    var ffprobe = spawn(path, [&#x27;-show_streams&#x27;, &#x27;-show_format&#x27;].concat(options, src));
+    var src = input.isStream ? 'pipe:0' : input.source;
+    var ffprobe = spawn(path, ['-show_streams', '-show_format'].concat(options, src));
 
     if (input.isStream) {
       // Skip errors on stdin. These get thrown when ffprobe is complete and
       // there seems to be no way hook in and close stdin before it throws.
-      ffprobe.stdin.on(&#x27;error&#x27;, function(err) {
-        if ([&#x27;ECONNRESET&#x27;, &#x27;EPIPE&#x27;].indexOf(err.code) &#x3e;= 0) { return; }
+      ffprobe.stdin.on('error', function(err) {
+        if (['ECONNRESET', 'EPIPE'].indexOf(err.code) &gt;= 0) { return; }
         handleCallback(err);
       });
 
-      // Once ffprobe&#x27;s input stream closes, we need no more data from the
+      // Once ffprobe's input stream closes, we need no more data from the
       // input
-      ffprobe.stdin.on(&#x27;close&#x27;, function() {
+      ffprobe.stdin.on('close', function() {
           input.source.pause();
           input.source.unpipe(ffprobe.stdin);
       });
@@ -5142,7 +5134,7 @@ if (input.isStream) {
       input.source.pipe(ffprobe.stdin);
     }
 
-    ffprobe.on(&#x27;error&#x27;, callback);
+    ffprobe.on('error', callback);
 
     // Ensure we wait for captured streams to end before calling callback
     var exitError = null;
@@ -5151,10 +5143,10 @@ if (input.isStream) {
         exitError = err;
       }
 
-      if (processExited &#x26;&#x26; stdoutClosed &#x26;&#x26; stderrClosed) {
+      if (processExited &amp;&amp; stdoutClosed &amp;&amp; stderrClosed) {
         if (exitError) {
           if (stderr) {
-            exitError.message += &#x27;\n&#x27; + stderr;
+            exitError.message += '\n' + stderr;
           }
 
           return handleCallback(exitError);
@@ -5163,7 +5155,7 @@ if (input.isStream) {
         // Process output
         var data = parseFfprobeOutput(stdout);
 
-        // Handle legacy output with &#x22;TAG:x&#x22; and &#x22;DISPOSITION:x&#x22; keys
+        // Handle legacy output with "TAG:x" and "DISPOSITION:x" keys
         [data.format].concat(data.streams).forEach(function(target) {
           if (target) {
             var legacyTagKeys = Object.keys(target).filter(legacyTag);
@@ -5196,30 +5188,30 @@ if (input.isStream) {
 
     // Handle ffprobe exit
     var processExited = false;
-    ffprobe.on(&#x27;exit&#x27;, function(code, signal) {
+    ffprobe.on('exit', function(code, signal) {
       processExited = true;
 
       if (code) {
-        handleExit(new Error(&#x27;ffprobe exited with code &#x27; + code));
+        handleExit(new Error('ffprobe exited with code ' + code));
       } else if (signal) {
-        handleExit(new Error(&#x27;ffprobe was killed with signal &#x27; + signal));
+        handleExit(new Error('ffprobe was killed with signal ' + signal));
       } else {
         handleExit();
       }
     });
 
     // Handle stdout/stderr streams
-    ffprobe.stdout.on(&#x27;data&#x27;, function(data) {
+    ffprobe.stdout.on('data', function(data) {
       stdout += data;
     });
 
-    ffprobe.stdout.on(&#x27;clo ...</pre></li>
+    ffprobe.stdout.on('clo ...</pre></li>
     <li>example usage<pre class="apidocCodePre">...
  */
 function runFfprobe(command) {
 const inputProbeIndex = 0;
 if (command._inputs[inputProbeIndex].isStream) {
-  // Don&#x27;t probe input streams as this will consume them
+  // Don't probe input streams as this will consume them
   return;
 }
 command.<span class="apidocCodeKeywordSpan">ffprobe</span>(inputProbeIndex, function(err, data) {
@@ -5249,15 +5241,15 @@ module.exports = function(proto) {
     spec = [spec];
   }
 
-  this._complexFilters(&#x27;-filter_complex&#x27;, utils.makeFilterStrings(spec).join(&#x27;;&#x27;));
+  this._complexFilters('-filter_complex', utils.makeFilterStrings(spec).join(';'));
 
   if (Array.isArray(map)) {
     var self = this;
     map.forEach(function(streamSpec) {
-      self._complexFilters(&#x27;-map&#x27;, streamSpec.replace(utils.streamRegexp, &#x27;[$1]&#x27;));
+      self._complexFilters('-map', streamSpec.replace(utils.streamRegexp, '[$1]'));
     });
-  } else if (typeof map === &#x27;string&#x27;) {
-    this._complexFilters(&#x27;-map&#x27;, map.replace(utils.streamRegexp, &#x27;[$1]&#x27;));
+  } else if (typeof map === 'string') {
+    this._complexFilters('-map', map.replace(utils.streamRegexp, '[$1]'));
   }
 
   return this;
@@ -5281,18 +5273,18 @@ module.exports = function(proto) {
     <li>example usage<pre class="apidocCodePre">...
 
 /*jshint node:true */
-&#x27;use strict&#x27;;
+'use strict';
 
 exports.load = function(ffmpeg) {
 ffmpeg
-  .format(&#x27;flv&#x27;)
+  .format('flv')
   .<span class="apidocCodeKeywordSpan">flvmeta</span>()
-  .size(&#x27;320x?&#x27;)
-  .videoBitrate(&#x27;512k&#x27;)
-  .videoCodec(&#x27;libx264&#x27;)
+  .size('320x?')
+  .videoBitrate('512k')
+  .videoCodec('libx264')
   .fps(24)
-  .audioBitrate(&#x27;96k&#x27;)
-  .audioCodec(&#x27;aac&#x27;)
+  .audioBitrate('96k')
+  .audioCodec('aac')
   .audioFrequency(22050)
 ...</pre></li>
     </ul>
@@ -5307,25 +5299,25 @@ ffmpeg
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">format = function (format) {
-  this._currentOutput.options(&#x27;-f&#x27;, format);
+  this._currentOutput.options('-f', format);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
 
 /*jshint node:true */
-&#x27;use strict&#x27;;
+'use strict';
 
 exports.load = function(ffmpeg) {
 ffmpeg
-  .<span class="apidocCodeKeywordSpan">format</span>(&#x27;avi&#x27;)
-  .videoBitrate(&#x27;1024k&#x27;)
-  .videoCodec(&#x27;mpeg4&#x27;)
-  .size(&#x27;720x?&#x27;)
-  .audioBitrate(&#x27;128k&#x27;)
+  .<span class="apidocCodeKeywordSpan">format</span>('avi')
+  .videoBitrate('1024k')
+  .videoCodec('mpeg4')
+  .size('720x?')
+  .audioBitrate('128k')
   .audioChannels(2)
-  .audioCodec(&#x27;libmp3lame&#x27;)
-  .outputOptions([&#x27;-vtag DIVX&#x27;]);
+  .audioCodec('libmp3lame')
+  .outputOptions(['-vtag DIVX']);
 ...</pre></li>
     </ul>
 
@@ -5339,7 +5331,7 @@ ffmpeg
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fps = function (fps) {
-  this._currentOutput.video(&#x27;-r&#x27;, fps);
+  this._currentOutput.video('-r', fps);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -5356,10 +5348,10 @@ ffmpeg
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fpsInput = function (fps) {
   if (!this._currentInput) {
-    throw new Error(&#x27;No input specified&#x27;);
+    throw new Error('No input specified');
   }
 
-  this._currentInput.options(&#x27;-r&#x27;, fps);
+  this._currentInput.options('-r', fps);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -5375,7 +5367,7 @@ ffmpeg
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fpsOutput = function (fps) {
-  this._currentOutput.video(&#x27;-r&#x27;, fps);
+  this._currentOutput.video('-r', fps);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -5391,7 +5383,7 @@ ffmpeg
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">frames = function (frames) {
-  this._currentOutput.video(&#x27;-vframes&#x27;, frames);
+  this._currentOutput.video('-vframes', frames);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -5405,7 +5397,7 @@ ffmpeg
     .<span class="apidocCodeKeywordSpan">frames</span>(1)
     .map(stream);
 
-  if (i &#x3e; 0) {
+  if (i &gt; 0) {
     self.seek(config.timemarks[i] - first);
   }
 }
@@ -5423,10 +5415,10 @@ ffmpeg
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fromFormat = function (format) {
   if (!this._currentInput) {
-    throw new Error(&#x27;No input specified&#x27;);
+    throw new Error('No input specified');
   }
 
-  this._currentInput.options(&#x27;-f&#x27;, format);
+  this._currentInput.options('-f', format);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -5442,11 +5434,11 @@ ffmpeg
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">getAvailableCodecs = function (callback) {
-  if (&#x27;codecs&#x27; in cache) {
+  if ('codecs' in cache) {
     return callback(null, cache.codecs);
   }
 
-  this._spawnFfmpeg([&#x27;-codecs&#x27;], { captureStdout: true, stdoutLines: 0 }, function(err, stdoutRing) {
+  this._spawnFfmpeg(['-codecs'], { captureStdout: true, stdoutLines: 0 }, function(err, stdoutRing) {
     if (err) {
       return callback(err);
     }
@@ -5457,35 +5449,35 @@ ffmpeg
 
     lines.forEach(function(line) {
       var match = line.match(avCodecRegexp);
-      if (match &#x26;&#x26; match[7] !== &#x27;=&#x27;) {
+      if (match &amp;&amp; match[7] !== '=') {
         data[match[7]] = {
-          type: { &#x27;V&#x27;: &#x27;video&#x27;, &#x27;A&#x27;: &#x27;audio&#x27;, &#x27;S&#x27;: &#x27;subtitle&#x27; }[match[3]],
+          type: { 'V': 'video', 'A': 'audio', 'S': 'subtitle' }[match[3]],
           description: match[8],
-          canDecode: match[1] === &#x27;D&#x27;,
-          canEncode: match[2] === &#x27;E&#x27;,
-          drawHorizBand: match[4] === &#x27;S&#x27;,
-          directRendering: match[5] === &#x27;D&#x27;,
-          weirdFrameTruncation: match[6] === &#x27;T&#x27;
+          canDecode: match[1] === 'D',
+          canEncode: match[2] === 'E',
+          drawHorizBand: match[4] === 'S',
+          directRendering: match[5] === 'D',
+          weirdFrameTruncation: match[6] === 'T'
         };
       }
 
       match = line.match(ffCodecRegexp);
-      if (match &#x26;&#x26; match[7] !== &#x27;=&#x27;) {
+      if (match &amp;&amp; match[7] !== '=') {
         var codecData = data[match[7]] = {
-          type: { &#x27;V&#x27;: &#x27;video&#x27;, &#x27;A&#x27;: &#x27;audio&#x27;, &#x27;S&#x27;: &#x27;subtitle&#x27; }[match[3]],
+          type: { 'V': 'video', 'A': 'audio', 'S': 'subtitle' }[match[3]],
           description: match[8],
-          canDecode: match[1] === &#x27;D&#x27;,
-          canEncode: match[2] === &#x27;E&#x27;,
-          intraFrameOnly: match[4] === &#x27;I&#x27;,
-          isLossy: match[5] === &#x27;L&#x27;,
-          isLossless: match[6] === &#x27;S&#x27;
+          canDecode: match[1] === 'D',
+          canEncode: match[2] === 'E',
+          intraFrameOnly: match[4] === 'I',
+          isLossy: match[5] === 'L',
+          isLossless: match[6] === 'S'
         };
 
         var encoders = codecData.description.match(ffEncodersRegexp);
-        encoders = encoders ? encoders[1].trim().split(&#x27; &#x27;) : [];
+        encoders = encoders ? encoders[1].trim().split(' ') : [];
 
         var decoders = codecData.description.match(ffDecodersRegexp);
-        decoders = decoders ? decoders[1].trim().split(&#x27; &#x27;) : [];
+        decoders = decoders ? decoders[1].trim().split(' ') : [];
 
         if (encoders.length || decoders.length) {
           var coderData = {};
@@ -5528,11 +5520,11 @@ ffmpeg
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">getAvailableEncoders = function (callback) {
-  if (&#x27;encoders&#x27; in cache) {
+  if ('encoders' in cache) {
     return callback(null, cache.encoders);
   }
 
-  this._spawnFfmpeg([&#x27;-encoders&#x27;], { captureStdout: true, stdoutLines: 0 }, function(err, stdoutRing) {
+  this._spawnFfmpeg(['-encoders'], { captureStdout: true, stdoutLines: 0 }, function(err, stdoutRing) {
     if (err) {
       return callback(err);
     }
@@ -5543,15 +5535,15 @@ ffmpeg
 
     lines.forEach(function(line) {
       var match = line.match(encodersRegexp);
-      if (match &#x26;&#x26; match[7] !== &#x27;=&#x27;) {
+      if (match &amp;&amp; match[7] !== '=') {
         data[match[7]] = {
-          type: { &#x27;V&#x27;: &#x27;video&#x27;, &#x27;A&#x27;: &#x27;audio&#x27;, &#x27;S&#x27;: &#x27;subtitle&#x27; }[match[1]],
+          type: { 'V': 'video', 'A': 'audio', 'S': 'subtitle' }[match[1]],
           description: match[8],
-          frameMT: match[2] === &#x27;F&#x27;,
-          sliceMT: match[3] === &#x27;S&#x27;,
-          experimental: match[4] === &#x27;X&#x27;,
-          drawHorizBand: match[5] === &#x27;B&#x27;,
-          directRendering: match[6] === &#x27;D&#x27;
+          frameMT: match[2] === 'F',
+          sliceMT: match[3] === 'S',
+          experimental: match[4] === 'X',
+          drawHorizBand: match[5] === 'B',
+          directRendering: match[6] === 'D'
         };
       }
     });
@@ -5572,19 +5564,19 @@ ffmpeg
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">getAvailableFilters = function (callback) {
-  if (&#x27;filters&#x27; in cache) {
+  if ('filters' in cache) {
     return callback(null, cache.filters);
   }
 
-  this._spawnFfmpeg([&#x27;-filters&#x27;], { captureStdout: true, stdoutLines: 0 }, function (err, stdoutRing) {
+  this._spawnFfmpeg(['-filters'], { captureStdout: true, stdoutLines: 0 }, function (err, stdoutRing) {
     if (err) {
       return callback(err);
     }
 
     var stdout = stdoutRing.get();
-    var lines = stdout.split(&#x27;\n&#x27;);
+    var lines = stdout.split('\n');
     var data = {};
-    var types = { A: &#x27;audio&#x27;, V: &#x27;video&#x27;, &#x27;|&#x27;: &#x27;none&#x27; };
+    var types = { A: 'audio', V: 'video', '|': 'none' };
 
     lines.forEach(function(line) {
       var match = line.match(filterRegexp);
@@ -5592,9 +5584,9 @@ ffmpeg
         data[match[1]] = {
           description: match[4],
           input: types[match[2].charAt(0)],
-          multipleInputs: match[2].length &#x3e; 1,
+          multipleInputs: match[2].length &gt; 1,
           output: types[match[3].charAt(0)],
-          multipleOutputs: match[3].length &#x3e; 1
+          multipleOutputs: match[3].length &gt; 1
         };
       }
     });
@@ -5615,12 +5607,12 @@ ffmpeg
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">getAvailableFormats = function (callback) {
-  if (&#x27;formats&#x27; in cache) {
+  if ('formats' in cache) {
     return callback(null, cache.formats);
   }
 
   // Run ffmpeg -formats
-  this._spawnFfmpeg([&#x27;-formats&#x27;], { captureStdout: true, stdoutLines: 0 }, function (err, stdoutRing) {
+  this._spawnFfmpeg(['-formats'], { captureStdout: true, stdoutLines: 0 }, function (err, stdoutRing) {
     if (err) {
       return callback(err);
     }
@@ -5633,7 +5625,7 @@ ffmpeg
     lines.forEach(function(line) {
       var match = line.match(formatRegexp);
       if (match) {
-        match[3].split(&#x27;,&#x27;).forEach(function(format) {
+        match[3].split(',').forEach(function(format) {
           if (!(format in data)) {
             data[format] = {
               description: match[4],
@@ -5642,10 +5634,10 @@ ffmpeg
             };
           }
 
-          if (match[1] === &#x27;D&#x27;) {
+          if (match[1] === 'D') {
             data[format].canDemux = true;
           }
-          if (match[2] === &#x27;E&#x27;) {
+          if (match[2] === 'E') {
             data[format].canMux = true;
           }
         });
@@ -5671,9 +5663,9 @@ ffmpeg
   var isFile = false;
   var isStream = false;
 
-  if (typeof source !== &#x27;string&#x27;) {
-    if (!(&#x27;readable&#x27; in source) || !(source.readable)) {
-      throw new Error(&#x27;Invalid input&#x27;);
+  if (typeof source !== 'string') {
+    if (!('readable' in source) || !(source.readable)) {
+      throw new Error('Invalid input');
     }
 
     var hasInputStream = this._inputs.some(function(input) {
@@ -5681,14 +5673,14 @@ ffmpeg
     });
 
     if (hasInputStream) {
-      throw new Error(&#x27;Only one input stream is supported&#x27;);
+      throw new Error('Only one input stream is supported');
     }
 
     isStream = true;
     source.pause();
   } else {
     var protocol = source.match(/^([a-z]{2,}):/i);
-    isFile = !protocol || protocol[0] === &#x27;file&#x27;;
+    isFile = !protocol || protocol[0] === 'file';
   }
 
   this._inputs.push(this._currentInput = {
@@ -5706,16 +5698,16 @@ ffmpeg
 * Calling this method will override any previously set filtergraph, but you can set
 * as many filters as needed in one call.
 *
-* @example &#x3c;caption&#x3e;Overlay an image over a video (using a filtergraph string)&#x3c;/caption&#x3e;
+* @example &lt;caption&gt;Overlay an image over a video (using a filtergraph string)&lt;/caption&gt;
 *   ffmpeg()
-*     .<span class="apidocCodeKeywordSpan">input</span>(&#x27;video.avi&#x27;)
-*     .input(&#x27;image.png&#x27;)
-*     .complexFilter(&#x27;[0:v][1:v]overlay[out]&#x27;, [&#x27;out&#x27;]);
+*     .<span class="apidocCodeKeywordSpan">input</span>('video.avi')
+*     .input('image.png')
+*     .complexFilter('[0:v][1:v]overlay[out]', ['out']);
 *
-* @example &#x3c;caption&#x3e;Overlay an image over a video (using a filter array)&#x3c;/caption&#x3e;
+* @example &lt;caption&gt;Overlay an image over a video (using a filter array)&lt;/caption&gt;
 *   ffmpeg()
-*     .input(&#x27;video.avi&#x27;)
-*     .input(&#x27;image.png&#x27;)
+*     .input('video.avi')
+*     .input('image.png')
 ...</pre></li>
     </ul>
 
@@ -5730,10 +5722,10 @@ ffmpeg
     <ul>
     <li>description and source-code<pre class="apidocCodePre">inputFPS = function (fps) {
   if (!this._currentInput) {
-    throw new Error(&#x27;No input specified&#x27;);
+    throw new Error('No input specified');
   }
 
-  this._currentInput.options(&#x27;-r&#x27;, fps);
+  this._currentInput.options('-r', fps);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -5750,10 +5742,10 @@ ffmpeg
     <ul>
     <li>description and source-code<pre class="apidocCodePre">inputFormat = function (format) {
   if (!this._currentInput) {
-    throw new Error(&#x27;No input specified&#x27;);
+    throw new Error('No input specified');
   }
 
-  this._currentInput.options(&#x27;-f&#x27;, format);
+  this._currentInput.options('-f', format);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -5770,10 +5762,10 @@ ffmpeg
     <ul>
     <li>description and source-code<pre class="apidocCodePre">inputFps = function (fps) {
   if (!this._currentInput) {
-    throw new Error(&#x27;No input specified&#x27;);
+    throw new Error('No input specified');
   }
 
-  this._currentInput.options(&#x27;-r&#x27;, fps);
+  this._currentInput.options('-r', fps);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -5790,12 +5782,12 @@ ffmpeg
     <ul>
     <li>description and source-code<pre class="apidocCodePre">inputOption = function (options) {
   if (!this._currentInput) {
-    throw new Error(&#x27;No input specified&#x27;);
+    throw new Error('No input specified');
   }
 
   var doSplit = true;
 
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     options = [].slice.call(arguments);
     doSplit = false;
   }
@@ -5805,9 +5797,9 @@ ffmpeg
   }
 
   this._currentInput.options(options.reduce(function(options, option) {
-    var split = String(option).split(&#x27; &#x27;);
+    var split = String(option).split(' ');
 
-    if (doSplit &#x26;&#x26; split.length === 2) {
+    if (doSplit &amp;&amp; split.length === 2) {
       options.push(split[0], split[1]);
     } else {
       options.push(option);
@@ -5831,12 +5823,12 @@ ffmpeg
     <ul>
     <li>description and source-code<pre class="apidocCodePre">inputOptions = function (options) {
   if (!this._currentInput) {
-    throw new Error(&#x27;No input specified&#x27;);
+    throw new Error('No input specified');
   }
 
   var doSplit = true;
 
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     options = [].slice.call(arguments);
     doSplit = false;
   }
@@ -5846,9 +5838,9 @@ ffmpeg
   }
 
   this._currentInput.options(options.reduce(function(options, option) {
-    var split = String(option).split(&#x27; &#x27;);
+    var split = String(option).split(' ');
 
-    if (doSplit &#x26;&#x26; split.length === 2) {
+    if (doSplit &amp;&amp; split.length === 2) {
       options.push(split[0], split[1]);
     } else {
       options.push(option);
@@ -5861,18 +5853,18 @@ ffmpeg
     <li>example usage<pre class="apidocCodePre">...
 *
 * When passing a single string or an array, each string containing two
-* words is split (eg. inputOptions(&#x27;-option value&#x27;) is supported) for
+* words is split (eg. inputOptions('-option value') is supported) for
 * compatibility reasons.  This is not the case when passing more than
 * one argument.
 *
 * @example
-* command.<span class="apidocCodeKeywordSpan">inputOptions</span>(&#x27;option1&#x27;);
+* command.<span class="apidocCodeKeywordSpan">inputOptions</span>('option1');
 *
 * @example
-* command.inputOptions(&#x27;option1&#x27;, &#x27;option2&#x27;);
+* command.inputOptions('option1', 'option2');
 *
 * @example
-* command.inputOptions([&#x27;option1&#x27;, &#x27;option2&#x27;]);
+* command.inputOptions(['option1', 'option2']);
 *
 ...</pre></li>
     </ul>
@@ -5889,15 +5881,15 @@ ffmpeg
     <li>description and source-code<pre class="apidocCodePre">keepDAR = function () {
   return this.videoFilters([
     {
-      filter: &#x27;scale&#x27;,
+      filter: 'scale',
       options: {
-        w: &#x27;if(gt(sar,1),iw*sar,iw)&#x27;,
-        h: &#x27;if(lt(sar,1),ih/sar,ih)&#x27;
+        w: 'if(gt(sar,1),iw*sar,iw)',
+        h: 'if(lt(sar,1),ih/sar,ih)'
       }
     },
     {
-      filter: &#x27;setsar&#x27;,
-      options: &#x27;1&#x27;
+      filter: 'setsar',
+      options: '1'
     }
   ]);
 }</pre></li>
@@ -5916,15 +5908,15 @@ ffmpeg
     <li>description and source-code<pre class="apidocCodePre">keepDisplayAspect = function () {
   return this.videoFilters([
     {
-      filter: &#x27;scale&#x27;,
+      filter: 'scale',
       options: {
-        w: &#x27;if(gt(sar,1),iw*sar,iw)&#x27;,
-        h: &#x27;if(lt(sar,1),ih/sar,ih)&#x27;
+        w: 'if(gt(sar,1),iw*sar,iw)',
+        h: 'if(lt(sar,1),ih/sar,ih)'
       }
     },
     {
-      filter: &#x27;setsar&#x27;,
-      options: &#x27;1&#x27;
+      filter: 'setsar',
+      options: '1'
     }
   ]);
 }</pre></li>
@@ -5943,15 +5935,15 @@ ffmpeg
     <li>description and source-code<pre class="apidocCodePre">keepDisplayAspectRatio = function () {
   return this.videoFilters([
     {
-      filter: &#x27;scale&#x27;,
+      filter: 'scale',
       options: {
-        w: &#x27;if(gt(sar,1),iw*sar,iw)&#x27;,
-        h: &#x27;if(lt(sar,1),ih/sar,ih)&#x27;
+        w: 'if(gt(sar,1),iw*sar,iw)',
+        h: 'if(lt(sar,1),ih/sar,ih)'
       }
     },
     {
-      filter: &#x27;setsar&#x27;,
-      options: &#x27;1&#x27;
+      filter: 'setsar',
+      options: '1'
     }
   ]);
 }</pre></li>
@@ -5970,15 +5962,15 @@ ffmpeg
     <li>description and source-code<pre class="apidocCodePre">keepPixelAspect = function () {
   return this.videoFilters([
     {
-      filter: &#x27;scale&#x27;,
+      filter: 'scale',
       options: {
-        w: &#x27;if(gt(sar,1),iw*sar,iw)&#x27;,
-        h: &#x27;if(lt(sar,1),ih/sar,ih)&#x27;
+        w: 'if(gt(sar,1),iw*sar,iw)',
+        h: 'if(lt(sar,1),ih/sar,ih)'
       }
     },
     {
-      filter: &#x27;setsar&#x27;,
-      options: &#x27;1&#x27;
+      filter: 'setsar',
+      options: '1'
     }
   ]);
 }</pre></li>
@@ -5996,9 +5988,9 @@ ffmpeg
     <ul>
     <li>description and source-code<pre class="apidocCodePre">kill = function (signal) {
   if (!this.ffmpegProc) {
-    this.logger.warn(&#x27;No running ffmpeg process, cannot send signal&#x27;);
+    this.logger.warn('No running ffmpeg process, cannot send signal');
   } else {
-    this.ffmpegProc.kill(signal || &#x27;SIGKILL&#x27;);
+    this.ffmpegProc.kill(signal || 'SIGKILL');
   }
 
   return this;
@@ -6007,8 +5999,8 @@ ffmpeg
 
           // Pipe input stream if any
           if (inputStream) {
-inputStream.source.on(&#x27;error&#x27;, function(err) {
-  var reportingErr = new Error(&#x27;Input stream error: &#x27; + err.message);
+inputStream.source.on('error', function(err) {
+  var reportingErr = new Error('Input stream error: ' + err.message);
   reportingErr.inputStreamError = err;
   emitEnd(reportingErr);
   ffmpegProc.<span class="apidocCodeKeywordSpan">kill</span>();
@@ -6033,12 +6025,12 @@ inputStream.source.pipe(ffmpegProc.stdin);
     <ul>
     <li>description and source-code<pre class="apidocCodePre">loop = function (duration) {
   if (!this._currentInput) {
-    throw new Error(&#x27;No input specified&#x27;);
+    throw new Error('No input specified');
   }
 
-  this._currentInput.options(&#x27;-loop&#x27;, &#x27;1&#x27;);
+  this._currentInput.options('-loop', '1');
 
-  if (typeof duration !== &#x27;undefined&#x27;) {
+  if (typeof duration !== 'undefined') {
     this.duration(duration);
   }
 
@@ -6057,7 +6049,7 @@ inputStream.source.pipe(ffmpegProc.stdin);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">map = function (spec) {
-  this._currentOutput.options(&#x27;-map&#x27;, spec.replace(utils.streamRegexp, &#x27;[$1]&#x27;));
+  this._currentOutput.options('-map', spec.replace(utils.streamRegexp, '[$1]'));
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -6065,11 +6057,11 @@ inputStream.source.pipe(ffmpegProc.stdin);
 }
 
 if (isNaN(duration)) {
-  return next(new Error(&#x27;Could not get input duration, please specify fixed timemarks&#x27;));
+  return next(new Error('Could not get input duration, please specify fixed timemarks'));
 }
 
 config.timemarks = config.timemarks.<span class="apidocCodeKeywordSpan">map</span>(function(mark) {
-  if ((&#x27;&#x27; + mark).match(/^([\d.]+)%$/)) {
+  if (('' + mark).match(/^([\d.]+)%$/)) {
     return duration * parseFloat(mark) / 100;
   } else {
     return mark;
@@ -6091,9 +6083,9 @@ config.timemarks = config.timemarks.<span class="apidocCodeKeywordSpan">map</spa
   var isFile = false;
   var isStream = false;
 
-  if (typeof source !== &#x27;string&#x27;) {
-    if (!(&#x27;readable&#x27; in source) || !(source.readable)) {
-      throw new Error(&#x27;Invalid input&#x27;);
+  if (typeof source !== 'string') {
+    if (!('readable' in source) || !(source.readable)) {
+      throw new Error('Invalid input');
     }
 
     var hasInputStream = this._inputs.some(function(input) {
@@ -6101,14 +6093,14 @@ config.timemarks = config.timemarks.<span class="apidocCodeKeywordSpan">map</spa
     });
 
     if (hasInputStream) {
-      throw new Error(&#x27;Only one input stream is supported&#x27;);
+      throw new Error('Only one input stream is supported');
     }
 
     isStream = true;
     source.pause();
   } else {
     var protocol = source.match(/^([a-z]{2,}):/i);
-    isFile = !protocol || protocol[0] === &#x27;file&#x27;;
+    isFile = !protocol || protocol[0] === 'file';
   }
 
   this._inputs.push(this._currentInput = {
@@ -6141,21 +6133,21 @@ config.timemarks = config.timemarks.<span class="apidocCodeKeywordSpan">map</spa
   var self = this;
   this.ffprobe(this._inputs.indexOf(fileInput), function(err, data) {
     if (err) {
-      return self.emit(&#x27;error&#x27;, err);
+      return self.emit('error', err);
     }
 
     var hasAudioStreams = data.streams.some(function(stream) {
-      return stream.codec_type === &#x27;audio&#x27;;
+      return stream.codec_type === 'audio';
     });
 
     var hasVideoStreams = data.streams.some(function(stream) {
-      return stream.codec_type === &#x27;video&#x27;;
+      return stream.codec_type === 'video';
     });
 
     // Setup concat filter and start processing
     self.output(target, options)
       .complexFilter({
-        filter: &#x27;concat&#x27;,
+        filter: 'concat',
         options: {
           n: self._inputs.length,
           v: hasVideoStreams ? 1 : 0,
@@ -6181,10 +6173,10 @@ config.timemarks = config.timemarks.<span class="apidocCodeKeywordSpan">map</spa
     <ul>
     <li>description and source-code<pre class="apidocCodePre">native = function () {
   if (!this._currentInput) {
-    throw new Error(&#x27;No input specified&#x27;);
+    throw new Error('No input specified');
   }
 
-  this._currentInput.options(&#x27;-re&#x27;);
+  this._currentInput.options('-re');
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -6201,10 +6193,10 @@ config.timemarks = config.timemarks.<span class="apidocCodeKeywordSpan">map</spa
     <ul>
     <li>description and source-code<pre class="apidocCodePre">nativeFramerate = function () {
   if (!this._currentInput) {
-    throw new Error(&#x27;No input specified&#x27;);
+    throw new Error('No input specified');
   }
 
-  this._currentInput.options(&#x27;-re&#x27;);
+  this._currentInput.options('-re');
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -6222,7 +6214,7 @@ config.timemarks = config.timemarks.<span class="apidocCodeKeywordSpan">map</spa
     <li>description and source-code<pre class="apidocCodePre">noAudio = function () {
   this._currentOutput.audio.clear();
   this._currentOutput.audioFilters.clear();
-  this._currentOutput.audio(&#x27;-an&#x27;);
+  this._currentOutput.audio('-an');
 
   return this;
 }</pre></li>
@@ -6241,7 +6233,7 @@ config.timemarks = config.timemarks.<span class="apidocCodeKeywordSpan">map</spa
     <li>description and source-code<pre class="apidocCodePre">noVideo = function () {
   this._currentOutput.video.clear();
   this._currentOutput.videoFilters.clear();
-  this._currentOutput.video(&#x27;-vn&#x27;);
+  this._currentOutput.video('-vn');
 
   return this;
 }</pre></li>
@@ -6260,33 +6252,33 @@ config.timemarks = config.timemarks.<span class="apidocCodeKeywordSpan">map</spa
     <li>description and source-code<pre class="apidocCodePre">output = function (target, pipeopts) {
   var isFile = false;
 
-  if (!target &#x26;&#x26; this._currentOutput) {
+  if (!target &amp;&amp; this._currentOutput) {
     // No target is only allowed when called from constructor
-    throw new Error(&#x27;Invalid output&#x27;);
+    throw new Error('Invalid output');
   }
 
-  if (target &#x26;&#x26; typeof target !== &#x27;string&#x27;) {
-    if (!(&#x27;writable&#x27; in target) || !(target.writable)) {
-      throw new Error(&#x27;Invalid output&#x27;);
+  if (target &amp;&amp; typeof target !== 'string') {
+    if (!('writable' in target) || !(target.writable)) {
+      throw new Error('Invalid output');
     }
-  } else if (typeof target === &#x27;string&#x27;) {
+  } else if (typeof target === 'string') {
     var protocol = target.match(/^([a-z]{2,}):/i);
-    isFile = !protocol || protocol[0] === &#x27;file&#x27;;
+    isFile = !protocol || protocol[0] === 'file';
   }
 
-  if (target &#x26;&#x26; !(&#x27;target&#x27; in this._currentOutput)) {
+  if (target &amp;&amp; !('target' in this._currentOutput)) {
     // For backwards compatibility, set target for first output
     this._currentOutput.target = target;
     this._currentOutput.isFile = isFile;
     this._currentOutput.pipeopts = pipeopts || {};
   } else {
-    if (target &#x26;&#x26; typeof target !== &#x27;string&#x27;) {
+    if (target &amp;&amp; typeof target !== 'string') {
       var hasOutputStream = this._outputs.some(function(output) {
-        return typeof output.target !== &#x27;string&#x27;;
+        return typeof output.target !== 'string';
       });
 
       if (hasOutputStream) {
-        throw new Error(&#x27;Only one output stream is supported&#x27;);
+        throw new Error('Only one output stream is supported');
       }
     }
 
@@ -6298,7 +6290,7 @@ config.timemarks = config.timemarks.<span class="apidocCodeKeywordSpan">map</spa
     });
 
     var self = this;
-    [&#x27;audio&#x27;, &#x27;audioFilters&#x27;, &#x27;video&#x27;, &#x27;videoFilters&#x27;, &#x27;sizeFilters&#x27;, &#x27;options&#x27;].forEach(function(key) {
+    ['audio', 'audioFilters', 'video', 'videoFilters', 'sizeFilters', 'options'].forEach(function(key) {
       self._currentOutput[key] = utils.args();
     });
 
@@ -6339,7 +6331,7 @@ proto.save = function(output) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">outputFPS = function (fps) {
-  this._currentOutput.video(&#x27;-r&#x27;, fps);
+  this._currentOutput.video('-r', fps);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -6355,7 +6347,7 @@ proto.save = function(output) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">outputFormat = function (format) {
-  this._currentOutput.options(&#x27;-f&#x27;, format);
+  this._currentOutput.options('-f', format);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -6371,7 +6363,7 @@ proto.save = function(output) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">outputFps = function (fps) {
-  this._currentOutput.video(&#x27;-r&#x27;, fps);
+  this._currentOutput.video('-r', fps);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -6389,7 +6381,7 @@ proto.save = function(output) {
     <li>description and source-code<pre class="apidocCodePre">outputOption = function (options) {
   var doSplit = true;
 
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     options = [].slice.call(arguments);
     doSplit = false;
   }
@@ -6399,9 +6391,9 @@ proto.save = function(output) {
   }
 
   this._currentOutput.options(options.reduce(function(options, option) {
-    var split = String(option).split(&#x27; &#x27;);
+    var split = String(option).split(' ');
 
-    if (doSplit &#x26;&#x26; split.length === 2) {
+    if (doSplit &amp;&amp; split.length === 2) {
       options.push(split[0], split[1]);
     } else {
       options.push(option);
@@ -6426,7 +6418,7 @@ proto.save = function(output) {
     <li>description and source-code<pre class="apidocCodePre">outputOptions = function (options) {
   var doSplit = true;
 
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     options = [].slice.call(arguments);
     doSplit = false;
   }
@@ -6436,9 +6428,9 @@ proto.save = function(output) {
   }
 
   this._currentOutput.options(options.reduce(function(options, option) {
-    var split = String(option).split(&#x27; &#x27;);
+    var split = String(option).split(' ');
 
-    if (doSplit &#x26;&#x26; split.length === 2) {
+    if (doSplit &amp;&amp; split.length === 2) {
       options.push(split[0], split[1]);
     } else {
       options.push(option);
@@ -6456,13 +6448,13 @@ proto.save = function(output) {
  * Add custom output option(s)
  *
  * @example
- * command.<span class="apidocCodeKeywordSpan">outputOptions</span>(&#x27;option1&#x27;);
+ * command.<span class="apidocCodeKeywordSpan">outputOptions</span>('option1');
  *
  * @example
- * command.outputOptions(&#x27;option1&#x27;, &#x27;option2&#x27;);
+ * command.outputOptions('option1', 'option2');
  *
  * @example
- * command.outputOptions([&#x27;option1&#x27;, &#x27;option2&#x27;]);
+ * command.outputOptions(['option1', 'option2']);
  *
 ...</pre></li>
     </ul>
@@ -6477,14 +6469,14 @@ proto.save = function(output) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">pipe = function (stream, options) {
-  if (stream &#x26;&#x26; !(&#x27;writable&#x27; in stream)) {
+  if (stream &amp;&amp; !('writable' in stream)) {
     options = stream;
     stream = undefined;
   }
 
   if (!stream) {
     if (process.version.match(/v0\.8\./)) {
-      throw new Error(&#x27;PassThrough stream is not supported on node v0.8&#x27;);
+      throw new Error('PassThrough stream is not supported on node v0.8');
     }
 
     stream = new PassThrough();
@@ -6494,9 +6486,9 @@ proto.save = function(output) {
   return stream;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  // Once ffprobe&#x27;s input stream closes, we need no more data from the
+  // Once ffprobe's input stream closes, we need no more data from the
   // input
-  ffprobe.stdin.on(&#x27;close&#x27;, function() {
+  ffprobe.stdin.on('close', function() {
       input.source.pause();
       input.source.unpipe(ffprobe.stdin);
   });
@@ -6504,7 +6496,7 @@ proto.save = function(output) {
   input.source.<span class="apidocCodeKeywordSpan">pipe</span>(ffprobe.stdin);
 }
 
-ffprobe.on(&#x27;error&#x27;, callback);
+ffprobe.on('error', callback);
 
 // Ensure we wait for captured streams to end before calling callback
 var exitError = null;
@@ -6522,20 +6514,20 @@ function handleExit(err) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">preset = function (preset) {
-  if (typeof preset === &#x27;function&#x27;) {
+  if (typeof preset === 'function') {
     preset(this);
   } else {
     try {
       var modulePath = path.join(this.options.presets, preset);
       var module = require(modulePath);
 
-      if (typeof module.load === &#x27;function&#x27;) {
+      if (typeof module.load === 'function') {
         module.load(this);
       } else {
-        throw new Error(&#x27;preset &#x27; + modulePath + &#x27; has no load() function&#x27;);
+        throw new Error('preset ' + modulePath + ' has no load() function');
       }
     } catch (err) {
-      throw new Error(&#x27;preset &#x27; + modulePath + &#x27; could not be loaded: &#x27; + err.message);
+      throw new Error('preset ' + modulePath + ' could not be loaded: ' + err.message);
     }
   }
 
@@ -6557,8 +6549,8 @@ function handleExit(err) {
   if (!utils.isWindows) {
     niceness = niceness || 0;
 
-    if (niceness &#x3c; -20 || niceness &#x3e; 20) {
-      this.logger.warn(&#x27;Invalid niceness value: &#x27; + niceness + &#x27;, must be between -20 and 20&#x27;);
+    if (niceness &lt; -20 || niceness &gt; 20) {
+      this.logger.warn('Invalid niceness value: ' + niceness + ', must be between -20 and 20');
     }
 
     niceness = Math.min(20, Math.max(-20, niceness));
@@ -6567,19 +6559,19 @@ function handleExit(err) {
     if (this.ffmpegProc) {
       var logger = this.logger;
       var pid = this.ffmpegProc.pid;
-      var renice = spawn(&#x27;renice&#x27;, [niceness, &#x27;-p&#x27;, pid]);
+      var renice = spawn('renice', [niceness, '-p', pid]);
 
-      renice.on(&#x27;error&#x27;, function(err) {
-        logger.warn(&#x27;could not renice process &#x27; + pid + &#x27;: &#x27; + err.message);
+      renice.on('error', function(err) {
+        logger.warn('could not renice process ' + pid + ': ' + err.message);
       });
 
-      renice.on(&#x27;exit&#x27;, function(code, signal) {
+      renice.on('exit', function(code, signal) {
         if (signal) {
-          logger.warn(&#x27;could not renice process &#x27; + pid + &#x27;: renice was killed by signal &#x27; + signal);
+          logger.warn('could not renice process ' + pid + ': renice was killed by signal ' + signal);
         } else if (code) {
-          logger.warn(&#x27;could not renice process &#x27; + pid + &#x27;: renice exited with &#x27; + code);
+          logger.warn('could not renice process ' + pid + ': renice exited with ' + code);
         } else {
-          logger.info(&#x27;successfully reniced process &#x27; + pid + &#x27; to &#x27; + niceness + &#x27; niceness&#x27;);
+          logger.info('successfully reniced process ' + pid + ' to ' + niceness + ' niceness');
         }
       });
     }
@@ -6604,33 +6596,33 @@ function handleExit(err) {
 
   // Check if at least one output is present
   var outputPresent = this._outputs.some(function(output) {
-    return &#x27;target&#x27; in output;
+    return 'target' in output;
   });
 
   if (!outputPresent) {
-    throw new Error(&#x27;No output specified&#x27;);
+    throw new Error('No output specified');
   }
 
   // Get output stream if any
   var outputStream = this._outputs.filter(function(output) {
-    return typeof output.target !== &#x27;string&#x27;;
+    return typeof output.target !== 'string';
   })[0];
 
   // Get input stream if any
   var inputStream = this._inputs.filter(function(input) {
-    return typeof input.source !== &#x27;string&#x27;;
+    return typeof input.source !== 'string';
   })[0];
 
-  // Ensure we send &#x27;end&#x27; or &#x27;error&#x27; only once
+  // Ensure we send 'end' or 'error' only once
   var ended = false;
   function emitEnd(err, stdout, stderr) {
     if (!ended) {
       ended = true;
 
       if (err) {
-        self.emit(&#x27;error&#x27;, err, stdout, stderr);
+        self.emit('error', err, stdout, stderr);
       } else {
-        self.emit(&#x27;end&#x27;, stdout, stderr);
+        self.emit('end', stdout, stderr);
       }
     }
   }
@@ -6651,12 +6643,12 @@ function handleExit(err) {
 
       function processCB(ffmpegProc, stdoutRing, stderrRing) {
         self.ffmpegProc = ffmpegProc;
-        self.emit(&#x27;start&#x27;, &#x27;ffmpeg &#x27; + args.join(&#x27; &#x27;));
+        self.emit('start', 'ffmpeg ' + args.join(' '));
 
         // Pipe input stream if any
         if (inputStream) {
-          inputStream.source.on(&#x27;error&#x27;, function(err) {
-            var reportingErr = new Error(&#x27;Input stream error: &#x27; + err.message);
+          inputStream.source.on('error', function(err) {
+            var reportingErr = new Error('Input stream error: ' + err.message);
             reportingErr.inputStreamError = err;
             emitEnd(reportingErr);
             ffmpegProc.kill();
@@ -6667,14 +6659,14 @@ function handleExit(err) {
 
           // Set stdin error handler on ffmpeg (prevents nodejs catching the error, but
           // ffmpeg will fail anyway, so no need to actually handle anything)
-          ffmpegProc.stdin.on(&#x27;error&#x27;, function() {});
+          ffmpegProc.stdin.on('error', function() {});
         }
 
         // Setup timeout if requested
         var processTimer;
         if (self.options.timeout) {
           processTimer = setTimeout(function() {
-            var msg = &#x27;process ran into a timeout (&#x27; + self.options.timeout + &#x27;s)&#x27;;
+            var msg = 'process ran into a timeout (' + self.options.timeout + 's)';
 
             emitEnd(new Error(msg), stdoutRing.get(), stderrRing.get());
             ffmpegProc.kill();
@@ -6687,40 +6679,40 @@ function handleExit(err) {
           ffmpegProc.stdout.pipe(outputStream.target, outputStream.pipeopts);
 
           // Handle output stream events
-          outputStream.target.on(&#x27;close&#x27;, function() {
-            self.logger.debug(&#x27;Output stream closed, scheduling kill for ffmpeg process&#x27;);
+          outputStream.target.on('close', function() {
+            self.logger.debug('Output stream closed, scheduling kill for ffmpeg process');
 
-            // Don&#x27;t kill process yet, to give a chance to ffmpeg to
+            // Don't kill process yet, to give a chance to ffmpeg to
             // terminate successfully first  This is necessary because
-            // under load, the process &#x27;exit&#x27; event sometimes happens
-            // after the output stream &#x27;close&#x27; event.
+            // under load, the process 'exit' event sometimes happens
+            // after the output stream 'close' event.
             setTimeout(function() {
-              emitEnd(new Error(&#x27;Output stream closed&#x27;));
+              emitEnd(new Error('Output stream closed'));
               ffmpegProc.kill();
             }, 20);
           });
 
-          outputStream.target.on(&#x27;error&#x27;, function(err) {
-            self.logger.debug(&#x27;Output stream error, killing ffmpeg process&#x27;);
-            var reportingErr = new Error(&#x27;Output stream error: &#x27; + err.message);
+          outputStream.target.on('error', function(err) {
+            self.logger.debug('Output stream error, killing ffmpeg process');
+            var reportingErr = new Error('Output stream error: ' + err.message);
             reportingErr.outputStreamError = err;
             emitEnd(reportingErr, stdoutRing.get(), stderrRing.get());
-            ffmpegProc.kill(&#x27;SIGKILL&#x27;);
+            ffmpegProc.kill('SIGKILL');
           });
         }
 
         // Setup stderr handling
         if (stderrRing) {
 
-          // &#x27;stderr&#x27; event
-          if (self.listeners(&#x27;stderr&#x27;).length) {
+          // 'stderr' event
+          if (self.listeners('stderr').length) {
             stderrRing.callback(function(line) {
-              self.emit(&#x27;stderr&#x27;, line);
+              self.emit('stderr', line);
             });
           }
 
-          // &#x27;codecData&#x27; event
-          if (self.listeners(&#x27;codecData&#x27;).length) {
+          // 'codecData' event
+          if (self.listeners('codecData').length) {
             var codecDataSent = false;
             var codecObject = {};
 
@@ -6730,7 +6722,7 @@ function handleExit(err) {
             });
           }
 
-          // &#x27; ...</pre></li>
+          // ' ...</pre></li>
     <li>example usage<pre class="apidocCodePre">...
  * @aliases saveToFile
  *
@@ -6797,44 +6789,44 @@ proto.save = function(output) {
   config = config || { count: 1 };
 
   // Accept a number of screenshots instead of a config object
-  if (typeof config === &#x27;number&#x27;) {
+  if (typeof config === 'number') {
     config = {
       count: config
     };
   }
 
-  // Accept a second &#x27;folder&#x27; parameter instead of config.folder
-  if (!(&#x27;folder&#x27; in config)) {
-    config.folder = folder || &#x27;.&#x27;;
+  // Accept a second 'folder' parameter instead of config.folder
+  if (!('folder' in config)) {
+    config.folder = folder || '.';
   }
 
-  // Accept &#x27;timestamps&#x27; instead of &#x27;timemarks&#x27;
-  if (&#x27;timestamps&#x27; in config) {
+  // Accept 'timestamps' instead of 'timemarks'
+  if ('timestamps' in config) {
     config.timemarks = config.timestamps;
   }
 
   // Compute timemarks from count if not present
-  if (!(&#x27;timemarks&#x27; in config)) {
+  if (!('timemarks' in config)) {
     if (!config.count) {
-      throw new Error(&#x27;Cannot take screenshots: neither a count nor a timemark list are specified&#x27;);
+      throw new Error('Cannot take screenshots: neither a count nor a timemark list are specified');
     }
 
     var interval = 100 / (1 + config.count);
     config.timemarks = [];
-    for (var i = 0; i &#x3c; config.count; i++) {
-      config.timemarks.push((interval * (i + 1)) + &#x27;%&#x27;);
+    for (var i = 0; i &lt; config.count; i++) {
+      config.timemarks.push((interval * (i + 1)) + '%');
     }
   }
 
   // Parse size option
-  if (&#x27;size&#x27; in config) {
+  if ('size' in config) {
     var fixedSize = config.size.match(/^(\d+)x(\d+)$/);
     var fixedWidth = config.size.match(/^(\d+)x\?$/);
     var fixedHeight = config.size.match(/^\?x(\d+)$/);
     var percentSize = config.size.match(/^(\d+)%$/);
 
-    if (!fixedSize &#x26;&#x26; !fixedWidth &#x26;&#x26; !fixedHeight &#x26;&#x26; !percentSize) {
-      throw new Error(&#x27;Invalid size parameter: &#x27; + config.size);
+    if (!fixedSize &amp;&amp; !fixedWidth &amp;&amp; !fixedHeight &amp;&amp; !percentSize) {
+      throw new Error('Invalid size parameter: ' + config.size);
     }
   }
 
@@ -6854,9 +6846,9 @@ proto.save = function(output) {
   async.waterfall([
     // Compute percent timemarks if any
     function computeTimemarks(next) {
-      if (config.timemarks.some(function(t) { return (&#x27;&#x27; + t).match(/^[\d.]+%$/); })) {
-        if (typeof source !== &#x27;string&#x27;) {
-          return next(new Error(&#x27;Cannot compute screenshot timemarks with an input stream, please specify fixed timemarks&#x27;));
+      if (config.timemarks.some(function(t) { return ('' + t).match(/^[\d.]+%$/); })) {
+        if (typeof source !== 'string') {
+          return next(new Error('Cannot compute screenshot timemarks with an input stream, please specify fixed timemarks'));
         }
 
         getMetadata(function(err, meta) {
@@ -6865,7 +6857,7 @@ proto.save = function(output) {
           } else {
             // Select video stream with the highest resolution
             var vstream = meta.streams.reduce(function(biggest, stream) {
-              if (stream.codec_type === &#x27;video&#x27; &#x26;&#x26; stream.width * stream.height &#x3e; biggest.width * biggest.height) {
+              if (stream.codec_type === 'video' &amp;&amp; stream.width * stream.height &gt; biggest.width * biggest.height) {
                 return stream;
               } else {
                 return biggest;
@@ -6873,7 +6865,7 @@ proto.save = function(output) {
             }, { width: 0, height: 0 });
 
             if (vstream.width === 0) {
-              return next(new Error(&#x27;No video stream in input, cannot take screenshots&#x27;));
+              return next(new Error('No video stream in input, cannot take screenshots'));
             }
 
             var duration = Number(vstream.duration);
@@ -6882,11 +6874,11 @@ proto.save = function(output) {
             }
 
             if (isNaN(duration)) {
-              return next(new Error(&#x27;Could not get input duration, please specify fixed timemarks&#x27;));
+              return next(new Error('Could not get input duration, please specify fixed timemarks'));
             }
 
             config.timemarks = config.timemarks.map(function(mark) {
-              if ((&#x27;&#x27; + mark).match(/^([\d.]+)%$/)) {
+              if (('' + mark).match(/^([\d.]+)%$/)) {
                 return duration * parseFloat(mark) / 100;
               } else {
                 return mark;
@@ -6910,17 +6902,17 @@ proto.save = function(output) {
       next();
     },
 
-    // Add &#x27;_%i&#x27; to pattern when requesting multiple screenshots and no variable token is present
+    // Add '_%i' to pattern when requesting multiple screenshots and no variable token is present
     function fixPattern(next) {
-      var pattern = config.filename || &#x27;tn.png&#x27;;
+      var pattern = config.filename || 'tn.png';
 
-      if (pattern.indexOf(&#x27;.&#x27;) === -1) {
-        pattern += &#x27;.png&#x27;;
+      if (pattern.indexOf('.') === -1) {
+        pattern += '.png';
       }
 
-      if (config.timemarks.length &#x3e; 1 &#x26;&#x26; !pattern.match(/%(s|0*i)/)) {
+      if (config.timemarks.length &gt; 1 &amp;&amp; !pattern.match(/%(s|0*i)/)) {
         var ext = path.extname(pattern);
-        pattern = path.join(path.dirname(pattern), path.basename(pattern, ext) + &#x27;_%i&#x27; + ext);
+        pattern = path.join(path.dirname(pattern), path.basename(pattern, ext) + '_%i' + ext);
       }
 
       next(null, pattern);
@@ -6945,44 +6937,44 @@ proto.save = function(output) {
   config = config || { count: 1 };
 
   // Accept a number of screenshots instead of a config object
-  if (typeof config === &#x27;number&#x27;) {
+  if (typeof config === 'number') {
     config = {
       count: config
     };
   }
 
-  // Accept a second &#x27;folder&#x27; parameter instead of config.folder
-  if (!(&#x27;folder&#x27; in config)) {
-    config.folder = folder || &#x27;.&#x27;;
+  // Accept a second 'folder' parameter instead of config.folder
+  if (!('folder' in config)) {
+    config.folder = folder || '.';
   }
 
-  // Accept &#x27;timestamps&#x27; instead of &#x27;timemarks&#x27;
-  if (&#x27;timestamps&#x27; in config) {
+  // Accept 'timestamps' instead of 'timemarks'
+  if ('timestamps' in config) {
     config.timemarks = config.timestamps;
   }
 
   // Compute timemarks from count if not present
-  if (!(&#x27;timemarks&#x27; in config)) {
+  if (!('timemarks' in config)) {
     if (!config.count) {
-      throw new Error(&#x27;Cannot take screenshots: neither a count nor a timemark list are specified&#x27;);
+      throw new Error('Cannot take screenshots: neither a count nor a timemark list are specified');
     }
 
     var interval = 100 / (1 + config.count);
     config.timemarks = [];
-    for (var i = 0; i &#x3c; config.count; i++) {
-      config.timemarks.push((interval * (i + 1)) + &#x27;%&#x27;);
+    for (var i = 0; i &lt; config.count; i++) {
+      config.timemarks.push((interval * (i + 1)) + '%');
     }
   }
 
   // Parse size option
-  if (&#x27;size&#x27; in config) {
+  if ('size' in config) {
     var fixedSize = config.size.match(/^(\d+)x(\d+)$/);
     var fixedWidth = config.size.match(/^(\d+)x\?$/);
     var fixedHeight = config.size.match(/^\?x(\d+)$/);
     var percentSize = config.size.match(/^(\d+)%$/);
 
-    if (!fixedSize &#x26;&#x26; !fixedWidth &#x26;&#x26; !fixedHeight &#x26;&#x26; !percentSize) {
-      throw new Error(&#x27;Invalid size parameter: &#x27; + config.size);
+    if (!fixedSize &amp;&amp; !fixedWidth &amp;&amp; !fixedHeight &amp;&amp; !percentSize) {
+      throw new Error('Invalid size parameter: ' + config.size);
     }
   }
 
@@ -7002,9 +6994,9 @@ proto.save = function(output) {
   async.waterfall([
     // Compute percent timemarks if any
     function computeTimemarks(next) {
-      if (config.timemarks.some(function(t) { return (&#x27;&#x27; + t).match(/^[\d.]+%$/); })) {
-        if (typeof source !== &#x27;string&#x27;) {
-          return next(new Error(&#x27;Cannot compute screenshot timemarks with an input stream, please specify fixed timemarks&#x27;));
+      if (config.timemarks.some(function(t) { return ('' + t).match(/^[\d.]+%$/); })) {
+        if (typeof source !== 'string') {
+          return next(new Error('Cannot compute screenshot timemarks with an input stream, please specify fixed timemarks'));
         }
 
         getMetadata(function(err, meta) {
@@ -7013,7 +7005,7 @@ proto.save = function(output) {
           } else {
             // Select video stream with the highest resolution
             var vstream = meta.streams.reduce(function(biggest, stream) {
-              if (stream.codec_type === &#x27;video&#x27; &#x26;&#x26; stream.width * stream.height &#x3e; biggest.width * biggest.height) {
+              if (stream.codec_type === 'video' &amp;&amp; stream.width * stream.height &gt; biggest.width * biggest.height) {
                 return stream;
               } else {
                 return biggest;
@@ -7021,7 +7013,7 @@ proto.save = function(output) {
             }, { width: 0, height: 0 });
 
             if (vstream.width === 0) {
-              return next(new Error(&#x27;No video stream in input, cannot take screenshots&#x27;));
+              return next(new Error('No video stream in input, cannot take screenshots'));
             }
 
             var duration = Number(vstream.duration);
@@ -7030,11 +7022,11 @@ proto.save = function(output) {
             }
 
             if (isNaN(duration)) {
-              return next(new Error(&#x27;Could not get input duration, please specify fixed timemarks&#x27;));
+              return next(new Error('Could not get input duration, please specify fixed timemarks'));
             }
 
             config.timemarks = config.timemarks.map(function(mark) {
-              if ((&#x27;&#x27; + mark).match(/^([\d.]+)%$/)) {
+              if (('' + mark).match(/^([\d.]+)%$/)) {
                 return duration * parseFloat(mark) / 100;
               } else {
                 return mark;
@@ -7058,17 +7050,17 @@ proto.save = function(output) {
       next();
     },
 
-    // Add &#x27;_%i&#x27; to pattern when requesting multiple screenshots and no variable token is present
+    // Add '_%i' to pattern when requesting multiple screenshots and no variable token is present
     function fixPattern(next) {
-      var pattern = config.filename || &#x27;tn.png&#x27;;
+      var pattern = config.filename || 'tn.png';
 
-      if (pattern.indexOf(&#x27;.&#x27;) === -1) {
-        pattern += &#x27;.png&#x27;;
+      if (pattern.indexOf('.') === -1) {
+        pattern += '.png';
       }
 
-      if (config.timemarks.length &#x3e; 1 &#x26;&#x26; !pattern.match(/%(s|0*i)/)) {
+      if (config.timemarks.length &gt; 1 &amp;&amp; !pattern.match(/%(s|0*i)/)) {
         var ext = path.extname(pattern);
-        pattern = path.join(path.dirname(pattern), path.basename(pattern, ext) + &#x27;_%i&#x27; + ext);
+        pattern = path.join(path.dirname(pattern), path.basename(pattern, ext) + '_%i' + ext);
       }
 
       next(null, pattern);
@@ -7088,7 +7080,7 @@ proto.save = function(output) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">seek = function (seek) {
-  this._currentOutput.options(&#x27;-ss&#x27;, seek);
+  this._currentOutput.options('-ss', seek);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -7098,7 +7090,7 @@ proto.save = function(output) {
       .frames(1)
       .map(stream);
 
-    if (i &#x3e; 0) {
+    if (i &gt; 0) {
       self.<span class="apidocCodeKeywordSpan">seek</span>(config.timemarks[i] - first);
     }
   }
@@ -7120,17 +7112,17 @@ proto.save = function(output) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">seekInput = function (seek) {
   if (!this._currentInput) {
-    throw new Error(&#x27;No input specified&#x27;);
+    throw new Error('No input specified');
   }
 
-  this._currentInput.options(&#x27;-ss&#x27;, seek);
+  this._currentInput.options('-ss', seek);
 
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
       var first = 0;
-      for (var i = 0; i &#x3c; count; i++) {
-var stream = &#x27;screen&#x27; + i;
+      for (var i = 0; i &lt; count; i++) {
+var stream = 'screen' + i;
 split.outputs.push(stream);
 
 if (i === 0) {
@@ -7142,7 +7134,7 @@ self.output(path.join(config.folder, filenames[i]))
   .frames(1)
   .map(stream);
 
-if (i &#x3e; 0) {
+if (i &gt; 0) {
 ...</pre></li>
     </ul>
 
@@ -7156,7 +7148,7 @@ if (i &#x3e; 0) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">seekOutput = function (seek) {
-  this._currentOutput.options(&#x27;-ss&#x27;, seek);
+  this._currentOutput.options('-ss', seek);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -7178,11 +7170,11 @@ if (i &#x3e; 0) {
     if (match) {
       a = Number(match[1]) / Number(match[2]);
     } else {
-      throw new Error(&#x27;Invalid aspect ratio: &#x27; + aspect);
+      throw new Error('Invalid aspect ratio: ' + aspect);
     }
   }
 
-  var filters = createSizeFilters(this._currentOutput, &#x27;aspect&#x27;, a);
+  var filters = createSizeFilters(this._currentOutput, 'aspect', a);
 
   this._currentOutput.sizeFilters.clear();
   this._currentOutput.sizeFilters(filters);
@@ -7208,11 +7200,11 @@ if (i &#x3e; 0) {
     if (match) {
       a = Number(match[1]) / Number(match[2]);
     } else {
-      throw new Error(&#x27;Invalid aspect ratio: &#x27; + aspect);
+      throw new Error('Invalid aspect ratio: ' + aspect);
     }
   }
 
-  var filters = createSizeFilters(this._currentOutput, &#x27;aspect&#x27;, a);
+  var filters = createSizeFilters(this._currentOutput, 'aspect', a);
 
   this._currentOutput.sizeFilters.clear();
   this._currentOutput.sizeFilters(filters);
@@ -7232,7 +7224,7 @@ if (i &#x3e; 0) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">setDuration = function (duration) {
-  this._currentOutput.options(&#x27;-t&#x27;, duration);
+  this._currentOutput.options('-t', duration);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -7296,7 +7288,7 @@ if (i &#x3e; 0) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">setSize = function (size) {
-  var filters = createSizeFilters(this._currentOutput, &#x27;size&#x27;, size);
+  var filters = createSizeFilters(this._currentOutput, 'size', size);
 
   this._currentOutput.sizeFilters.clear();
   this._currentOutput.sizeFilters(filters);
@@ -7317,10 +7309,10 @@ if (i &#x3e; 0) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">setStartTime = function (seek) {
   if (!this._currentInput) {
-    throw new Error(&#x27;No input specified&#x27;);
+    throw new Error('No input specified');
   }
 
-  this._currentInput.options(&#x27;-ss&#x27;, seek);
+  this._currentInput.options('-ss', seek);
 
   return this;
 }</pre></li>
@@ -7337,7 +7329,7 @@ if (i &#x3e; 0) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">size = function (size) {
-  var filters = createSizeFilters(this._currentOutput, &#x27;size&#x27;, size);
+  var filters = createSizeFilters(this._currentOutput, 'size', size);
 
   this._currentOutput.sizeFilters.clear();
   this._currentOutput.sizeFilters(filters);
@@ -7345,19 +7337,19 @@ if (i &#x3e; 0) {
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-filter: &#x27;split&#x27;,
+filter: 'split',
 options: count,
 outputs: []
       }];
 
-      if (&#x27;size&#x27; in config) {
+      if ('size' in config) {
 // Set size to generate size filters
 self.<span class="apidocCodeKeywordSpan">size</span>(config.size);
 
-// Get size filters and chain them with &#x27;sizeN&#x27; stream names
+// Get size filters and chain them with 'sizeN' stream names
 var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
-  if (i &#x3e; 0) {
-    f.inputs = &#x27;size&#x27; + (i - 1);
+  if (i &gt; 0) {
+    f.inputs = 'size' + (i - 1);
   }
 ...</pre></li>
     </ul>
@@ -7372,14 +7364,14 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">stream = function (stream, options) {
-  if (stream &#x26;&#x26; !(&#x27;writable&#x27; in stream)) {
+  if (stream &amp;&amp; !('writable' in stream)) {
     options = stream;
     stream = undefined;
   }
 
   if (!stream) {
     if (process.version.match(/v0\.8\./)) {
-      throw new Error(&#x27;PassThrough stream is not supported on node v0.8&#x27;);
+      throw new Error('PassThrough stream is not supported on node v0.8');
     }
 
     stream = new PassThrough();
@@ -7401,7 +7393,7 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">takeFrames = function (frames) {
-  this._currentOutput.video(&#x27;-vframes&#x27;, frames);
+  this._currentOutput.video('-vframes', frames);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -7422,44 +7414,44 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
   config = config || { count: 1 };
 
   // Accept a number of screenshots instead of a config object
-  if (typeof config === &#x27;number&#x27;) {
+  if (typeof config === 'number') {
     config = {
       count: config
     };
   }
 
-  // Accept a second &#x27;folder&#x27; parameter instead of config.folder
-  if (!(&#x27;folder&#x27; in config)) {
-    config.folder = folder || &#x27;.&#x27;;
+  // Accept a second 'folder' parameter instead of config.folder
+  if (!('folder' in config)) {
+    config.folder = folder || '.';
   }
 
-  // Accept &#x27;timestamps&#x27; instead of &#x27;timemarks&#x27;
-  if (&#x27;timestamps&#x27; in config) {
+  // Accept 'timestamps' instead of 'timemarks'
+  if ('timestamps' in config) {
     config.timemarks = config.timestamps;
   }
 
   // Compute timemarks from count if not present
-  if (!(&#x27;timemarks&#x27; in config)) {
+  if (!('timemarks' in config)) {
     if (!config.count) {
-      throw new Error(&#x27;Cannot take screenshots: neither a count nor a timemark list are specified&#x27;);
+      throw new Error('Cannot take screenshots: neither a count nor a timemark list are specified');
     }
 
     var interval = 100 / (1 + config.count);
     config.timemarks = [];
-    for (var i = 0; i &#x3c; config.count; i++) {
-      config.timemarks.push((interval * (i + 1)) + &#x27;%&#x27;);
+    for (var i = 0; i &lt; config.count; i++) {
+      config.timemarks.push((interval * (i + 1)) + '%');
     }
   }
 
   // Parse size option
-  if (&#x27;size&#x27; in config) {
+  if ('size' in config) {
     var fixedSize = config.size.match(/^(\d+)x(\d+)$/);
     var fixedWidth = config.size.match(/^(\d+)x\?$/);
     var fixedHeight = config.size.match(/^\?x(\d+)$/);
     var percentSize = config.size.match(/^(\d+)%$/);
 
-    if (!fixedSize &#x26;&#x26; !fixedWidth &#x26;&#x26; !fixedHeight &#x26;&#x26; !percentSize) {
-      throw new Error(&#x27;Invalid size parameter: &#x27; + config.size);
+    if (!fixedSize &amp;&amp; !fixedWidth &amp;&amp; !fixedHeight &amp;&amp; !percentSize) {
+      throw new Error('Invalid size parameter: ' + config.size);
     }
   }
 
@@ -7479,9 +7471,9 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
   async.waterfall([
     // Compute percent timemarks if any
     function computeTimemarks(next) {
-      if (config.timemarks.some(function(t) { return (&#x27;&#x27; + t).match(/^[\d.]+%$/); })) {
-        if (typeof source !== &#x27;string&#x27;) {
-          return next(new Error(&#x27;Cannot compute screenshot timemarks with an input stream, please specify fixed timemarks&#x27;));
+      if (config.timemarks.some(function(t) { return ('' + t).match(/^[\d.]+%$/); })) {
+        if (typeof source !== 'string') {
+          return next(new Error('Cannot compute screenshot timemarks with an input stream, please specify fixed timemarks'));
         }
 
         getMetadata(function(err, meta) {
@@ -7490,7 +7482,7 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
           } else {
             // Select video stream with the highest resolution
             var vstream = meta.streams.reduce(function(biggest, stream) {
-              if (stream.codec_type === &#x27;video&#x27; &#x26;&#x26; stream.width * stream.height &#x3e; biggest.width * biggest.height) {
+              if (stream.codec_type === 'video' &amp;&amp; stream.width * stream.height &gt; biggest.width * biggest.height) {
                 return stream;
               } else {
                 return biggest;
@@ -7498,7 +7490,7 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
             }, { width: 0, height: 0 });
 
             if (vstream.width === 0) {
-              return next(new Error(&#x27;No video stream in input, cannot take screenshots&#x27;));
+              return next(new Error('No video stream in input, cannot take screenshots'));
             }
 
             var duration = Number(vstream.duration);
@@ -7507,11 +7499,11 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
             }
 
             if (isNaN(duration)) {
-              return next(new Error(&#x27;Could not get input duration, please specify fixed timemarks&#x27;));
+              return next(new Error('Could not get input duration, please specify fixed timemarks'));
             }
 
             config.timemarks = config.timemarks.map(function(mark) {
-              if ((&#x27;&#x27; + mark).match(/^([\d.]+)%$/)) {
+              if (('' + mark).match(/^([\d.]+)%$/)) {
                 return duration * parseFloat(mark) / 100;
               } else {
                 return mark;
@@ -7535,17 +7527,17 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
       next();
     },
 
-    // Add &#x27;_%i&#x27; to pattern when requesting multiple screenshots and no variable token is present
+    // Add '_%i' to pattern when requesting multiple screenshots and no variable token is present
     function fixPattern(next) {
-      var pattern = config.filename || &#x27;tn.png&#x27;;
+      var pattern = config.filename || 'tn.png';
 
-      if (pattern.indexOf(&#x27;.&#x27;) === -1) {
-        pattern += &#x27;.png&#x27;;
+      if (pattern.indexOf('.') === -1) {
+        pattern += '.png';
       }
 
-      if (config.timemarks.length &#x3e; 1 &#x26;&#x26; !pattern.match(/%(s|0*i)/)) {
+      if (config.timemarks.length &gt; 1 &amp;&amp; !pattern.match(/%(s|0*i)/)) {
         var ext = path.extname(pattern);
-        pattern = path.join(path.dirname(pattern), path.basename(pattern, ext) + &#x27;_%i&#x27; + ext);
+        pattern = path.join(path.dirname(pattern), path.basename(pattern, ext) + '_%i' + ext);
       }
 
       next(null, pattern);
@@ -7570,44 +7562,44 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
   config = config || { count: 1 };
 
   // Accept a number of screenshots instead of a config object
-  if (typeof config === &#x27;number&#x27;) {
+  if (typeof config === 'number') {
     config = {
       count: config
     };
   }
 
-  // Accept a second &#x27;folder&#x27; parameter instead of config.folder
-  if (!(&#x27;folder&#x27; in config)) {
-    config.folder = folder || &#x27;.&#x27;;
+  // Accept a second 'folder' parameter instead of config.folder
+  if (!('folder' in config)) {
+    config.folder = folder || '.';
   }
 
-  // Accept &#x27;timestamps&#x27; instead of &#x27;timemarks&#x27;
-  if (&#x27;timestamps&#x27; in config) {
+  // Accept 'timestamps' instead of 'timemarks'
+  if ('timestamps' in config) {
     config.timemarks = config.timestamps;
   }
 
   // Compute timemarks from count if not present
-  if (!(&#x27;timemarks&#x27; in config)) {
+  if (!('timemarks' in config)) {
     if (!config.count) {
-      throw new Error(&#x27;Cannot take screenshots: neither a count nor a timemark list are specified&#x27;);
+      throw new Error('Cannot take screenshots: neither a count nor a timemark list are specified');
     }
 
     var interval = 100 / (1 + config.count);
     config.timemarks = [];
-    for (var i = 0; i &#x3c; config.count; i++) {
-      config.timemarks.push((interval * (i + 1)) + &#x27;%&#x27;);
+    for (var i = 0; i &lt; config.count; i++) {
+      config.timemarks.push((interval * (i + 1)) + '%');
     }
   }
 
   // Parse size option
-  if (&#x27;size&#x27; in config) {
+  if ('size' in config) {
     var fixedSize = config.size.match(/^(\d+)x(\d+)$/);
     var fixedWidth = config.size.match(/^(\d+)x\?$/);
     var fixedHeight = config.size.match(/^\?x(\d+)$/);
     var percentSize = config.size.match(/^(\d+)%$/);
 
-    if (!fixedSize &#x26;&#x26; !fixedWidth &#x26;&#x26; !fixedHeight &#x26;&#x26; !percentSize) {
-      throw new Error(&#x27;Invalid size parameter: &#x27; + config.size);
+    if (!fixedSize &amp;&amp; !fixedWidth &amp;&amp; !fixedHeight &amp;&amp; !percentSize) {
+      throw new Error('Invalid size parameter: ' + config.size);
     }
   }
 
@@ -7627,9 +7619,9 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
   async.waterfall([
     // Compute percent timemarks if any
     function computeTimemarks(next) {
-      if (config.timemarks.some(function(t) { return (&#x27;&#x27; + t).match(/^[\d.]+%$/); })) {
-        if (typeof source !== &#x27;string&#x27;) {
-          return next(new Error(&#x27;Cannot compute screenshot timemarks with an input stream, please specify fixed timemarks&#x27;));
+      if (config.timemarks.some(function(t) { return ('' + t).match(/^[\d.]+%$/); })) {
+        if (typeof source !== 'string') {
+          return next(new Error('Cannot compute screenshot timemarks with an input stream, please specify fixed timemarks'));
         }
 
         getMetadata(function(err, meta) {
@@ -7638,7 +7630,7 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
           } else {
             // Select video stream with the highest resolution
             var vstream = meta.streams.reduce(function(biggest, stream) {
-              if (stream.codec_type === &#x27;video&#x27; &#x26;&#x26; stream.width * stream.height &#x3e; biggest.width * biggest.height) {
+              if (stream.codec_type === 'video' &amp;&amp; stream.width * stream.height &gt; biggest.width * biggest.height) {
                 return stream;
               } else {
                 return biggest;
@@ -7646,7 +7638,7 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
             }, { width: 0, height: 0 });
 
             if (vstream.width === 0) {
-              return next(new Error(&#x27;No video stream in input, cannot take screenshots&#x27;));
+              return next(new Error('No video stream in input, cannot take screenshots'));
             }
 
             var duration = Number(vstream.duration);
@@ -7655,11 +7647,11 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
             }
 
             if (isNaN(duration)) {
-              return next(new Error(&#x27;Could not get input duration, please specify fixed timemarks&#x27;));
+              return next(new Error('Could not get input duration, please specify fixed timemarks'));
             }
 
             config.timemarks = config.timemarks.map(function(mark) {
-              if ((&#x27;&#x27; + mark).match(/^([\d.]+)%$/)) {
+              if (('' + mark).match(/^([\d.]+)%$/)) {
                 return duration * parseFloat(mark) / 100;
               } else {
                 return mark;
@@ -7683,17 +7675,17 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
       next();
     },
 
-    // Add &#x27;_%i&#x27; to pattern when requesting multiple screenshots and no variable token is present
+    // Add '_%i' to pattern when requesting multiple screenshots and no variable token is present
     function fixPattern(next) {
-      var pattern = config.filename || &#x27;tn.png&#x27;;
+      var pattern = config.filename || 'tn.png';
 
-      if (pattern.indexOf(&#x27;.&#x27;) === -1) {
-        pattern += &#x27;.png&#x27;;
+      if (pattern.indexOf('.') === -1) {
+        pattern += '.png';
       }
 
-      if (config.timemarks.length &#x3e; 1 &#x26;&#x26; !pattern.match(/%(s|0*i)/)) {
+      if (config.timemarks.length &gt; 1 &amp;&amp; !pattern.match(/%(s|0*i)/)) {
         var ext = path.extname(pattern);
-        pattern = path.join(path.dirname(pattern), path.basename(pattern, ext) + &#x27;_%i&#x27; + ext);
+        pattern = path.join(path.dirname(pattern), path.basename(pattern, ext) + '_%i' + ext);
       }
 
       next(null, pattern);
@@ -7718,44 +7710,44 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
   config = config || { count: 1 };
 
   // Accept a number of screenshots instead of a config object
-  if (typeof config === &#x27;number&#x27;) {
+  if (typeof config === 'number') {
     config = {
       count: config
     };
   }
 
-  // Accept a second &#x27;folder&#x27; parameter instead of config.folder
-  if (!(&#x27;folder&#x27; in config)) {
-    config.folder = folder || &#x27;.&#x27;;
+  // Accept a second 'folder' parameter instead of config.folder
+  if (!('folder' in config)) {
+    config.folder = folder || '.';
   }
 
-  // Accept &#x27;timestamps&#x27; instead of &#x27;timemarks&#x27;
-  if (&#x27;timestamps&#x27; in config) {
+  // Accept 'timestamps' instead of 'timemarks'
+  if ('timestamps' in config) {
     config.timemarks = config.timestamps;
   }
 
   // Compute timemarks from count if not present
-  if (!(&#x27;timemarks&#x27; in config)) {
+  if (!('timemarks' in config)) {
     if (!config.count) {
-      throw new Error(&#x27;Cannot take screenshots: neither a count nor a timemark list are specified&#x27;);
+      throw new Error('Cannot take screenshots: neither a count nor a timemark list are specified');
     }
 
     var interval = 100 / (1 + config.count);
     config.timemarks = [];
-    for (var i = 0; i &#x3c; config.count; i++) {
-      config.timemarks.push((interval * (i + 1)) + &#x27;%&#x27;);
+    for (var i = 0; i &lt; config.count; i++) {
+      config.timemarks.push((interval * (i + 1)) + '%');
     }
   }
 
   // Parse size option
-  if (&#x27;size&#x27; in config) {
+  if ('size' in config) {
     var fixedSize = config.size.match(/^(\d+)x(\d+)$/);
     var fixedWidth = config.size.match(/^(\d+)x\?$/);
     var fixedHeight = config.size.match(/^\?x(\d+)$/);
     var percentSize = config.size.match(/^(\d+)%$/);
 
-    if (!fixedSize &#x26;&#x26; !fixedWidth &#x26;&#x26; !fixedHeight &#x26;&#x26; !percentSize) {
-      throw new Error(&#x27;Invalid size parameter: &#x27; + config.size);
+    if (!fixedSize &amp;&amp; !fixedWidth &amp;&amp; !fixedHeight &amp;&amp; !percentSize) {
+      throw new Error('Invalid size parameter: ' + config.size);
     }
   }
 
@@ -7775,9 +7767,9 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
   async.waterfall([
     // Compute percent timemarks if any
     function computeTimemarks(next) {
-      if (config.timemarks.some(function(t) { return (&#x27;&#x27; + t).match(/^[\d.]+%$/); })) {
-        if (typeof source !== &#x27;string&#x27;) {
-          return next(new Error(&#x27;Cannot compute screenshot timemarks with an input stream, please specify fixed timemarks&#x27;));
+      if (config.timemarks.some(function(t) { return ('' + t).match(/^[\d.]+%$/); })) {
+        if (typeof source !== 'string') {
+          return next(new Error('Cannot compute screenshot timemarks with an input stream, please specify fixed timemarks'));
         }
 
         getMetadata(function(err, meta) {
@@ -7786,7 +7778,7 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
           } else {
             // Select video stream with the highest resolution
             var vstream = meta.streams.reduce(function(biggest, stream) {
-              if (stream.codec_type === &#x27;video&#x27; &#x26;&#x26; stream.width * stream.height &#x3e; biggest.width * biggest.height) {
+              if (stream.codec_type === 'video' &amp;&amp; stream.width * stream.height &gt; biggest.width * biggest.height) {
                 return stream;
               } else {
                 return biggest;
@@ -7794,7 +7786,7 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
             }, { width: 0, height: 0 });
 
             if (vstream.width === 0) {
-              return next(new Error(&#x27;No video stream in input, cannot take screenshots&#x27;));
+              return next(new Error('No video stream in input, cannot take screenshots'));
             }
 
             var duration = Number(vstream.duration);
@@ -7803,11 +7795,11 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
             }
 
             if (isNaN(duration)) {
-              return next(new Error(&#x27;Could not get input duration, please specify fixed timemarks&#x27;));
+              return next(new Error('Could not get input duration, please specify fixed timemarks'));
             }
 
             config.timemarks = config.timemarks.map(function(mark) {
-              if ((&#x27;&#x27; + mark).match(/^([\d.]+)%$/)) {
+              if (('' + mark).match(/^([\d.]+)%$/)) {
                 return duration * parseFloat(mark) / 100;
               } else {
                 return mark;
@@ -7831,17 +7823,17 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
       next();
     },
 
-    // Add &#x27;_%i&#x27; to pattern when requesting multiple screenshots and no variable token is present
+    // Add '_%i' to pattern when requesting multiple screenshots and no variable token is present
     function fixPattern(next) {
-      var pattern = config.filename || &#x27;tn.png&#x27;;
+      var pattern = config.filename || 'tn.png';
 
-      if (pattern.indexOf(&#x27;.&#x27;) === -1) {
-        pattern += &#x27;.png&#x27;;
+      if (pattern.indexOf('.') === -1) {
+        pattern += '.png';
       }
 
-      if (config.timemarks.length &#x3e; 1 &#x26;&#x26; !pattern.match(/%(s|0*i)/)) {
+      if (config.timemarks.length &gt; 1 &amp;&amp; !pattern.match(/%(s|0*i)/)) {
         var ext = path.extname(pattern);
-        pattern = path.join(path.dirname(pattern), path.basename(pattern, ext) + &#x27;_%i&#x27; + ext);
+        pattern = path.join(path.dirname(pattern), path.basename(pattern, ext) + '_%i' + ext);
       }
 
       next(null, pattern);
@@ -7861,7 +7853,7 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">toFormat = function (format) {
-  this._currentOutput.options(&#x27;-f&#x27;, format);
+  this._currentOutput.options('-f', format);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -7893,20 +7885,20 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">usingPreset = function (preset) {
-  if (typeof preset === &#x27;function&#x27;) {
+  if (typeof preset === 'function') {
     preset(this);
   } else {
     try {
       var modulePath = path.join(this.options.presets, preset);
       var module = require(modulePath);
 
-      if (typeof module.load === &#x27;function&#x27;) {
+      if (typeof module.load === 'function') {
         module.load(this);
       } else {
-        throw new Error(&#x27;preset &#x27; + modulePath + &#x27; has no load() function&#x27;);
+        throw new Error('preset ' + modulePath + ' has no load() function');
       }
     } catch (err) {
-      throw new Error(&#x27;preset &#x27; + modulePath + &#x27; could not be loaded: &#x27; + err.message);
+      throw new Error('preset ' + modulePath + ' could not be loaded: ' + err.message);
     }
   }
 
@@ -7925,14 +7917,14 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">videoBitrate = function (bitrate, constant) {
-  bitrate = (&#x27;&#x27; + bitrate).replace(/k?$/, &#x27;k&#x27;);
+  bitrate = ('' + bitrate).replace(/k?$/, 'k');
 
-  this._currentOutput.video(&#x27;-b:v&#x27;, bitrate);
+  this._currentOutput.video('-b:v', bitrate);
   if (constant) {
     this._currentOutput.video(
-      &#x27;-maxrate&#x27;, bitrate,
-      &#x27;-minrate&#x27;, bitrate,
-      &#x27;-bufsize&#x27;, &#x27;3M&#x27;
+      '-maxrate', bitrate,
+      '-minrate', bitrate,
+      '-bufsize', '3M'
     );
   }
 
@@ -7941,18 +7933,18 @@ var sizeFilters =  self._currentOutput.sizeFilters.get().map(function(f, i) {
     <li>example usage<pre class="apidocCodePre">...
 
 /*jshint node:true */
-&#x27;use strict&#x27;;
+'use strict';
 
 exports.load = function(ffmpeg) {
   ffmpeg
-    .format(&#x27;avi&#x27;)
-    .<span class="apidocCodeKeywordSpan">videoBitrate</span>(&#x27;1024k&#x27;)
-    .videoCodec(&#x27;mpeg4&#x27;)
-    .size(&#x27;720x?&#x27;)
-    .audioBitrate(&#x27;128k&#x27;)
+    .format('avi')
+    .<span class="apidocCodeKeywordSpan">videoBitrate</span>('1024k')
+    .videoCodec('mpeg4')
+    .size('720x?')
+    .audioBitrate('128k')
     .audioChannels(2)
-    .audioCodec(&#x27;libmp3lame&#x27;)
-    .outputOptions([&#x27;-vtag DIVX&#x27;]);
+    .audioCodec('libmp3lame')
+    .outputOptions(['-vtag DIVX']);
 };
 ...</pre></li>
     </ul>
@@ -7967,23 +7959,23 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">videoCodec = function (codec) {
-  this._currentOutput.video(&#x27;-vcodec&#x27;, codec);
+  this._currentOutput.video('-vcodec', codec);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 /*jshint node:true */
-&#x27;use strict&#x27;;
+'use strict';
 
 exports.load = function(ffmpeg) {
   ffmpeg
-    .format(&#x27;avi&#x27;)
-    .videoBitrate(&#x27;1024k&#x27;)
-    .<span class="apidocCodeKeywordSpan">videoCodec</span>(&#x27;mpeg4&#x27;)
-    .size(&#x27;720x?&#x27;)
-    .audioBitrate(&#x27;128k&#x27;)
+    .format('avi')
+    .videoBitrate('1024k')
+    .<span class="apidocCodeKeywordSpan">videoCodec</span>('mpeg4')
+    .size('720x?')
+    .audioBitrate('128k')
     .audioChannels(2)
-    .audioCodec(&#x27;libmp3lame&#x27;)
-    .outputOptions([&#x27;-vtag DIVX&#x27;]);
+    .audioCodec('libmp3lame')
+    .outputOptions(['-vtag DIVX']);
 };
 ...</pre></li>
     </ul>
@@ -7998,7 +7990,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">videoFilter = function (filters) {
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     filters = [].slice.call(arguments);
   }
 
@@ -8023,7 +8015,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">videoFilters = function (filters) {
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     filters = [].slice.call(arguments);
   }
 
@@ -8043,13 +8035,13 @@ exports.load = function(ffmpeg) {
 * Can be called both with one or many filters, or a filter array.
 *
 * @example
-* command.<span class="apidocCodeKeywordSpan">videoFilters</span>(&#x27;filter1&#x27;);
+* command.<span class="apidocCodeKeywordSpan">videoFilters</span>('filter1');
 *
 * @example
-* command.videoFilters(&#x27;filter1&#x27;, &#x27;filter2=param1=value1:param2=value2&#x27;);
+* command.videoFilters('filter1', 'filter2=param1=value1:param2=value2');
 *
 * @example
-* command.videoFilters([&#x27;filter1&#x27;, &#x27;filter2&#x27;]);
+* command.videoFilters(['filter1', 'filter2']);
 *
 ...</pre></li>
     </ul>
@@ -8070,11 +8062,11 @@ exports.load = function(ffmpeg) {
     if (match) {
       a = Number(match[1]) / Number(match[2]);
     } else {
-      throw new Error(&#x27;Invalid aspect ratio: &#x27; + aspect);
+      throw new Error('Invalid aspect ratio: ' + aspect);
     }
   }
 
-  var filters = createSizeFilters(this._currentOutput, &#x27;aspect&#x27;, a);
+  var filters = createSizeFilters(this._currentOutput, 'aspect', a);
 
   this._currentOutput.sizeFilters.clear();
   this._currentOutput.sizeFilters(filters);
@@ -8100,11 +8092,11 @@ exports.load = function(ffmpeg) {
     if (match) {
       a = Number(match[1]) / Number(match[2]);
     } else {
-      throw new Error(&#x27;Invalid aspect ratio: &#x27; + aspect);
+      throw new Error('Invalid aspect ratio: ' + aspect);
     }
   }
 
-  var filters = createSizeFilters(this._currentOutput, &#x27;aspect&#x27;, a);
+  var filters = createSizeFilters(this._currentOutput, 'aspect', a);
 
   this._currentOutput.sizeFilters.clear();
   this._currentOutput.sizeFilters(filters);
@@ -8124,7 +8116,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withAudioBitrate = function (bitrate) {
-  this._currentOutput.audio(&#x27;-b:a&#x27;, (&#x27;&#x27; + bitrate).replace(/k?$/, &#x27;k&#x27;));
+  this._currentOutput.audio('-b:a', ('' + bitrate).replace(/k?$/, 'k'));
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -8140,7 +8132,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withAudioChannels = function (channels) {
-  this._currentOutput.audio(&#x27;-ac&#x27;, channels);
+  this._currentOutput.audio('-ac', channels);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -8156,7 +8148,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withAudioCodec = function (codec) {
-  this._currentOutput.audio(&#x27;-acodec&#x27;, codec);
+  this._currentOutput.audio('-acodec', codec);
 
   return this;
 }</pre></li>
@@ -8173,7 +8165,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withAudioFilter = function (filters) {
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     filters = [].slice.call(arguments);
   }
 
@@ -8197,7 +8189,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withAudioFilters = function (filters) {
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     filters = [].slice.call(arguments);
   }
 
@@ -8221,7 +8213,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withAudioFrequency = function (freq) {
-  this._currentOutput.audio(&#x27;-ar&#x27;, freq);
+  this._currentOutput.audio('-ar', freq);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -8237,7 +8229,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withAudioQuality = function (quality) {
-  this._currentOutput.audio(&#x27;-aq&#x27;, quality);
+  this._currentOutput.audio('-aq', quality);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -8254,17 +8246,17 @@ exports.load = function(ffmpeg) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withAutoPad = function (pad, color) {
   // Allow autopad(color)
-  if (typeof pad === &#x27;string&#x27;) {
+  if (typeof pad === 'string') {
     color = pad;
     pad = true;
   }
 
   // Allow autopad() and autopad(undefined, color)
-  if (typeof pad === &#x27;undefined&#x27;) {
+  if (typeof pad === 'undefined') {
     pad = true;
   }
 
-  var filters = createSizeFilters(this._currentOutput, &#x27;pad&#x27;, pad ? color || &#x27;black&#x27; : false);
+  var filters = createSizeFilters(this._currentOutput, 'pad', pad ? color || 'black' : false);
 
   this._currentOutput.sizeFilters.clear();
   this._currentOutput.sizeFilters(filters);
@@ -8285,17 +8277,17 @@ exports.load = function(ffmpeg) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withAutoPadding = function (pad, color) {
   // Allow autopad(color)
-  if (typeof pad === &#x27;string&#x27;) {
+  if (typeof pad === 'string') {
     color = pad;
     pad = true;
   }
 
   // Allow autopad() and autopad(undefined, color)
-  if (typeof pad === &#x27;undefined&#x27;) {
+  if (typeof pad === 'undefined') {
     pad = true;
   }
 
-  var filters = createSizeFilters(this._currentOutput, &#x27;pad&#x27;, pad ? color || &#x27;black&#x27; : false);
+  var filters = createSizeFilters(this._currentOutput, 'pad', pad ? color || 'black' : false);
 
   this._currentOutput.sizeFilters.clear();
   this._currentOutput.sizeFilters(filters);
@@ -8316,17 +8308,17 @@ exports.load = function(ffmpeg) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withAutopad = function (pad, color) {
   // Allow autopad(color)
-  if (typeof pad === &#x27;string&#x27;) {
+  if (typeof pad === 'string') {
     color = pad;
     pad = true;
   }
 
   // Allow autopad() and autopad(undefined, color)
-  if (typeof pad === &#x27;undefined&#x27;) {
+  if (typeof pad === 'undefined') {
     pad = true;
   }
 
-  var filters = createSizeFilters(this._currentOutput, &#x27;pad&#x27;, pad ? color || &#x27;black&#x27; : false);
+  var filters = createSizeFilters(this._currentOutput, 'pad', pad ? color || 'black' : false);
 
   this._currentOutput.sizeFilters.clear();
   this._currentOutput.sizeFilters(filters);
@@ -8347,17 +8339,17 @@ exports.load = function(ffmpeg) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withAutopadding = function (pad, color) {
   // Allow autopad(color)
-  if (typeof pad === &#x27;string&#x27;) {
+  if (typeof pad === 'string') {
     color = pad;
     pad = true;
   }
 
   // Allow autopad() and autopad(undefined, color)
-  if (typeof pad === &#x27;undefined&#x27;) {
+  if (typeof pad === 'undefined') {
     pad = true;
   }
 
-  var filters = createSizeFilters(this._currentOutput, &#x27;pad&#x27;, pad ? color || &#x27;black&#x27; : false);
+  var filters = createSizeFilters(this._currentOutput, 'pad', pad ? color || 'black' : false);
 
   this._currentOutput.sizeFilters.clear();
   this._currentOutput.sizeFilters(filters);
@@ -8377,7 +8369,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withDuration = function (duration) {
-  this._currentOutput.options(&#x27;-t&#x27;, duration);
+  this._currentOutput.options('-t', duration);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -8393,7 +8385,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withFPS = function (fps) {
-  this._currentOutput.video(&#x27;-r&#x27;, fps);
+  this._currentOutput.video('-r', fps);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -8410,10 +8402,10 @@ exports.load = function(ffmpeg) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withFPSInput = function (fps) {
   if (!this._currentInput) {
-    throw new Error(&#x27;No input specified&#x27;);
+    throw new Error('No input specified');
   }
 
-  this._currentInput.options(&#x27;-r&#x27;, fps);
+  this._currentInput.options('-r', fps);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -8429,7 +8421,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withFPSOutput = function (fps) {
-  this._currentOutput.video(&#x27;-r&#x27;, fps);
+  this._currentOutput.video('-r', fps);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -8445,7 +8437,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withFps = function (fps) {
-  this._currentOutput.video(&#x27;-r&#x27;, fps);
+  this._currentOutput.video('-r', fps);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -8462,10 +8454,10 @@ exports.load = function(ffmpeg) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withFpsInput = function (fps) {
   if (!this._currentInput) {
-    throw new Error(&#x27;No input specified&#x27;);
+    throw new Error('No input specified');
   }
 
-  this._currentInput.options(&#x27;-r&#x27;, fps);
+  this._currentInput.options('-r', fps);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -8481,7 +8473,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withFpsOutput = function (fps) {
-  this._currentOutput.video(&#x27;-r&#x27;, fps);
+  this._currentOutput.video('-r', fps);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -8497,7 +8489,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withFrames = function (frames) {
-  this._currentOutput.video(&#x27;-vframes&#x27;, frames);
+  this._currentOutput.video('-vframes', frames);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -8514,10 +8506,10 @@ exports.load = function(ffmpeg) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withInputFPS = function (fps) {
   if (!this._currentInput) {
-    throw new Error(&#x27;No input specified&#x27;);
+    throw new Error('No input specified');
   }
 
-  this._currentInput.options(&#x27;-r&#x27;, fps);
+  this._currentInput.options('-r', fps);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -8534,10 +8526,10 @@ exports.load = function(ffmpeg) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withInputFormat = function (format) {
   if (!this._currentInput) {
-    throw new Error(&#x27;No input specified&#x27;);
+    throw new Error('No input specified');
   }
 
-  this._currentInput.options(&#x27;-f&#x27;, format);
+  this._currentInput.options('-f', format);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -8554,10 +8546,10 @@ exports.load = function(ffmpeg) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withInputFps = function (fps) {
   if (!this._currentInput) {
-    throw new Error(&#x27;No input specified&#x27;);
+    throw new Error('No input specified');
   }
 
-  this._currentInput.options(&#x27;-r&#x27;, fps);
+  this._currentInput.options('-r', fps);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -8574,12 +8566,12 @@ exports.load = function(ffmpeg) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withInputOption = function (options) {
   if (!this._currentInput) {
-    throw new Error(&#x27;No input specified&#x27;);
+    throw new Error('No input specified');
   }
 
   var doSplit = true;
 
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     options = [].slice.call(arguments);
     doSplit = false;
   }
@@ -8589,9 +8581,9 @@ exports.load = function(ffmpeg) {
   }
 
   this._currentInput.options(options.reduce(function(options, option) {
-    var split = String(option).split(&#x27; &#x27;);
+    var split = String(option).split(' ');
 
-    if (doSplit &#x26;&#x26; split.length === 2) {
+    if (doSplit &amp;&amp; split.length === 2) {
       options.push(split[0], split[1]);
     } else {
       options.push(option);
@@ -8615,12 +8607,12 @@ exports.load = function(ffmpeg) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withInputOptions = function (options) {
   if (!this._currentInput) {
-    throw new Error(&#x27;No input specified&#x27;);
+    throw new Error('No input specified');
   }
 
   var doSplit = true;
 
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     options = [].slice.call(arguments);
     doSplit = false;
   }
@@ -8630,9 +8622,9 @@ exports.load = function(ffmpeg) {
   }
 
   this._currentInput.options(options.reduce(function(options, option) {
-    var split = String(option).split(&#x27; &#x27;);
+    var split = String(option).split(' ');
 
-    if (doSplit &#x26;&#x26; split.length === 2) {
+    if (doSplit &amp;&amp; split.length === 2) {
       options.push(split[0], split[1]);
     } else {
       options.push(option);
@@ -8656,10 +8648,10 @@ exports.load = function(ffmpeg) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withNativeFramerate = function () {
   if (!this._currentInput) {
-    throw new Error(&#x27;No input specified&#x27;);
+    throw new Error('No input specified');
   }
 
-  this._currentInput.options(&#x27;-re&#x27;);
+  this._currentInput.options('-re');
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -8677,7 +8669,7 @@ exports.load = function(ffmpeg) {
     <li>description and source-code<pre class="apidocCodePre">withNoAudio = function () {
   this._currentOutput.audio.clear();
   this._currentOutput.audioFilters.clear();
-  this._currentOutput.audio(&#x27;-an&#x27;);
+  this._currentOutput.audio('-an');
 
   return this;
 }</pre></li>
@@ -8696,7 +8688,7 @@ exports.load = function(ffmpeg) {
     <li>description and source-code<pre class="apidocCodePre">withNoVideo = function () {
   this._currentOutput.video.clear();
   this._currentOutput.videoFilters.clear();
-  this._currentOutput.video(&#x27;-vn&#x27;);
+  this._currentOutput.video('-vn');
 
   return this;
 }</pre></li>
@@ -8715,7 +8707,7 @@ exports.load = function(ffmpeg) {
     <li>description and source-code<pre class="apidocCodePre">withOption = function (options) {
   var doSplit = true;
 
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     options = [].slice.call(arguments);
     doSplit = false;
   }
@@ -8725,9 +8717,9 @@ exports.load = function(ffmpeg) {
   }
 
   this._currentOutput.options(options.reduce(function(options, option) {
-    var split = String(option).split(&#x27; &#x27;);
+    var split = String(option).split(' ');
 
-    if (doSplit &#x26;&#x26; split.length === 2) {
+    if (doSplit &amp;&amp; split.length === 2) {
       options.push(split[0], split[1]);
     } else {
       options.push(option);
@@ -8752,7 +8744,7 @@ exports.load = function(ffmpeg) {
     <li>description and source-code<pre class="apidocCodePre">withOptions = function (options) {
   var doSplit = true;
 
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     options = [].slice.call(arguments);
     doSplit = false;
   }
@@ -8762,9 +8754,9 @@ exports.load = function(ffmpeg) {
   }
 
   this._currentOutput.options(options.reduce(function(options, option) {
-    var split = String(option).split(&#x27; &#x27;);
+    var split = String(option).split(' ');
 
-    if (doSplit &#x26;&#x26; split.length === 2) {
+    if (doSplit &amp;&amp; split.length === 2) {
       options.push(split[0], split[1]);
     } else {
       options.push(option);
@@ -8787,7 +8779,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withOutputFPS = function (fps) {
-  this._currentOutput.video(&#x27;-r&#x27;, fps);
+  this._currentOutput.video('-r', fps);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -8803,7 +8795,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withOutputFormat = function (format) {
-  this._currentOutput.options(&#x27;-f&#x27;, format);
+  this._currentOutput.options('-f', format);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -8819,7 +8811,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withOutputFps = function (fps) {
-  this._currentOutput.video(&#x27;-r&#x27;, fps);
+  this._currentOutput.video('-r', fps);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -8837,7 +8829,7 @@ exports.load = function(ffmpeg) {
     <li>description and source-code<pre class="apidocCodePre">withOutputOption = function (options) {
   var doSplit = true;
 
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     options = [].slice.call(arguments);
     doSplit = false;
   }
@@ -8847,9 +8839,9 @@ exports.load = function(ffmpeg) {
   }
 
   this._currentOutput.options(options.reduce(function(options, option) {
-    var split = String(option).split(&#x27; &#x27;);
+    var split = String(option).split(' ');
 
-    if (doSplit &#x26;&#x26; split.length === 2) {
+    if (doSplit &amp;&amp; split.length === 2) {
       options.push(split[0], split[1]);
     } else {
       options.push(option);
@@ -8874,7 +8866,7 @@ exports.load = function(ffmpeg) {
     <li>description and source-code<pre class="apidocCodePre">withOutputOptions = function (options) {
   var doSplit = true;
 
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     options = [].slice.call(arguments);
     doSplit = false;
   }
@@ -8884,9 +8876,9 @@ exports.load = function(ffmpeg) {
   }
 
   this._currentOutput.options(options.reduce(function(options, option) {
-    var split = String(option).split(&#x27; &#x27;);
+    var split = String(option).split(' ');
 
-    if (doSplit &#x26;&#x26; split.length === 2) {
+    if (doSplit &amp;&amp; split.length === 2) {
       options.push(split[0], split[1]);
     } else {
       options.push(option);
@@ -8909,7 +8901,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withSize = function (size) {
-  var filters = createSizeFilters(this._currentOutput, &#x27;size&#x27;, size);
+  var filters = createSizeFilters(this._currentOutput, 'size', size);
 
   this._currentOutput.sizeFilters.clear();
   this._currentOutput.sizeFilters(filters);
@@ -8929,14 +8921,14 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withVideoBitrate = function (bitrate, constant) {
-  bitrate = (&#x27;&#x27; + bitrate).replace(/k?$/, &#x27;k&#x27;);
+  bitrate = ('' + bitrate).replace(/k?$/, 'k');
 
-  this._currentOutput.video(&#x27;-b:v&#x27;, bitrate);
+  this._currentOutput.video('-b:v', bitrate);
   if (constant) {
     this._currentOutput.video(
-      &#x27;-maxrate&#x27;, bitrate,
-      &#x27;-minrate&#x27;, bitrate,
-      &#x27;-bufsize&#x27;, &#x27;3M&#x27;
+      '-maxrate', bitrate,
+      '-minrate', bitrate,
+      '-bufsize', '3M'
     );
   }
 
@@ -8955,7 +8947,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withVideoCodec = function (codec) {
-  this._currentOutput.video(&#x27;-vcodec&#x27;, codec);
+  this._currentOutput.video('-vcodec', codec);
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -8971,7 +8963,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withVideoFilter = function (filters) {
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     filters = [].slice.call(arguments);
   }
 
@@ -8996,7 +8988,7 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">withVideoFilters = function (filters) {
-  if (arguments.length &#x3e; 1) {
+  if (arguments.length &gt; 1) {
     filters = [].slice.call(arguments);
   }
 
@@ -9021,14 +9013,14 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">writeToStream = function (stream, options) {
-  if (stream &#x26;&#x26; !(&#x27;writable&#x27; in stream)) {
+  if (stream &amp;&amp; !('writable' in stream)) {
     options = stream;
     stream = undefined;
   }
 
   if (!stream) {
     if (process.version.match(/v0\.8\./)) {
-      throw new Error(&#x27;PassThrough stream is not supported on node v0.8&#x27;);
+      throw new Error('PassThrough stream is not supported on node v0.8');
     }
 
     stream = new PassThrough();
@@ -9055,13 +9047,13 @@ exports.load = function(ffmpeg) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">defineTags = function (dict) {
-	dict.defineTag(&#x27;aliases&#x27;, {
+	dict.defineTag('aliases', {
 		onTagged: function(doclet, tag) {
-			doclet.aliases = tag.text.split(&#x27;,&#x27;);
+			doclet.aliases = tag.text.split(',');
 		}
 	});
 
-	dict.defineTag(&#x27;category&#x27;, {
+	dict.defineTag('category', {
 		onTagged: function(doclet, tag) {
 			doclet.category = tag.text;
 		}
@@ -9088,16 +9080,16 @@ exports.load = function(ffmpeg) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">load = function (ffmpeg) {
   ffmpeg
-    .format(&#x27;m4v&#x27;)
-    .videoBitrate(&#x27;512k&#x27;)
-    .videoCodec(&#x27;libx264&#x27;)
-    .size(&#x27;320x176&#x27;)
-    .audioBitrate(&#x27;128k&#x27;)
-    .audioCodec(&#x27;aac&#x27;)
+    .format('m4v')
+    .videoBitrate('512k')
+    .videoCodec('libx264')
+    .size('320x176')
+    .audioBitrate('128k')
+    .audioCodec('aac')
     .audioChannels(1)
-    .outputOptions([&#x27;-flags&#x27;, &#x27;+loop&#x27;, &#x27;-cmp&#x27;, &#x27;+chroma&#x27;, &#x27;-partitions&#x27;,&#x27;+parti4x4+partp8x8+partb8x8&#x27;, &#x27;-flags2&#x27;,
-      &#x27;+mixed_refs&#x27;, &#x27;-me_method umh&#x27;, &#x27;-subq 5&#x27;, &#x27;-bufsize 2M&#x27;, &#x27;-rc_eq \&#x27;blurCplx^(1-qComp)\&#x27;&#x27;,
-      &#x27;-qcomp 0.6&#x27;, &#x27;-qmin 10&#x27;, &#x27;-qmax 51&#x27;, &#x27;-qdiff 4&#x27;, &#x27;-level 13&#x27; ]);
+    .outputOptions(['-flags', '+loop', '-cmp', '+chroma', '-partitions','+parti4x4+partp8x8+partb8x8', '-flags2',
+      '+mixed_refs', '-me_method umh', '-subq 5', '-bufsize 2M', '-rc_eq \'blurCplx^(1-qComp)\'',
+      '-qcomp 0.6', '-qmin 10', '-qmax 51', '-qdiff 4', '-level 13' ]);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   preset(this);
@@ -9106,13 +9098,13 @@ exports.load = function(ffmpeg) {
     var modulePath = path.join(this.options.presets, preset);
     var module = require(modulePath);
 
-    if (typeof module.load === &#x27;function&#x27;) {
+    if (typeof module.load === 'function') {
       module.<span class="apidocCodeKeywordSpan">load</span>(this);
     } else {
-      throw new Error(&#x27;preset &#x27; + modulePath + &#x27; has no load() function&#x27;);
+      throw new Error('preset ' + modulePath + ' has no load() function');
     }
   } catch (err) {
-    throw new Error(&#x27;preset &#x27; + modulePath + &#x27; could not be loaded: &#x27; + err.message);
+    throw new Error('preset ' + modulePath + ' could not be loaded: ' + err.message);
   }
 }
 ...</pre></li>
@@ -9137,7 +9129,7 @@ exports.load = function(ffmpeg) {
 
   // Append argument(s) to the list
   var argfunc = function() {
-    if (arguments.length === 1 &#x26;&#x26; Array.isArray(arguments[0])) {
+    if (arguments.length === 1 &amp;&amp; Array.isArray(arguments[0])) {
       list = list.concat(arguments[0]);
     } else {
       list = list.concat([].slice.call(arguments));
@@ -9154,7 +9146,7 @@ exports.load = function(ffmpeg) {
     return list;
   };
 
-  // Find argument &#x27;arg&#x27; in list, and if found, return an array of the &#x27;count&#x27; items that follow it
+  // Find argument 'arg' in list, and if found, return an array of the 'count' items that follow it
   argfunc.find = function(arg, count) {
     var index = list.indexOf(arg);
     if (index !== -1) {
@@ -9162,7 +9154,7 @@ exports.load = function(ffmpeg) {
     }
   };
 
-  // Find argument &#x27;arg&#x27; in list, and if found, remove it as well as the &#x27;count&#x27; items that follow it
+  // Find argument 'arg' in list, and if found, remove it as well as the 'count' items that follow it
   argfunc.remove = function(arg, count) {
     var index = list.indexOf(arg);
     if (index !== -1) {
@@ -9212,10 +9204,10 @@ exports.load = function(ffmpeg) {
   });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-          encoders = encoders ? encoders[1].trim().split(&#x27; &#x27;) : [];
+          encoders = encoders ? encoders[1].trim().split(' ') : [];
 
           var decoders = codecData.description.match(ffDecodersRegexp);
-          decoders = decoders ? decoders[1].trim().split(&#x27; &#x27;) : [];
+          decoders = decoders ? decoders[1].trim().split(' ') : [];
 
           if (encoders.length || decoders.length) {
 var coderData = {};
@@ -9245,7 +9237,7 @@ encoders.forEach(function(name) {
   var audioPattern = /Audio\: (.*)/;
   var videoPattern = /Video\: (.*)/;
 
-  if (!(&#x27;inputStack&#x27; in codecsObject)) {
+  if (!('inputStack' in codecsObject)) {
     codecsObject.inputStack = [];
     codecsObject.inputIndex = -1;
     codecsObject.inInput = false;
@@ -9261,29 +9253,29 @@ encoders.forEach(function(name) {
     inInput = codecsObject.inInput = true;
     inputIndex = codecsObject.inputIndex = codecsObject.inputIndex + 1;
 
-    inputStack[inputIndex] = { format: format[1], audio: &#x27;&#x27;, video: &#x27;&#x27;, duration: &#x27;&#x27; };
-  } else if (inInput &#x26;&#x26; (dur = stderrLine.match(durPattern))) {
+    inputStack[inputIndex] = { format: format[1], audio: '', video: '', duration: '' };
+  } else if (inInput &amp;&amp; (dur = stderrLine.match(durPattern))) {
     inputStack[inputIndex].duration = dur[1];
-  } else if (inInput &#x26;&#x26; (audio = stderrLine.match(audioPattern))) {
-    audio = audio[1].split(&#x27;, &#x27;);
+  } else if (inInput &amp;&amp; (audio = stderrLine.match(audioPattern))) {
+    audio = audio[1].split(', ');
     inputStack[inputIndex].audio = audio[0];
     inputStack[inputIndex].audio_details = audio;
-  } else if (inInput &#x26;&#x26; (video = stderrLine.match(videoPattern))) {
-    video = video[1].split(&#x27;, &#x27;);
+  } else if (inInput &amp;&amp; (video = stderrLine.match(videoPattern))) {
+    video = video[1].split(', ');
     inputStack[inputIndex].video = video[0];
     inputStack[inputIndex].video_details = video;
   } else if (/Output #\d+/.test(stderrLine)) {
     inInput = codecsObject.inInput = false;
   } else if (/Stream mapping:|Press (\[q\]|ctrl-c) to stop/.test(stderrLine)) {
-    command.emit.apply(command, [&#x27;codecData&#x27;].concat(inputStack));
+    command.emit.apply(command, ['codecData'].concat(inputStack));
     return true;
   }
 
   return false;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-// &#x27;codecData&#x27; event
-if (self.listeners(&#x27;codecData&#x27;).length) {
+// 'codecData' event
+if (self.listeners('codecData').length) {
   var codecDataSent = false;
   var codecObject = {};
 
@@ -9293,8 +9285,8 @@ if (self.listeners(&#x27;codecData&#x27;).length) {
   });
 }
 
-// &#x27;progress&#x27; event
-if (self.listeners(&#x27;progress&#x27;).length) {
+// 'progress' event
+if (self.listeners('progress').length) {
   stderrRing.callback(function(line) {
     utils.extractProgress(self, line);
 ...</pre></li>
@@ -9310,15 +9302,15 @@ if (self.listeners(&#x27;progress&#x27;).length) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">extractError = function (stderr) {
-  // Only return the last stderr lines that don&#x27;t start with a space or a square bracket
+  // Only return the last stderr lines that don't start with a space or a square bracket
   return stderr.split(nlRegexp).reduce(function(messages, message) {
-    if (message.charAt(0) === &#x27; &#x27; || message.charAt(0) === &#x27;[&#x27;) {
+    if (message.charAt(0) === ' ' || message.charAt(0) === '[') {
       return [];
     } else {
       messages.push(message);
       return messages;
     }
-  }, []).join(&#x27;\n&#x27;);
+  }, []).join('\n');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
@@ -9328,7 +9320,7 @@ delete self.ffmpegProc;
 if (err) {
   if (err.message.match(/ffmpeg exited with code/)) {
     // Add ffmpeg error message
-    err.message += &#x27;: &#x27; + utils.<span class="apidocCodeKeywordSpan">extractError</span>(stderrRing.get());
+    err.message += ': ' + utils.<span class="apidocCodeKeywordSpan">extractError</span>(stderrRing.get());
   }
 
   emitEnd(err, stdoutRing.get(), stderrRing.get());
@@ -9356,18 +9348,18 @@ if (err) {
     var ret = {
       frames: parseInt(progress.frame, 10),
       currentFps: parseInt(progress.fps, 10),
-      currentKbps: progress.bitrate ? parseFloat(progress.bitrate.replace(&#x27;kbits/s&#x27;, &#x27;&#x27;)) : 0,
+      currentKbps: progress.bitrate ? parseFloat(progress.bitrate.replace('kbits/s', '')) : 0,
       targetSize: parseInt(progress.size || progress.Lsize, 10),
       timemark: progress.time
     };
 
     // calculate percent progress using duration
-    if (command._ffprobeData &#x26;&#x26; command._ffprobeData.format &#x26;&#x26; command._ffprobeData.format.duration) {
+    if (command._ffprobeData &amp;&amp; command._ffprobeData.format &amp;&amp; command._ffprobeData.format.duration) {
       var duration = Number(command._ffprobeData.format.duration);
       if (!isNaN(duration))
         ret.percent = (utils.timemarkToSeconds(ret.timemark) / duration) * 100;
     }
-    command.emit(&#x27;progress&#x27;, ret);
+    command.emit('progress', ret);
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -9375,8 +9367,8 @@ if (err) {
       });
     }
 
-    // &#x27;progress&#x27; event
-    if (self.listeners(&#x27;progress&#x27;).length) {
+    // 'progress' event
+    if (self.listeners('progress').length) {
       stderrRing.callback(function(line) {
         utils.<span class="apidocCodeKeywordSpan">extractProgress</span>(self, line);
       });
@@ -9417,7 +9409,7 @@ function endCB(err, stdoutRing, stderrRing) {
 
     append: function(str) {
       if (closed) return;
-      if (str instanceof Buffer) str = &#x27;&#x27; + str;
+      if (str instanceof Buffer) str = '' + str;
       if (!str || str.length === 0) return;
 
       var newLines = str.split(nlRegexp);
@@ -9442,7 +9434,7 @@ function endCB(err, stdoutRing, stderrRing) {
           lines.push(l);
         });
 
-        if (max &#x3e; -1 &#x26;&#x26; lines.length &#x3e; max) {
+        if (max &gt; -1 &amp;&amp; lines.length &gt; max) {
           lines.splice(0, lines.length - max);
         }
       }
@@ -9450,9 +9442,9 @@ function endCB(err, stdoutRing, stderrRing) {
 
     get: function() {
       if (current !== null) {
-        return lines.concat([current]).join(&#x27;\n&#x27;);
+        return lines.concat([current]).join('\n');
       } else {
-        return lines.join(&#x27;\n&#x27;);
+        return lines.join('\n');
       }
     },
 
@@ -9463,7 +9455,7 @@ function endCB(err, stdoutRing, stderrRing) {
         emit(current);
         lines.push(current);
 
-        if (max &#x3e; -1 &#x26;&#x26; lines.length &#x3e; max) {
+        if (max &gt; -1 &amp;&amp; lines.length &gt; max) {
           lines.shift();
         }
 
@@ -9477,9 +9469,9 @@ function endCB(err, stdoutRing, stderrRing) {
     <li>example usage<pre class="apidocCodePre">...
 
 // Apply niceness
-if (options.niceness &#x26;&#x26; options.niceness !== 0 &#x26;&#x26; !utils.isWindows) {
-  args.unshift(&#x27;-n&#x27;, options.niceness, command);
-  command = &#x27;nice&#x27;;
+if (options.niceness &amp;&amp; options.niceness !== 0 &amp;&amp; !utils.isWindows) {
+  args.unshift('-n', options.niceness, command);
+  command = 'nice';
 }
 
 var stdoutRing = utils.<span class="apidocCodeKeywordSpan">linesRing</span>(maxLines);
@@ -9504,25 +9496,25 @@ var ffmpegProc = spawn(command, args, options);
     <ul>
     <li>description and source-code<pre class="apidocCodePre">makeFilterStrings = function (filters) {
   return filters.map(function(filterSpec) {
-    if (typeof filterSpec === &#x27;string&#x27;) {
+    if (typeof filterSpec === 'string') {
       return filterSpec;
     }
 
-    var filterString = &#x27;&#x27;;
+    var filterString = '';
 
     // Filter string format is:
     // [input1][input2]...filter[output1][output2]...
-    // The &#x27;filter&#x27; part can optionaly have arguments:
+    // The 'filter' part can optionaly have arguments:
     //   filter=arg1:arg2:arg3
     //   filter=arg1=v1:arg2=v2:arg3=v3
 
     // Add inputs
     if (Array.isArray(filterSpec.inputs)) {
       filterString += filterSpec.inputs.map(function(streamSpec) {
-        return streamSpec.replace(streamRegexp, &#x27;[$1]&#x27;);
-      }).join(&#x27;&#x27;);
-    } else if (typeof filterSpec.inputs === &#x27;string&#x27;) {
-      filterString += filterSpec.inputs.replace(streamRegexp, &#x27;[$1]&#x27;);
+        return streamSpec.replace(streamRegexp, '[$1]');
+      }).join('');
+    } else if (typeof filterSpec.inputs === 'string') {
+      filterString += filterSpec.inputs.replace(streamRegexp, '[$1]');
     }
 
     // Add filter
@@ -9530,46 +9522,46 @@ var ffmpegProc = spawn(command, args, options);
 
     // Add options
     if (filterSpec.options) {
-      if (typeof filterSpec.options === &#x27;string&#x27; || typeof filterSpec.options === &#x27;number&#x27;) {
+      if (typeof filterSpec.options === 'string' || typeof filterSpec.options === 'number') {
         // Option string
-        filterString += &#x27;=&#x27; + filterSpec.options;
+        filterString += '=' + filterSpec.options;
       } else if (Array.isArray(filterSpec.options)) {
         // Option array (unnamed options)
-        filterString += &#x27;=&#x27; + filterSpec.options.map(function(option) {
-          if (typeof option === &#x27;string&#x27; &#x26;&#x26; option.match(filterEscapeRegexp)) {
-            return &#x27;\&#x27;&#x27; + option + &#x27;\&#x27;&#x27;;
+        filterString += '=' + filterSpec.options.map(function(option) {
+          if (typeof option === 'string' &amp;&amp; option.match(filterEscapeRegexp)) {
+            return '\'' + option + '\'';
           } else {
             return option;
           }
-        }).join(&#x27;:&#x27;);
+        }).join(':');
       } else if (Object.keys(filterSpec.options).length) {
         // Option object (named options)
-        filterString += &#x27;=&#x27; + Object.keys(filterSpec.options).map(function(option) {
+        filterString += '=' + Object.keys(filterSpec.options).map(function(option) {
           var value = filterSpec.options[option];
 
-          if (typeof value === &#x27;string&#x27; &#x26;&#x26; value.match(filterEscapeRegexp)) {
-            value = &#x27;\&#x27;&#x27; + value + &#x27;\&#x27;&#x27;;
+          if (typeof value === 'string' &amp;&amp; value.match(filterEscapeRegexp)) {
+            value = '\'' + value + '\'';
           }
 
-          return option + &#x27;=&#x27; + value;
-        }).join(&#x27;:&#x27;);
+          return option + '=' + value;
+        }).join(':');
       }
     }
 
     // Add outputs
     if (Array.isArray(filterSpec.outputs)) {
       filterString += filterSpec.outputs.map(function(streamSpec) {
-        return streamSpec.replace(streamRegexp, &#x27;[$1]&#x27;);
-      }).join(&#x27;&#x27;);
-    } else if (typeof filterSpec.outputs === &#x27;string&#x27;) {
-      filterString += filterSpec.outputs.replace(streamRegexp, &#x27;[$1]&#x27;);
+        return streamSpec.replace(streamRegexp, '[$1]');
+      }).join('');
+    } else if (typeof filterSpec.outputs === 'string') {
+      filterString += filterSpec.outputs.replace(streamRegexp, '[$1]');
     }
 
     return filterString;
   });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-        fileOutput ? [&#x27;-y&#x27;] : [],
+        fileOutput ? ['-y'] : [],
 
         // Complex filters
         complexFilters,
@@ -9583,7 +9575,7 @@ var outputArg;
 
 if (!output.target) {
   outputArg = [];
-} else if (typeof output.target === &#x27;string&#x27;) {
+} else if (typeof output.target === 'string') {
 ...</pre></li>
     </ul>
 
@@ -9597,15 +9589,15 @@ if (!output.target) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">timemarkToSeconds = function (timemark) {
-  if (typeof timemark === &#x27;number&#x27;) {
+  if (typeof timemark === 'number') {
     return timemark;
   }
 
-  if (timemark.indexOf(&#x27;:&#x27;) === -1 &#x26;&#x26; timemark.indexOf(&#x27;.&#x27;) &#x3e;= 0) {
+  if (timemark.indexOf(':') === -1 &amp;&amp; timemark.indexOf('.') &gt;= 0) {
     return Number(timemark);
   }
 
-  var parts = timemark.split(&#x27;:&#x27;);
+  var parts = timemark.split(':');
 
   // add seconds
   var secs = Number(parts.pop());
@@ -9636,7 +9628,7 @@ function normalizeTimemarks(next) {
   next();
 },
 
-// Add &#x27;_%i&#x27; to pattern when requesting multiple screenshots and no variable token is present
+// Add '_%i' to pattern when requesting multiple screenshots and no variable token is present
 function fixPattern(next) {
 ...</pre></li>
     </ul>
@@ -9658,7 +9650,7 @@ function fixPattern(next) {
   which(name, function(err, result){
     if (err) {
       // Treat errors as not found
-      return callback(null, whichCache[name] = &#x27;&#x27;);
+      return callback(null, whichCache[name] = '');
     }
     callback(null, whichCache[name] = result);
   });
@@ -9671,7 +9663,7 @@ function fixPattern(next) {
       return cb(null, ffmpeg);
     }
 
-    utils.<span class="apidocCodeKeywordSpan">which</span>(&#x27;ffmpeg&#x27;, function(err, ffmpeg) {
+    utils.<span class="apidocCodeKeywordSpan">which</span>('ffmpeg', function(err, ffmpeg) {
       cb(err, ffmpeg);
     });
   }
@@ -9695,3 +9687,4 @@ function fixPattern(next) {
     ]
 </div>
 </div>
+</body></html>
